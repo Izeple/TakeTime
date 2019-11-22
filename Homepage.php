@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "se";
+$dbname = "projectdead";
 
 $Connect = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($Connect,"utf8");
@@ -26,8 +26,8 @@ if ($Connect->connect_error)
         <ul>
             <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="#news"><img src="./img/nametag.png" height="15"></a></li>
-            <li style="float:right"><a class="active" href="#about">Sign up</a></li>
-            <li style="float:right"><a class="active" href="#about">Log in</a></li>
+            <li style="float:right"><button class="btn" id="btn">Sign up</button></li>
+            <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
         </ul>
             
 
@@ -84,7 +84,7 @@ if ($Connect->connect_error)
 
 
 
-
+    
         
     <script>
             function clickNav(){
@@ -99,7 +99,23 @@ if ($Connect->connect_error)
                 }
             }
 
-                
+            var modal = document.getElementById("logpop");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("btn2");
+
+             // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+}
     </script>
 </body>
 

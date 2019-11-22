@@ -5,15 +5,15 @@
         margin:0;}
 
 ul {
-    
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 li {
@@ -27,12 +27,50 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
+li .btn {
+    Height:52px;
+    background:white;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor:pointer;
+}
+li .btn:hover {
+    background:rgb(226, 226, 226);;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor:pointer;
+}
+li .btn2 {
+    Height:52px;
+    background:white;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor:pointer;
+}
+li .btn2:hover {
+    background:rgb(226, 226, 226);;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor:pointer;
+}
 li a:hover {
   background-color: rgb(226, 226, 226);
 }
+
 section{
-    margin-top: 28px;
+    margin-top: 0px;
 }
 .sidenav{
     height: 100%;
@@ -60,6 +98,46 @@ padding:16px;
 .sidein:hover{
     text-decoration: none;
     background-color:rgb(226, 226, 226);
+
+}
+.ab{
+    position:relative;
+    margin-top:-5px;
+    border:5px solid #6690a0;
+    background-color: #6690a0;
+}
+.quickmenu{
+    position:absolute;
+    top:-100px;
+    left:25%;
+    width:50%
+
+}
+.quicklist{
+    display: table-cell;
+    text-align: middle;
+    padding: 10px;
+
+}
+.New{
+    display: table-cell;
+    text-align: middle;
+
+}
+
+.login{
+    
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 
 }
 </style>

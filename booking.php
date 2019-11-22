@@ -38,7 +38,7 @@ if ($Connect->connect_error)
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
                     <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
-                    <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
+                    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>
         </section>
@@ -103,44 +103,38 @@ if ($Connect->connect_error)
             while ($row12 =  $result1->fetch_assoc()) {
                 if ($i % 2 == 0 && $i != 0) {
                     ?>
-        </div>
-        <div class="row">
-        <?php
-            } ?>
-        <div class="column" onclick="myFunction('<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
-            <div class="card">
-                <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
-                <div class="side right" align="left">
-                    <p>
-                        <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
-                        <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
-                            &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
-                        &nbsp;&nbsp;
-                        <?php
-                            for ($j = 0; $j < 5; $j++) {
-                                $star = $row12['star'];
-                                if ($j < $star) {
-                                    ?>
-                                <span class="fa fa-star checked"></span>
-                            <?php
-                                    } else {
-                                        ?>
-                                <span class="fa fa-star"></span>
-                            <?php
-                                }
-                            }
-                            ?><br>
-                        <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
-                        <img src="./img/coin.png" style="width:20px; float: right;" align="top">
-                    </p>
                 </div>
-            </div>
-        </div>
-
-
-    <?php
-        $i++;
-    } ?>
+                <div class="row">
+                <?php } ?>
+                <div class="column" onclick="myFunction('<?php echo $row12['price']; ?>')">
+                    <div class="card">
+                        <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                        <div class="side right" align="left">
+                            <p>
+                                <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
+                                <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
+                                    &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
+                                &nbsp;&nbsp;
+                                <?php
+                                    for ($j = 0; $j < 5; $j++) {
+                                        $star = $row12['star'];
+                                        if ($j < $star) 
+                                            {
+                                                echo "<span class='fa fa-star checked'></span>";
+                                            } 
+                                            else 
+                                            {     
+                                                echo "<span class='fa fa-star'></span>";
+                                            }
+                                    }
+                                    ?><br>
+                                <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
+                                <img src="./img/coin.png" style="width:20px; float: right;" align="top">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <?php   $i++;   } ?>
     </center>
 
     <script>
@@ -155,6 +149,17 @@ if ($Connect->connect_error)
             }
         }
     </script>
+
+
+
+    <script type="text/javascript">
+        function myFunction() {
+            // alert(name+" "+surname+hospital+department+price);
+            $_SESSION[] = ;
+            window.location.href = './page';
+        }
+    </script>
+
     
     <!--- 
    <script type="text/javascript">

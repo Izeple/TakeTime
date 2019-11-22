@@ -68,9 +68,14 @@ if ($Connect->connect_error)
             <!-- Modal content -->
             <div class="log-content">
               <span class="close">&times;</span>
+              <p   style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p>
+                
+                <a>Email</a>
                 <br>
-              <input type="text" name="Email" value="Email"><br>
-              <input type="password" name="Password" value="Password">
+              <input type="email" name="Email"><br>
+              <a>Password</a>
+                <br>
+              <input type="password" name="Password" >
 
 
             </div>

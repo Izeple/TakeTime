@@ -34,10 +34,10 @@ if ($Connect->connect_error)
         <section><img src="./img/Banner.png" style="width:100%">
         <div class="ab" align="center">
             <div id="sidenav" class="sidenav">
-                <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
-                <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
-                <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
+   <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
+   <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+   <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+   <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>
         </section>
@@ -45,14 +45,33 @@ if ($Connect->connect_error)
 
     
 
-    <div id="logpop" class="login">
-            <!-- Modal content -->
-            <div class="log-content">
-              <span class="close">&times;</span>
-                <br>
-              <input type="text" name="Email" value="Email"><br>
-              <input type="password" name="Password" value="Password">
-            </div>
-    </div>
+
+   booking
+   <?php 
+   require_once("connectPDO.php");
+   $pdo = conPDO();    
+   $HospitalID = 1; 
+   $DepartmentID = 0;
+   ?>
+
+   <form style="display: inline; " action='<?php echo $_SERVER['PHP_SELF']; ?>' method="POST">     
+          <select name="BranchID_Select" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select BranchID
+              <option value=""><- Select DepartmentID -></option>
+                <?php
+                $result_B = $pdo->prepare("SELECT * FROM department WHERE hospital_id=:HospitalID");
+                $result_B->execute(array(':HospitalID' => $HospitalID));
+                while($objResuut = $result_B->fetch()){
+                    echo print_r($objResuut);
+                ?>
+                <option value="<?php echo $objResuut["department_id"];?>" <?php if ($objResuut["department_id"] == $DepartmentID) echo ' selected="selected"';?>><?php echo $objResuut["department_id"]." - ".$objResuut["department_name"];?></option>
+                <?php } ?>
+                </select>
+          </div>
+    </form>
+
+
+
+
 </body>
 </html>

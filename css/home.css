@@ -145,21 +145,24 @@ padding:16px;
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  color: #aaaaaa;
+}
+.sep{
+  margin: 5px;
 }
 
 input[type=email]{
   width:100%;
-  height: 20px;
+  height: 40px;
   border-radius: 2px;
-  border:1px solid #888;
+  border:0.5px solid #aaaaaa;
 
 }
 input[type=password]{
   width:100%;
-  height: 20px;
+  height: 40px;
   border-radius: 2px;
-  border:1px solid #888;
+  border:0.5px solid #aaaaaa;
 
 }
 /* The Close Button */
@@ -175,4 +178,27 @@ input[type=password]{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.sub{
+  width:100%;
+  border-radius: 5px;
+  border:none;
+  color:white;
+  height:50px;
+ background:#6690a0;
+ cursor: pointer;
+}
+.sub:hover{
+  background:#4e707e
+}
+
+.aa{
+  color:#aaaaaa;
+}
+.aa:hover{
+  color:#555555;
+}
+.line{
+  border:0.3px solid #aaaaaa;
+  background:#aaaaaa;
 }

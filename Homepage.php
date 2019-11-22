@@ -68,20 +68,54 @@ if ($Connect->connect_error)
             <!-- Modal content -->
             <div class="log-content">
               <span class="close">&times;</span>
-              <p   style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p>
-                
-                <a>Email</a>
-                <br>
-              <input type="email" name="Email"><br>
-              <a>Password</a>
-                <br>
-              <input type="password" name="Password" >
+              <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p></div>
+              <div class="sep"> <a>Email</a></div>
+              <div class="sep"><input type="email" name="Email"></div>
+              <div class="sep"><a>Password</a></div>
+              <div class="sep"><input type="password" name="Password" ></div>
+              <div class="sep" style="width:50%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:15px;">Remember me</a></div>
+              <div class="sep" style="width:43%; text-align:right; display:inline-block;"><a class="aa" href="#" style="font-size:15px; text-decoration: none;">Forget Password?</a></div>
+              <div class="sep"><button class="sub">Login</button></div>
+              <br>
+              <div class="sep"><div class="line"></div></div>
+            
+              
 
 
             </div>
     </div>
 
+<script>
+              function clickNav(){
+                console.log(document.getElementById("sidenav").style.width);
+                if(document.getElementById("sidenav").style.width == "250px")
+                {
+                    document.getElementById("sidenav").style.width = "0%";
+                }
+                else
+                {
+                    document.getElementById("sidenav").style.width = "250px";
+                }
+            }
 
+            var modal = document.getElementById("logpop");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("btn2");
+
+             // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+        }
+  </script>
 
 </body>
 </html>

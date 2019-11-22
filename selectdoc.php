@@ -24,13 +24,13 @@
 
 <body>
     <header>
-        <img type="image" src="header.jpg" style="width:99%; height: 305px;">
+        <img type="image" src="./img/header.jpg" style="width:99%; height: 305px;">
     </header>
     <?php require "condb.php"; ?>
     <br>
 
     <div id="myModal" class="modal">
-        <form action="/se/insertchat.php" method="POST" enctype="multipart/form-data">
+        <form action="insertchat.php" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>
@@ -52,18 +52,18 @@
                         &nbsp; <input type="text"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="upimg.png" style="width:80px;"><br>
+                            <img src="./img/upimg.png" style="width:80px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>
                     <div class="column1">
                         <div class="card1">
                             <center>
-                                <img src="picdoc.jpg" style="width:160px;"><br>
+                                <img src="./img/picdoc.jpg" style="width:160px;"><br>
                                 <font size='5' color="#47b6c7" face="Agency FB" id="Name"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Department"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Hospital"></font><br><br>
-                                <img src="coin.png" style="width:20px;" align="top">
+                                <img src="./img/coin.png" style="width:20px;" align="top">
                                 <font size='4' color="#85c06a" face="Agency FB" id="price"></font><br><br>
                             </center>
                         </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="column1">
                         <center>
-                            <img src="card.png" style="width:200px;"></center>
+                            <img src="./img/card.png" style="width:200px;"></center>
                     </div>
                 </div>
                 <div class="row1">
@@ -136,7 +136,7 @@
             } ?>
         <div class="column" onclick="myFunction('<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
             <div class="card">
-                <img src="picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                 <div class="side right" align="left">
                     <p>
                         <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
@@ -158,7 +158,7 @@
                             }
                             ?><br>
                         <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
-                        <img src="coin.png" style="width:20px; float: right;" align="top">
+                        <img src="./img/coin.png" style="width:20px; float: right;" align="top">
                     </p>
                 </div>
             </div>

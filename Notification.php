@@ -25,7 +25,7 @@ if ($conn->connect_error)
     <div id="main">
     <ul>
         <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
-        <li><a href="#news"><img src="./img/nametag.png" height="15"></a></li>
+        <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
         <li style="float:right"><a class="active" href="#about">Sign up</a></li>
         <li style="float:right"><a class="active" href="#about">Log in</a></li>
     </ul>
@@ -42,7 +42,7 @@ if ($conn->connect_error)
 			 </dt>
 			 <dd>
 				 
-			 <table width="500" border="0" style="margin-top: 50px; margin-bottom: 35px; margin-left: 50px;">
+			 <table width="400" border="0" style="margin-top: 50px; margin-bottom: 50px; margin-left: 50px;">
   <tbody>
     <tr>
       <td><img src="./img/Doctor1.png" width="412" height="133" alt=""/></td>
@@ -63,12 +63,12 @@ if ($conn->connect_error)
 			 
 		</dl>
 
-    <div id="sidenav" class="sidenav">
-            <div class="sidein"><a href="#"><img src="./img/user.png" height="30"></a></div>
-            <div class="sidein"><a href="#"><img src="./img/help.png" height="30"></a></div>
-            <div class="sidein"><a href="#"><img src="./img/time.png" height="30"></a></div>
-            <div class="sidein"><a href="#"><img src="./img/noti.png" height="30"></a></div>
-    </div>
+        <div id="sidenav" class="sidenav">
+            <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
+            <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+            <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+            <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
+        </div>
 
     <script>
             function clickNav(){

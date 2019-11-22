@@ -44,7 +44,7 @@ if ($Connect->connect_error)
             <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
             <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
             <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
-            <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
+            <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
         </div>
 
 

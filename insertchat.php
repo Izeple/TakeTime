@@ -1,28 +1,28 @@
 <?php
 require "condb.php";
- $describe = $_POST["describe"];
- $long = $_POST["long"];
- $unitlong = $_POST["unitlong"];
- $often = $_POST["often"];
- $CardNumber1 = $_POST["CardNumber1"];
- $CardNumber2 = $_POST["CardNumber2"];
- $CardNumber3 = $_POST["CardNumber3"];
- $CardNumber4 = $_POST["CardNumber4"];
- $CardNumber4 = $_POST["CardNumber4"];
- $MonthExpiredDate = $_POST["MonthExpiredDate"];
- $MonthExpiredYear = $_POST["MonthExpiredYear"];
- $CVV = $_POST["CVV"];
- echo $describe;
- echo $long;
- echo $unitlong;
- echo $often; 
- echo $CardNumber1; 
- echo $CardNumber2; 
- echo $CardNumber3; 
- echo $CardNumber4;
- echo $CardNumber4;
- echo $MonthExpiredDate;
- echo $MonthExpiredYear;
+$describe = $_POST["describe"];
+$long = $_POST["long"];
+$unitlong = $_POST["unitlong"];
+$often = $_POST["often"];
+$CardNumber1 = $_POST["CardNumber1"];
+$CardNumber2 = $_POST["CardNumber2"];
+$CardNumber3 = $_POST["CardNumber3"];
+$CardNumber4 = $_POST["CardNumber4"];
+$CardNumber4 = $_POST["CardNumber4"];
+$MonthExpiredDate = $_POST["MonthExpiredDate"];
+$MonthExpiredYear = $_POST["MonthExpiredYear"];
+$CVV = $_POST["CVV"];
+echo $describe;
+echo $long;
+echo $unitlong;
+echo $often;
+echo $CardNumber1;
+echo $CardNumber2;
+echo $CardNumber3;
+echo $CardNumber4;
+echo $CardNumber4;
+echo $MonthExpiredDate;
+echo $MonthExpiredYear;
 echo $CVV;
 $target_dir = "C:\AppServ\www\se\uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -63,11 +63,9 @@ if ($uploadOk == 0) {
     // if everything is ok, try to upload file
 } else {
 
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . "chatid.".$imageFileType )) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . "chatid." . $imageFileType)) {
         echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-
-?>

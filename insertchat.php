@@ -9,21 +9,13 @@ $CardNumber2 = $_POST["CardNumber2"];
 $CardNumber3 = $_POST["CardNumber3"];
 $CardNumber4 = $_POST["CardNumber4"];
 $CardNumber4 = $_POST["CardNumber4"];
-$MonthExpiredDate = $_POST["MonthExpiredDate"];
-$MonthExpiredYear = $_POST["MonthExpiredYear"];
+$MonthExpired = $_POST["MonthExpired"];
+$YearExpired = $_POST["YearExpired"];
 $CVV = $_POST["CVV"];
-echo $describe;
-echo $long;
-echo $unitlong;
-echo $often;
-echo $CardNumber1;
-echo $CardNumber2;
-echo $CardNumber3;
-echo $CardNumber4;
-echo $CardNumber4;
-echo $MonthExpiredDate;
-echo $MonthExpiredYear;
-echo $CVV;
+$staffid = $_POST["staffid"];
+
+$CardNumber = $CardNumber1.$CardNumber2.$CardNumber3.$CardNumber4; 
+echo $staffid;
 $target_dir = "C:\AppServ\www\SE2\uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -62,10 +54,18 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
 } else {
-
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . "chatid." . $imageFileType)) {
-        echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+    $newname = rand(0,9999);
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
+       // echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+       // echo "Sorry, there was an error uploading your file.";
     }
+    $namefile = $newname.".". $imageFileType;
 }
+$sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`)  
+	VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','$namefile')";
+   if ($Connect->query($sql) === TRUE) {  
+    header("location: car.php");
+   } else {
+	   echo "Error: " . $sql . "<br>" . $Connect->error;
+   }

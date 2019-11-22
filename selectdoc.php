@@ -1,7 +1,7 @@
 <head>
     <title>Homepage</title>
     <script type="text/javascript">
-        function myFunction(name, surname, hospital, department, price) {
+        function myFunction(staffid,name, surname, hospital, department, price) {
             // alert(name+" "+surname+hospital+department+price);
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
@@ -9,6 +9,7 @@
             document.getElementById("Department").innerHTML = 'Department : ' + department;
             document.getElementById("Hospital").innerHTML = 'Hepartment : ' + hospital;
             document.getElementById("price").innerHTML = price + ' Baht';
+            document.getElementById("staffid").value = staffid;
         }
 
         function Cancel() {
@@ -240,6 +241,7 @@
                         <div class="card1">
                             <center>
                                 <img src="./img/picdoc.jpg" style="width:160px;"><br>
+                                <input type="hidden" id="staffid" name="staffid" value="">
                                 <font size='5' color="#47b6c7" face="Agency FB" id="Name"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Department"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Hospital"></font><br><br>
@@ -259,7 +261,7 @@
                         &nbsp;<input type="text" style="width:120px;"  name="CardNumber3">
                         &nbsp;<input type="text" style="width:120px;"  name="CardNumber4"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
-                        &nbsp; <select style="width:110px;"  name="MonthExpiredDate">
+                        &nbsp; <select style="width:110px;"  name="MonthExpired">
                             <option value="">Month</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -274,8 +276,9 @@
                             <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
-                        &nbsp;<select>
-                            <option value="0"  name="MonthExpiredYear">Year</option>
+                        &nbsp;
+                        <select  name="YearExpired">
+                            <option value="0" >Year</option>
                             <?php
                             for ($i = 2019; $i <= 2043; $i++) {
                                 ?>
@@ -284,8 +287,8 @@
                             }
                             ?>
                         </select><br>
-                        <font size='5' color="#a4a4a4" face="Agency FB"  name="CVV"> CVV</font> &nbsp;
-                         <input type="text" style="width:100px;"><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp;
+                         <input type="text" style="width:100px;" name="CVV"><br>
 
                     </div>
                     <div class="column1">
@@ -315,7 +318,7 @@
         <div class="row">
         <?php
             } ?>
-        <div class="column" onclick="myFunction('<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
+        <div class="column" onclick="myFunction('<?php echo $row12['staff_id']; ?>','<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
             <div class="card">
                 <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                 <div class="side right" align="left">

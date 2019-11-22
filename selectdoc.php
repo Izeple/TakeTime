@@ -20,17 +20,197 @@
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        input[type=text],
+        select {
+            width: 160px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding: 10px;
+            color: #a4a4a4;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 420px;
+            height: 140px;
+            overflow: auto;
+        }
+
+        .card1 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width:  250px;
+            height: 290px;
+            overflow: auto;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .img1 {
+            float: right;
+        }
+
+        .img2 {
+            float: left;
+        }
+
+        .fa {
+            font-size: 25px;
+            color: #8c8c8c;
+        }
+
+        .checked {
+            color: #efce4a;
+        }
+
+        .row {
+            display: flex;
+            margin-left: 25%;
+            margin-right: auto;
+        }
+
+        .column {
+            padding: 10px;
+        }
+
+        .row1 {
+            display: flex;
+        }
+
+        .column1 {
+            margin: auto;
+        }
+
+        .modal {
+            Position: relative;
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 10px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+
+        }
+
+        /* Modal Content */
+        .modal-content {
+            Position: relative;
+            background-color: #fefefe;
+            width: 62%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #888;
+            border-radius: 10px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: none;
+            border: 1px solid #d3cccc;
+            font-size: 16px;
+        }
+
+        input[type="number"] {
+            text-align: center;
+            border-style: solid;
+            border-color: #d3d3d3;
+        }
+
+        .buttoncancel {
+            background-color: #e1e1e1;
+            border: none;
+            color: #475254;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Agency FB;
+            border-radius: 5px;
+        }
+
+        .buttonconfirm {
+            background-color: #47b6c7;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Agency FB;
+            border-radius: 5px;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <img type="image" src="header.jpg" style="width:99%; height: 305px;">
+        <img type="image" src="./img/header.jpg" style="width:99%; height: 305px;">
     </header>
     <?php require "condb.php"; ?>
     <br>
 
     <div id="myModal" class="modal">
-        <form action="/se/insertchat.php" method="POST" enctype="multipart/form-data">
+        <form action="insertchat.php" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>
@@ -52,18 +232,18 @@
                         &nbsp; <input type="text"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="upimg.png" style="width:80px;"><br>
+                            <img src="./img/upimg.png" style="width:80px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>
                     <div class="column1">
                         <div class="card1">
                             <center>
-                                <img src="picdoc.jpg" style="width:160px;"><br>
+                                <img src="./img/picdoc.jpg" style="width:160px;"><br>
                                 <font size='5' color="#47b6c7" face="Agency FB" id="Name"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Department"></font><br>
                                 <font size='4' color="#a4a4a4" face="Agency FB" id="Hospital"></font><br><br>
-                                <img src="coin.png" style="width:20px;" align="top">
+                                <img src="./img/coin.png" style="width:20px;" align="top">
                                 <font size='4' color="#85c06a" face="Agency FB" id="price"></font><br><br>
                             </center>
                         </div>
@@ -109,7 +289,7 @@
                     </div>
                     <div class="column1">
                         <center>
-                            <img src="card.png" style="width:200px;"></center>
+                            <img src="./img/card.png" style="width:200px;"></center>
                     </div>
                 </div>
                 <div class="row1">
@@ -136,7 +316,7 @@
             } ?>
         <div class="column" onclick="myFunction('<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
             <div class="card">
-                <img src="picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                 <div class="side right" align="left">
                     <p>
                         <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
@@ -158,7 +338,7 @@
                             }
                             ?><br>
                         <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
-                        <img src="coin.png" style="width:20px; float: right;" align="top">
+                        <img src="./img/coin.png" style="width:20px; float: right;" align="top">
                     </p>
                 </div>
             </div>

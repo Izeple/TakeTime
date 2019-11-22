@@ -176,3 +176,13 @@ input[type=password]{
   text-decoration: none;
   cursor: pointer;
 }
+	.notimenu {
+ 		 width: 9%;
+    	color: white;
+		background-color: #EB7273;
+  		padding: 8px;
+		font-size: 30;
+		text-align: center;
+		border-top-right-radius:25px;
+		border-bottom-right-radius: 25px;
+}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <?php
 $servername = "localhost";
@@ -180,5 +179,3 @@ if ($Connect->connect_error)
 
 </body>
 </html>
-=======
->>>>>>> a22bf87b8e338602b175acd93e163de6837c22ee

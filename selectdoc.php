@@ -10,6 +10,7 @@
             document.getElementById("Hospital").innerHTML = 'Hepartment : ' + hospital;
             document.getElementById("price").innerHTML = price + ' Baht';
         }
+
         function Cancel() {
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
@@ -43,7 +44,7 @@
         .card1 {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            width: 250px;
+            width:  250px;
             height: 290px;
             overflow: auto;
         }
@@ -88,10 +89,11 @@
         }
 
         .column1 {
-            margin: 1 70 10 20;
+            margin: auto;
         }
 
         .modal {
+            Position: relative;
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -117,12 +119,12 @@
 
         /* Modal Content */
         .modal-content {
+            Position: relative;
             background-color: #fefefe;
+            width: 62%;
             margin: auto;
             padding: 10px;
             border: 1px solid #888;
-            width: 970px;
-            height: 95%;
             border-radius: 10px;
         }
 
@@ -144,7 +146,7 @@
         textarea {
             resize: none;
             border: 1px solid #d3cccc;
-
+            font-size: 16px;
         }
 
         input[type="number"] {
@@ -182,6 +184,20 @@
             font-family: Agency FB;
             border-radius: 5px;
         }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -193,101 +209,95 @@
     <br>
 
     <div id="myModal" class="modal">
-        <form  action="/se/insertchat.php" method="GET">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>
-                &nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB"><U>Describe Symptom</U></font>
-            </p>
-            <div class="row1">
-                <div class="column1">
-                    <textarea rows="9" cols="80"></textarea><br><br>
-                    <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
-                        <input type="number" name="howlong" style="width:50px; height: 38px;" min="1"></font>
-                    <select style="width:110px;">
-                        <option value="0">Minute</option>
-                        <option value="1">Hour</option>
-                        <option value="1">Day</option>
-                        <option value="2">Month</option>
-                        <option value="3">Year</option>
-                    </select><br>
-                    <font size='5' color="#a4a4a4" face="Agency FB"> How often? </font>
-                    &nbsp; <input type="text"><br>
-                    <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
-                    <img src="upimg.png" style="width:80px;"><br>
+        <form action="/se/insertchat.php" method="POST" enctype="multipart/form-data">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                &nbsp;&nbsp;&nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB"><U>Describe Symptom</U></font>
+                </p>
+                <div class="row1">
+                    <div class="column1">
+                        <textarea rows="9" cols="70"></textarea><br><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
+                            <input type="number" name="howlong" style="width:50px; height: 38px;" min="1"></font>
+                        <select style="width:110px;">
+                            <option value="0">Minute</option>
+                            <option value="1">Hour</option>
+                            <option value="1">Day</option>
+                            <option value="2">Month</option>
+                            <option value="3">Year</option>
+                        </select><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> How often? </font>
+                        &nbsp; <input type="text"><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
+                        <div class="upload-btn-wrapper">
+                            <img src="upimg.png" style="width:80px;"><br>
+                            <input type="file" name="fileToUpload" />
+                        </div>
+                    </div>
+                    <div class="column1">
+                        <div class="card1">
+                            <center>
+                                <img src="picdoc.jpg" style="width:160px;"><br>
+                                <font size='5' color="#47b6c7" face="Agency FB" id="Name"></font><br>
+                                <font size='4' color="#a4a4a4" face="Agency FB" id="Department"></font><br>
+                                <font size='4' color="#a4a4a4" face="Agency FB" id="Hospital"></font><br><br>
+                                <img src="coin.png" style="width:20px;" align="top">
+                                <font size='4' color="#85c06a" face="Agency FB" id="price"></font><br><br>
+                            </center>
+                        </div>
+                    </div>
                 </div>
-                <div class="column1">
-                    <div class="card1">
+
+                <div class="row1">
+                    <div class="column1">
+                        <font size='6' color="#47b6c7" face="Agency FB"> <U> Payment Card</U></font><br><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> Card Number</font>
+                         <input type="text" style="width:120px;">
+                        &nbsp;<input type="text" style="width:120px;">
+                        &nbsp;<input type="text" style="width:120px;">
+                        &nbsp;<input type="text" style="width:120px;"><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
+                        &nbsp; <select style="width:110px;">
+                            <option value="0">Month</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        &nbsp;<select>
+                            <option value="0">Year</option>
+                            <?php
+                            for ($i = 19; $i <= 43; $i++) {
+                                ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp; <input type="text" style="width:100px;"><br>
+
+                    </div>
+                    <div class="column1">
                         <center>
-                            <img src="picdoc.jpg" style="width:160px;"><br>
-                            <font size='5' color="#47b6c7" face="Agency FB" id="Name"></font><br>
-                            <font size='4' color="#a4a4a4" face="Agency FB" id="Department"></font><br>
-                            <font size='4' color="#a4a4a4" face="Agency FB" id="Hospital"></font><br><br>
-                            <img src="coin.png" style="width:20px;" align="top">
-                            <font size='4' color="#85c06a" face="Agency FB" id="price"></font><br><br>
-                        </center>
+                            <img src="card.png" style="width:200px;"></center>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="column1">
+                        <input type="button" class="buttoncancel" value="CANCEL" onclick="Cancel()">&nbsp;&nbsp;&nbsp;
+                        <input type="submit" class="buttonconfirm" value="CONFIRM">
                     </div>
                 </div>
             </div>
-            <div class="row1">
-                <div class="column1">
-                   
-                </div>
-            </div>
-            <div class="row1">
-                <div class="column1">
-                    &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB"> <U> Payment Card</U></font><br><br>
-                    &nbsp;&nbsp; <font size='5' color="#a4a4a4" face="Agency FB"> Card Number</font>
-                    &nbsp; <input type="text" style="width:100px;">
-                    &nbsp;<input type="text" style="width:100px;">
-                    &nbsp;<input type="text" style="width:100px;">
-                    &nbsp;<input type="text" style="width:100px;"><br>
-                    &nbsp;&nbsp; <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
-                    &nbsp; <select style="width:110px;">
-                        <option value="0">Month</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    &nbsp;<select>
-                        <option value="0">Year</option>
-                        <?php
-                        for ($i = 19; $i <= 43; $i++) {
-                            ?>
-                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select><br>
-                    &nbsp;&nbsp; <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp; <input type="text" style="width:100px;"><br>
-
-                </div>
-                <div class="column1">
-                    <center>
-                        <img src="card.png" style="width:200px;"></center>
-                </div>
-            </div>
-            <div class="row1">
-                <div class="column1">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="button" class="buttoncancel" value="CANCEL"  onclick="Cancel()">&nbsp;&nbsp;&nbsp;
-                    <input type="submit" class="buttonconfirm" value="CONFIRM" >
-                </div>
-            </div>
-        </div>
         </form>
     </div>
     <center>
@@ -349,7 +359,6 @@
                 modal.style.display = "none";
             }
         }
-
     </script>
 </body>
 

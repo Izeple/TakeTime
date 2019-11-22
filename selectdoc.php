@@ -218,18 +218,18 @@
                 </p>
                 <div class="row1">
                     <div class="column1">
-                        <textarea rows="9" cols="70"></textarea><br><br>
+                        <textarea rows="9" cols="70" name="describe"></textarea><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
-                            <input type="number" name="howlong" style="width:50px; height: 38px;" min="1"></font>
-                        <select style="width:110px;">
-                            <option value="0">Minute</option>
-                            <option value="1">Hour</option>
-                            <option value="1">Day</option>
-                            <option value="2">Month</option>
-                            <option value="3">Year</option>
+                            <input type="number" name="long" style="width:50px; height: 38px;" min="1" ></font>
+                        <select style="width:110px;" name="unitlong">
+                            <option value="Minute">Minute</option>
+                            <option value="Hour">Hour</option>
+                            <option value="Day">Day</option>
+                            <option value="Month">Month</option>
+                            <option value="Year">Year</option>
                         </select><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How often? </font>
-                        &nbsp; <input type="text"><br>
+                        &nbsp; <input type="text" name="often"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
                             <img src="./img/upimg.png" style="width:80px;"><br>
@@ -254,37 +254,38 @@
                     <div class="column1">
                         <font size='6' color="#47b6c7" face="Agency FB"> <U> Payment Card</U></font><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Card Number</font>
-                         <input type="text" style="width:120px;">
-                        &nbsp;<input type="text" style="width:120px;">
-                        &nbsp;<input type="text" style="width:120px;">
-                        &nbsp;<input type="text" style="width:120px;"><br>
+                         <input type="text" style="width:120px;"  name="CardNumber1">
+                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber2">
+                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber3">
+                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber4"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
-                        &nbsp; <select style="width:110px;">
-                            <option value="0">Month</option>
-                            <option value="1">01</option>
-                            <option value="2">02</option>
-                            <option value="3">03</option>
-                            <option value="4">04</option>
-                            <option value="5">05</option>
-                            <option value="6">06</option>
-                            <option value="7">07</option>
-                            <option value="8">08</option>
-                            <option value="9">09</option>
+                        &nbsp; <select style="width:110px;"  name="MonthExpiredDate">
+                            <option value="">Month</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
                         &nbsp;<select>
-                            <option value="0">Year</option>
+                            <option value="0"  name="MonthExpiredYear">Year</option>
                             <?php
-                            for ($i = 19; $i <= 43; $i++) {
+                            for ($i = 2019; $i <= 2043; $i++) {
                                 ?>
                                 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                             <?php
                             }
                             ?>
                         </select><br>
-                        <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp; <input type="text" style="width:100px;"><br>
+                        <font size='5' color="#a4a4a4" face="Agency FB"  name="CVV"> CVV</font> &nbsp;
+                         <input type="text" style="width:100px;"><br>
 
                     </div>
                     <div class="column1">

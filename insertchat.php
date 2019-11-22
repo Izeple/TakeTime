@@ -24,7 +24,7 @@ echo $CardNumber4;
 echo $MonthExpiredDate;
 echo $MonthExpiredYear;
 echo $CVV;
-$target_dir = "C:\AppServ\www\se\uploads/";
+$target_dir = "C:\AppServ\www\SE2\uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

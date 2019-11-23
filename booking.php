@@ -13,6 +13,7 @@ if ($Connect->connect_error)
 }
 ?>
 
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,14 +110,18 @@ if ($Connect->connect_error)
                 </div>
                 <div class="row">
                 <?php } ?>
-                <div class="column" onclick="myFunction(<?php echo $row12['staff_id']; ?>)">
+
+
+                <!---  $_SESSION['staff_id']=1 window.location.href = './booking_2.php'; --->
+                <div class="column" id="<?php echo $row12['staff_id']?>" onclick="ContentPage(this)">
                     <div class="card2">
+                        
                         <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                         <div class="side right" align="left">
                             <p>
                                 <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
                                 <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
-                                    &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
+                                &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
                                 &nbsp;&nbsp;
                                 <?php
                                     for ($j = 0; $j < 5; $j++) {
@@ -140,29 +145,6 @@ if ($Connect->connect_error)
             <?php   $i++;   } ?>
     </center>
 
-    <script>
-        var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-
-
-    <script type="text/javascript">
-        function myFunction(id) {
-            // alert(name+" "+surname+hospital+department+price);
-            $_SESSION['staff_id'] = id;
-          
-            window.location = "http://www.htmlcodes.ws/";
-        }
-    </script>
 
     <!--- 
    <script type="text/javascript">
@@ -180,10 +162,11 @@ if ($Connect->connect_error)
     </script> 
     --->
 
-    <a href="booking_2.php">next_step</a>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>#popup_department" method="POST">
-    <input type="submit" class="btn btn-primary btn-user" value="<?php echo $row12['staff_id']; ?>" />
-    </form>
+    <script>
+    function ContentPage(elem){
+        location.href = "random-page.php" + "?id=" + elem.id;
+    };
+    </script>
 
 
 </body>

@@ -37,7 +37,8 @@
             <?php if(isset($_SESSION["email"])) {  
                 echo $result_User["name"]; 
                 echo "<script language=\"JavaScript\">";
-                echo "document.getElementById('btn2').style.display='none'";
+                echo "document.getElementById('btn').style.display='none';";
+                echo "document.getElementById('btn2').style.display='none';";
                 echo "</script>";
             }else
             {

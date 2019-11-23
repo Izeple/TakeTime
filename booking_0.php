@@ -31,13 +31,7 @@
         </section>
     </div>    
 
-    <?php 
-        if(!isset($_POST['myform'])){
-            $id = $_POST['id'];
-            echo $id;
-          }
-    ?>
-
+    
 
 
 

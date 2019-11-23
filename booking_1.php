@@ -1,19 +1,4 @@
 <!DOCTYPE html>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projectdead";
-
-$Connect = new mysqli($servername, $username, $password, $dbname);
-mysqli_set_charset($Connect,"utf8");
-if ($Connect->connect_error)
-{
-	die("Connection failed: ". $Connect->connect_error);
-}
-?>
-
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +6,8 @@ if ($Connect->connect_error)
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
     <script type="text/javascript" src="./script/clickNav.js"></script>
-    <title>Homepage</title>
+    <?php require "condb.php"; ?>
+    <title>Booking</title>
 </head>
 <body>
 
@@ -38,7 +24,7 @@ if ($Connect->connect_error)
             <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+                    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
                     <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>

@@ -126,7 +126,6 @@
             width: 62%;
             margin: auto;
             padding: 10px;
-            border: 1px solid #888;
             border-radius: 10px;
         }
 

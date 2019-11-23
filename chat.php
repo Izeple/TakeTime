@@ -6,17 +6,23 @@
     </script>
     <style>
         .bar {
-            padding: 12px;
-            width: 99%;
-            height: 5.1%;
+            
+            padding-top: 4px; 
+            width: 100%;
+            height: 6%;
             background-color: #47b6c7;
         }
-
+      .barback{
+            width:100%;
+            height: 7.1%;
+            background-color: #0f5a66;
+        }
         .barchat {
-
+            margin-top: 5px;
             width: 100%;
-            height: 17%;
+            height: 65px;
             background-color: #207a85;
+            border-radius: 4px;
         }
 
         .row {
@@ -35,13 +41,13 @@
             height: 95px;
             overflow: auto;
             margin-top: 5px;
+            border-radius: 5px;
         }
 
         .card1 {
             margin-left: 10px;
-            transition: 0.3s;
-            width: 750px;
-            height: 450px;
+            width: 755px;
+            height: 308px;
             overflow: auto;
             margin-top: 5px;
             border-radius: 10px;
@@ -70,15 +76,31 @@
             background-color: #d75a4a;
             border-color: #d75a4a;
         }
+
+        .buttonconfirm {
+            width: 700px;
+            background-color: #ffffff;
+            color: #a8a8a8;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Agency FB;
+            border-radius: 5px;
+            border-style: solid;
+        }
     </style>
 </head>
 
-<body>
+<body style="margin :0px;">
     <header>
         <img type="image" src="./img/header1.jpg" style="width:100%; height: 225px;">
     </header>
     <div class="bar">
-        &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Consult Doctor</font>
+        &nbsp;&nbsp; &nbsp;<font size='6' color="#ffffff" face="Agency FB">Consult Doctor</font>
     </div>
     <div class="row">
         <div class="column">
@@ -96,51 +118,54 @@
             </div>
         </div>
         <div class="column">
-            <div class="card1">
-                <div class="barchat">
-                    &nbsp;&nbsp;<img src="./img/picdoc.png" style="width:67px; margin-top: 6px; float: left; margin-left: 8px;"> <br>
-                    &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Dr.Jin Hong</font>
-                    <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
-                </div>
-                <div>
-                <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
-                <div style="width:400px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
-                    <font size='3' color="#6e6e6e" face="[supermarket]" >
-                    <br>
-                        รู้สึกช่วงนี้กินไม่ได้นอนไม่หลับ หงุดหงิดง่าย ปวดหัวแบบ
-                        บีบๆ บางทีเห็นภาพหลอน แล้วก็รู้สึกเหมือนมีคนกระซิบข้างหู
-                        ตลอดเวลา อาการแบบนี้เป็นโรคซึมเศร้ารึเปล่าคะ หรือควร
-                        จะทำยังไงดี
-                        <br>
-                        <br>
-                        How long? : 3 weeks
-                        <br>
-                        How often? : 
-                        <br>
-                      
-                    </font>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br>
-                <br>
-                <img src="./img/card.png" style="width:150px; margin-top: 15px; float: right; margin-right: 8px;">  
-                <br><br>
-                <br><br>
-                <br>
-                ฟหกฟหกฟ
-                <br><br>
-                <br><br>
-                <br>ฟหกฟหก
-                </div>
+            <div class="barchat">
+                &nbsp;&nbsp;<img src="./img/picdoc.png" style="width:60px; margin-top: 3px; float: left; margin-left: 8px;"> <br>
+                &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Dr.Jin Hong</font>
+                <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
             </div>
+            <div class="card1">
+
+                <div>
+                    <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
+                    <div style="width:400px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
+                        <font size='3' color="#6e6e6e" face="[supermarket]">
+                            <br>
+                            รู้สึกช่วงนี้กินไม่ได้นอนไม่หลับ หงุดหงิดง่าย ปวดหัวแบบ
+                            บีบๆ บางทีเห็นภาพหลอน แล้วก็รู้สึกเหมือนมีคนกระซิบข้างหู
+                            ตลอดเวลา อาการแบบนี้เป็นโรคซึมเศร้ารึเปล่าคะ หรือควร
+                            จะทำยังไงดี
+                            <br>
+                            <br>
+                            How long? : 3 weeks
+                            <br>
+                            How often? :
+                            <br>
+
+                        </font>
+                    </div>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br>
+                    <img src="./img/card.png" style="width:150px; margin-top: 15px; float: right; margin-right: 90px;">
+                </div>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <form action="chat.php" method="POST">
+
+            </div>
+            <input type="submit" class="buttonconfirm" value="Tap to chat">
         </div>
     </div>
-
+    <div class="barback">
+    <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px;">
+    <img src="./img/consult.jpg" style="width:100px; padding-top: 4px; padding-right: 5px; float: right;">
+    </div>
 </body>
 
 </html>

@@ -21,6 +21,7 @@
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
     <style>
         input[type=text],
         select {
@@ -200,6 +201,8 @@
             opacity: 0;
         }
     </style>
+=======
+>>>>>>> 95eaa61f3ac76abd4b6c04cf2c9d9a346e131546
 </head>
 
 <body>

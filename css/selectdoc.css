@@ -18,12 +18,21 @@
             height: 140px;
             overflow: auto;
         }
+        
 
         .card1 {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            width: 250px;
+            width:  250px;
             height: 290px;
+            overflow: auto;
+        }
+
+        .card2 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 420px;
+            height: 150px;
             overflow: auto;
         }
 
@@ -67,10 +76,11 @@
         }
 
         .column1 {
-            margin: 1 70 10 20;
+            margin: auto;
         }
 
         .modal {
+            Position: relative;
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -96,12 +106,12 @@
 
         /* Modal Content */
         .modal-content {
+            Position: relative;
             background-color: #fefefe;
+            width: 62%;
             margin: auto;
             padding: 10px;
             border: 1px solid #888;
-            width: 970px;
-            height: 95%;
             border-radius: 10px;
         }
 
@@ -123,7 +133,7 @@
         textarea {
             resize: none;
             border: 1px solid #d3cccc;
-
+            font-size: 16px;
         }
 
         input[type="number"] {
@@ -161,4 +171,17 @@
             font-family: Agency FB;
             border-radius: 5px;
         }
-    
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }

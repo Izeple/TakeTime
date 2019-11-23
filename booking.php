@@ -98,16 +98,18 @@ if ($Connect->connect_error)
         <div class="row">
             <?php
             $i = 0;
-            $mysql_qry1 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id";
-            $result1 = mysqli_query($Connect, $mysql_qry1);
-            while ($row12 =  $result1->fetch_assoc()) {
+
+            $result_BQ = $pdo->prepare("SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id 
+                                        WHERE h.hospital_id=:HospitalID AND d.department_id=:DepartmentID");
+            $result_BQ->execute(array(':HospitalID' => $HospitalID,':DepartmentID' => $DepartmentID));
+            while($row12 = $result_BQ->fetch()){
                 if ($i % 2 == 0 && $i != 0) {
                     ?>
                 </div>
                 <div class="row">
                 <?php } ?>
                 <div class="column" onclick="myFunction('<?php echo $row12['price']; ?>')">
-                    <div class="card">
+                    <div class="card2">
                         <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                         <div class="side right" align="left">
                             <p>

@@ -15,7 +15,7 @@
             <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="#news"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn" id="btn">Sign up</button></li>
-            <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
+            <li style="float:right"><button class="btn2" id="btn2" onclick="document.getElementById('logpop').style.display='block'">Log in</button></li>
         </ul>
             
 
@@ -49,7 +49,7 @@
     <div id="logpop" class="login">
             <!-- Modal content -->
             <div class="log-content">
-              <span class="close">&times;</span>
+              <span class="close" onclick="document.getElementById('logpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p></div>
               <div class="sep"> <a>Email</a></div>
               <div class="sep"><input type="email" name="Email"></div>
@@ -59,13 +59,10 @@
               <div class="sep" style="width:43%; text-align:right; display:inline-block;"><a class="aa" href="#" style="font-size:18px; text-decoration:none;">Forget Password ?</a></div>
               <div class="sep"><button class="sub">Login</button></div>
               <div class="sep" style="margin-top: 1rem; margin-bottom: 1rem;"><div class="line"></div></div>
-            
               <div class="sep"><button class="face">Facebook</button><button class="goog">Google</button></div>
-              
-
-
             </div>
     </div>
+
 
 </body>
 </html>

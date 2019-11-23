@@ -56,7 +56,7 @@ if ($Connect->connect_error)
 		text-align: center;margin-top: -50px;">Notification</h1>
 
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">
-				 Booking
+				Next Booking
 	</div>
 	 
 			 

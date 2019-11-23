@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+    if(isset($_SESSION["email"]))
+    {
+        $email = $_SESSION["email"];
+        require_once("connectPDO.php");
+        $pdo = conPDO();
+        $sql = "SELECT * FROM patient WHERE email = '".$email."'";
+        $result_User = PDOfetchAll($sql)[0];
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +43,10 @@
             </div>
         </div>
         </section>
-    </div>    
+    </div>  
+    
+    
+
 
     
 

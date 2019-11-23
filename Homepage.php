@@ -77,9 +77,12 @@
               <div class="sep"><input type="email" name="Email"></div>
               <div class="sep"><a>Password</a></div>
               <div class="sep"><input type="password" name="Password" ></div>
-              <div class="sep" style="width:50%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Remember me</a></div>
-              <div class="sep" style="width:43%; text-align:right; display:inline-block;"><a class="aa" href="#" style="font-size:18px; text-decoration:none;">Forget Password ?</a></div>
-              <div class="sep"><button class="sub">Login</button></div>
+              <div class="sep"> <a>ID Card</a></div>
+              <div class="sep"><input type="text" name="IDcard"></div>
+              <div class="sep"> <a>Telephone</a></div>
+              <div class="sep"><input type="text" name="Tel"></div>
+              <div class="sep" style="width:100%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Accept Terms and Condition</a></div>
+              <div class="sep"><button class="sub">Register</button></div>
               <div class="sep" style="margin-top: 1rem; margin-bottom: 1rem;"><div class="line"></div></div>
               <div class="sep"><button class="face">Facebook</button><button class="goog">Google</button></div>
             </div>

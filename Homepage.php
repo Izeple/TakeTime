@@ -19,6 +19,7 @@
         $pdo = conPDO();
         $sql = "SELECT * FROM patient WHERE email = '".$email."'";
         $result_User = PDOfetchAll($sql)[0];
+        $_SESSION["userid"] = $result_User["patient_id"];
     }
     ?>
     <title>Homepage</title>

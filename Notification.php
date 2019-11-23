@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projectdead";
-
-$Connect = new mysqli($servername, $username, $password, $dbname);
-mysqli_set_charset($Connect,"utf8");
-if ($Connect->connect_error)
-{
-	die("Connection failed: ". $Connect->connect_error);
-}
-$partient_id=1;
-?>
 <html>
 <head>
     <title>Notification</title>
@@ -31,7 +16,7 @@ $partient_id=1;
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
-		
+		  <?php require "condb.php"; ?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
@@ -43,72 +28,80 @@ $partient_id=1;
 <body>
 
     <div id="main">
-    <ul>
-        <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
-        <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
-        <li style="float:right"><a class="active" href="#about">Sign up</a></li>
-        <li style="float:right"><a class="active" href="#about">Log in</a></li>
-    </ul>
-         </div>   
+        <ul>
+       <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+       <li><a href="Homepage.php"><img src="./img/nametag.png" height="15"></a></li>
+       <li style="float:right"><button class="btn" id="btn">Sign up</button></li>
+       <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
+        </ul>
 
-<section style="margin-top: 0px;"><img src="./img/Banner.png" style=" width:100%; height:fixed;"></section>
-		
-<h1 style="position: relative; width: 15%; color: white; background-color: #47B6C7; padding: 15px; font-size: 50;
-		text-align: center;margin-top: -50px;">Notification</h1>
+        <section><img src="./img/Banner.png" style="width:100%">
+        <div class="ab" align="center">
+            <div id="sidenav" class="sidenav">
+                    <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
+                    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+                    <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+                    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
+            </div>
+        </div>
+        </section>
+    </div>    
 
-		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">
-				Next Booking
-	</div>
-	 
-			 
+    
+    <h1 style="position: relative; width: 15%; color: white; background-color: #47B6C7; padding: 15px; font-size: 40;
+        text-align: center;margin-top: -50px;margin-bottom: 40px">Booking Doctor</h1>
 
-
+		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
             <?php
+			$patient_id	= 1;
             $i = 0;
-            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=1 JOIN hospital h ON h.hospital_id = st.hospital_id";
+            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$patient_id  JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
-            while ($row12 =  $result1->fetch_assoc()) {
-                if ($i % 2 == 0 && $i != 0) {
+            while ($doc =  $result1->fetch_assoc()) {
+                if ($doc['count']!=0) {
                     ?>
               
-                <div class="row">
-                <?php } ?>
-                <div class="column" href="booking#<?php $row12['staff_id']?>">
+                <div class="column">
                     <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
-                                <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font></div>
+                                <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Dr.<?php echo $doc['name']; ?>&nbsp;<?php echo $doc['surname']; ?></font></div>
                                <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
-                                &nbsp; At <?php echo $row12['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
-								   <?php echo date('d/m/Y',strtotime($row12['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
+                                &nbsp; At <?php echo $doc['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
+								   <?php echo date('d/m/Y',strtotime($doc['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
               </p><p style="margin-top: -40px;">
 								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
-                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($row12['bookingdate'])); ?>. </font>
+                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($doc['bookingdate'])); ?>. </font>
                             </p>
                         </div>
                     </div>
                 </div>
-            <?php   $i++;   } ?>
+
+	 <?php } ?>
+            <?php   $i++;  
+			if ($doc['count']==0){
+				?>
+				<div class="column">
+                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">    
+                     <a href="booking.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
+						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
+						<font size='5'  color="#a4a4a4" >Add Booking</font>
+						</td></tr></table>
+                    </div>
+                </div>
+			 <?php	
+			}
+		} ?>
 
 				  
-				  
+			  
 			 <div class="notimenu" style="font-size: 30px">
 			 Medicine
 			 </div>
 			 		
 			 Medicine
-		  	
-			 
-
-
-        <div id="sidenav" class="sidenav">
-            <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
-            <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-            <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
-            <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
-        </div>
-			 
+		 
 	<script>
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];

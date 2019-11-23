@@ -119,7 +119,6 @@
     <div class="row">
         <div class="column">
                 <?php
-                $i = 0;
                 $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
                 $result1 = mysqli_query($Connect, $mysql_qry1);
                 while ($row12 =  $result1->fetch_assoc()) {
@@ -140,7 +139,8 @@
                 &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Dr.Jin Hong</font>
                 <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
             </div>
-            <div class="card1" id="Standard">
+            <div id="Standard">
+            <div class="card1">
                 <div>
                     <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
                     <div style="width:400px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
@@ -190,11 +190,7 @@
                     <br><br>
                     <br>
                 </div>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
+                </div>
             </div>
             <form action="chat.php" method="POST">
                 <input type="submit" class="buttonconfirm" value="Tap to chat">

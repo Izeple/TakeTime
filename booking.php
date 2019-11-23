@@ -50,6 +50,7 @@ if ($Connect->connect_error)
     <div style="text-align:center; margin-top: -50px;">    
         <?php 
         session_start();
+        echo $_SESSION['staff_id'];
         require_once("connectPDO.php");
         $pdo = conPDO();     
         if(isset($_POST["HospitalID_Select"]) || !isset($_SESSION['HospitalID_Select']))
@@ -108,7 +109,7 @@ if ($Connect->connect_error)
                 </div>
                 <div class="row">
                 <?php } ?>
-                <div class="column" onclick="myFunction('<?php echo $row12['price']; ?>')">
+                <div class="column" onclick="myFunction(<?php echo $row12['staff_id']; ?>)">
                     <div class="card2">
                         <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                         <div class="side right" align="left">
@@ -155,14 +156,14 @@ if ($Connect->connect_error)
 
 
     <script type="text/javascript">
-        function myFunction() {
+        function myFunction(id) {
             // alert(name+" "+surname+hospital+department+price);
-            $_SESSION[] = ;
-            window.location.href = './page';
+            $_SESSION['staff_id'] = id;
+          
+            window.location = "http://www.htmlcodes.ws/";
         }
     </script>
 
-    
     <!--- 
    <script type="text/javascript">
             function refreshPage () {
@@ -179,6 +180,10 @@ if ($Connect->connect_error)
     </script> 
     --->
 
+    <a href="booking_2.php">next_step</a>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>#popup_department" method="POST">
+    <input type="submit" class="btn btn-primary btn-user" value="<?php echo $row12['staff_id']; ?>" />
+    </form>
 
 
 </body>

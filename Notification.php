@@ -11,6 +11,7 @@ if ($Connect->connect_error)
 {
 	die("Connection failed: ". $Connect->connect_error);
 }
+$partient_id=1;
 ?>
 <html>
 <head>
@@ -64,7 +65,7 @@ if ($Connect->connect_error)
 
             <?php
             $i = 0;
-            $mysql_qry1 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN schedule b ON s.staff_id = b.staff_id AND b.patient_id=1";
+            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=1 JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
             while ($row12 =  $result1->fetch_assoc()) {
                 if ($i % 2 == 0 && $i != 0) {
@@ -72,7 +73,7 @@ if ($Connect->connect_error)
               
                 <div class="row">
                 <?php } ?>
-                <div class="column" onclick="myFunction('<?php echo $row12['price']; ?>')">
+                <div class="column" href="booking#<?php $row12['staff_id']?>">
                     <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
@@ -83,7 +84,7 @@ if ($Connect->connect_error)
 								   <?php echo date('d/m/Y',strtotime($row12['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
               </p><p style="margin-top: -40px;">
 								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
-                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('h:i a',strtotime($row12['bookingdate'])); ?>. </font>
+                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($row12['bookingdate'])); ?>. </font>
                             </p>
                         </div>
                     </div>

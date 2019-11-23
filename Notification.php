@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "projectdead";
+
+$Connect = new mysqli($servername, $username, $password, $dbname);
+mysqli_set_charset($Connect,"utf8");
+if ($Connect->connect_error)
+{
+	die("Connection failed: ". $Connect->connect_error);
+}
+?>
 <html>
 <head>
     <title>Notification</title>
@@ -26,7 +40,7 @@
 
 </head>
 <body>
-    <?php require "condb.php"; ?>
+
     <div id="main">
     <ul>
         <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
@@ -41,7 +55,7 @@
 <h1 style="position: relative; width: 15%; color: white; background-color: #47B6C7; padding: 15px; font-size: 50;
 		text-align: center;margin-top: -50px;">Notification</h1>
 
-		   <div class="notimenu" style="margin-top: -10px;">
+		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">
 				 Booking
 	</div>
 	 
@@ -59,29 +73,17 @@
                 <div class="row">
                 <?php } ?>
                 <div class="column" onclick="myFunction('<?php echo $row12['price']; ?>')">
-                    <div class="card" style="background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">
-                        <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 30px; margin-left: 15px;" class="img2">
+                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">
+                        <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
-                                <font size='6' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
-                                <font size='5' color="#a4a4a4">
-                                    &nbsp; At <?php echo $row12['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;    <?php echo $row12['bookingdate']; ?></font><br>
-                                &nbsp;&nbsp;
-                                <?php
-                                    for ($j = 0; $j < 5; $j++) {
-                                        $star = $row12['star'];
-                                        if ($j < $star) 
-                                            {
-                                                echo "<span class='fa fa-star checked'></span>";
-                                            } 
-                                            else 
-                                            {     
-                                                echo "<span class='fa fa-star'></span>";
-                                            }
-                                    }
-                                    ?><br>
-                                <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
-                                <img src="./img/coin.png" style="width:20px; float: right;" align="top">
+                                <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font></div>
+                               <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
+                                &nbsp; At <?php echo $row12['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
+								   <?php echo date('d/m/Y',strtotime($row12['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
+              </p><p style="margin-top: -40px;">
+								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
+                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('h:i a',strtotime($row12['bookingdate'])); ?>. </font>
                             </p>
                         </div>
                     </div>
@@ -90,7 +92,7 @@
 
 				  
 				  
-			 <div class="notimenu">
+			 <div class="notimenu" style="font-size: 30px">
 			 Medicine
 			 </div>
 			 		
@@ -103,7 +105,7 @@
             <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
             <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
             <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
-            <div class="sidein"><a href="test.php"><img src="img/noti.png" height="30"></a></div>
+            <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
         </div>
 			 
 	<script>

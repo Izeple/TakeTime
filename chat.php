@@ -1,22 +1,36 @@
 <head>
     <script type="text/javascript">
-        function image(img) {
+        function consult() {
             window.open('selectdoc.php', "_self");
+        }
+
+        function myFunction(staffid) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("Standard").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "selectchat.php?staffid=" + staffid, true);
+            xhttp.send();
         }
     </script>
     <style>
         .bar {
-            
-            padding-top: 4px; 
+
+            padding-top: 4px;
             width: 100%;
             height: 6%;
             background-color: #47b6c7;
         }
-      .barback{
-            width:100%;
-            height: 7.1%;
+
+        .barback {
+            width: 100%;
+            height: 7%;
             background-color: #0f5a66;
         }
+
         .barchat {
             margin-top: 5px;
             width: 100%;
@@ -47,7 +61,7 @@
         .card1 {
             margin-left: 10px;
             width: 755px;
-            height: 308px;
+            height: 292px;
             overflow: auto;
             margin-top: 5px;
             border-radius: 10px;
@@ -94,7 +108,7 @@
         }
     </style>
 </head>
-
+<?php require "condb.php"; ?>
 <body style="margin :0px;">
     <header>
         <img type="image" src="./img/header1.jpg" style="width:100%; height: 225px;">
@@ -104,18 +118,21 @@
     </div>
     <div class="row">
         <div class="column">
-            <div class="card">
+                <?php
+                $i = 0;
+                $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
+                $result1 = mysqli_query($Connect, $mysql_qry1);
+                while ($row12 =  $result1->fetch_assoc()) {
+                ?>
                 <br>
+                <div class="card" onclick="myFunction(<?php echo $row12['staff_id']; ?>)">
                 <img src="./img/picdoc.png" alt="Avatar" style="width:68px; float: left;">
                 <br>
-                &nbsp;&nbsp; &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB">Dr.Sudlao Hangpatapea</font>
-            </div>
-            <div class="card">
-                <br>
-                <img src="./img/picdoc.png" alt="Avatar" style="width:68px; float: left;">
-                <br>
-                &nbsp;&nbsp; &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB">Dr.Jin Hong</font>
-            </div>
+                &nbsp;&nbsp; &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB">Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font>
+                </div>
+                <?php
+                }
+                ?>
         </div>
         <div class="column">
             <div class="barchat">
@@ -123,8 +140,7 @@
                 &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Dr.Jin Hong</font>
                 <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
             </div>
-            <div class="card1">
-
+            <div class="card1" id="Standard">
                 <div>
                     <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
                     <div style="width:400px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
@@ -156,15 +172,36 @@
                 <br><br>
                 <br><br>
                 <br><br>
-                <form action="chat.php" method="POST">
-
+                <div>
+                    <img src="./img/picdoc.png" style="width:75px; margin-top: 15px; float: left; margin-right: 8px;">
+                    <div style="width:400px; margin-top: 6px; float: left; margin-right: 10px;  margin-top: 15px; background-color: #ffffff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
+                        <font size='3' color="#6e6e6e" face="[supermarket]">
+                            <br>
+                            หมอแนะนำให้คนไข้เขียนไดอารี่บันทึกอาการและมาพูดคุยกับ
+                            หมออาทิตย์ละหนึ่งวันนะครับ เพื่อติดตามอาการถ้าเป็น
+                            ไปได้ อาการของคนไข้ก้ำกึ่งระหว่างคนเมายา กับจิตวิตกขั้น
+                            รุนแรงแนะนำให้มาพบหมอโดยเร็วนะครับ
+                        </font>
+                    </div>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br>
+                </div>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
             </div>
-            <input type="submit" class="buttonconfirm" value="Tap to chat">
+            <form action="chat.php" method="POST">
+                <input type="submit" class="buttonconfirm" value="Tap to chat">
         </div>
     </div>
     <div class="barback">
-    <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px;">
-    <img src="./img/consult.jpg" style="width:100px; padding-top: 4px; padding-right: 5px; float: right;">
+        <img src="./img/consult.jpg" style="width:100px; padding-top: 4px; padding-right: 5px; float: right;" onclick="consult()">
     </div>
 </body>
 

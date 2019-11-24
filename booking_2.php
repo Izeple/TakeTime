@@ -68,7 +68,7 @@
         <div class='datepicker' style="margin-left:20px;">
             <div class="datepicker-header"></div>
         </div>
-        <div style="margin-left:50%; background-color:#cacaca; width:18%;  padding: 35px;">
+        <div style="margin-left:50%; margin-top:-380px; background-color:#cacaca; width:18%;  padding: 35px;">
             <font size="4px">
                 Select Time <br>
                 <form id="formid" action="booking_3.php" method="POST">

@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +8,7 @@
     <script type="text/javascript" src="./script/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
+    <?php //require "signup.php"; ?>
     <?php
     
     if(isset($_SESSION["email"]))
@@ -19,7 +18,6 @@
         $pdo = conPDO();
         $sql = "SELECT * FROM patient WHERE email = '".$email."'";
         $result_User = PDOfetchAll($sql)[0];
-        $_SESSION["userid"] = $result_User["patient_id"];
     }
     ?>
     <title>Homepage</title>
@@ -103,20 +101,26 @@
             <div class="log-content">
               <span class="close" onclick="document.getElementById('signpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
-              <div class="sep" style="width:46%; display:inline-block;">Name</div>
-              <div class="sep" style="width:46%; display:inline-block;" >Surname</div>
-              <div class="sep"style="width:46%; display:inline-block;"><input type="text" name="name"></div>
-              <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="surname"></div>
-              <div class="sep"> <a>Email</a></div>
-              <div class="sep"><input type="email" name="Email"></div>
-              <div class="sep"><a>Password</a></div>
-              <div class="sep"><input type="password" name="Password" ></div>
-              <div class="sep"> <a>ID Card</a></div>
-              <div class="sep"><input type="text" name="IDcard"></div>
-              <div class="sep"> <a>Telephone</a></div>
-              <div class="sep"><input type="text" name="Tel"></div>
-              <div class="sep" style="width:100%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Accept Terms and Condition</a></div>
-              <div class="sep"><button class="sub">Register</button></div>
+              <form class="user" method="post">
+                <div class="sep" style="width:46%; display:inline-block;">Name</div>
+                <div class="sep" style="width:46%; display:inline-block;" >Surname</div>
+                <div class="sep"style="width:46%; display:inline-block;"><input type="text" name="name"></div>
+                <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="surname"></div>
+                <div class="sep"> <a>Email</a></div>
+                <div class="sep"><input type="email" name="email"></div>
+                <div class="sep"><a>Password</a></div>
+                <div class="sep"><input type="password" name="password" ></div>
+                <div class="sep"><a>address</a></div>
+                <div class="sep"><input type="text" name="address" ></div>
+                <div class="sep"><a>dob</a></div>
+                <div class="sep"><input type="date" name="dob" ></div>
+                <div class="sep"> <a>ID Card</a></div>
+                <div class="sep"><input type="text" name="IDcard"></div>
+                <div class="sep"> <a>Telephone</a></div>
+                <div class="sep"><input type="text" name="Tel"></div>
+                <div class="sep" style="width:100%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Accept Terms and Condition</a></div>
+                <div class="sep"><input type="submit" name="register" class="sub" value="Register" /> </div>
+              </form> 
               <div class="sep" style="margin-top: 1rem; margin-bottom: 1rem;"><div class="line"></div></div>
               <div class="sep"><button class="face">Facebook</button><button class="goog">Google</button></div>
             </div>

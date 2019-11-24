@@ -1,7 +1,7 @@
 <head>
     <title>Homepage</title>
     <script type="text/javascript">
-        function myFunction(staffid,name, surname, hospital, department, price) {
+        function myFunction(staffid, name, surname, hospital, department, price) {
             // alert(name+" "+surname+hospital+department+price);
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
@@ -24,6 +24,194 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="./script/clickNav.js"></script>
     <?php require "condb.php"; ?>
+    <style>
+        input[type=text],
+        select {
+            width: 160px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding: 10px;
+            color: #a4a4a4;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 420px;
+            height: 140px;
+            overflow: auto;
+        }
+
+        .card1 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 250px;
+            height: 300px;
+            overflow: auto;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .img1 {
+            float: right;
+        }
+
+        .img2 {
+            float: left;
+        }
+
+        .fa {
+            font-size: 25px;
+            color: #8c8c8c;
+        }
+
+        .checked {
+            color: #efce4a;
+        }
+
+        .row {
+            display: flex;
+            margin-left: 25%;
+            margin-right: auto;
+        }
+
+        .column {
+            padding: 10px;
+        }
+
+        .row1 {
+            display: flex;
+        }
+
+        .column1 {
+            margin: auto;
+        }
+
+        .modal {
+            Position: relative;
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 10px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+
+        }
+
+        /* Modal Content */
+        .modal-content {
+            Position: relative;
+            background-color: #fefefe;
+            width: 61%;
+            height: 94.5%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #888;
+            border-radius: 10px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: none;
+            border: 1px solid #d3cccc;
+            font-size: 16px;
+        }
+
+        input[type="number"] {
+            text-align: center;
+            border-style: solid;
+            border-color: #d3d3d3;
+        }
+
+        .buttoncancel {
+            background-color: #e1e1e1;
+            border: none;
+            color: #475254;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Agency FB;
+            border-radius: 5px;
+        }
+
+        .buttonconfirm {
+            background-color: #47b6c7;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Agency FB;
+            border-radius: 5px;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .bar {
+            width: 13%;
+            height: 7%;
+            background-color: #47b6c7;
+            position:absolute;
+            padding-top:12px;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,31 +223,33 @@
             <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
         </ul>
 
-        <section><img src="./img/Banner.png" style="width:100%">
-        <div class="ab" align="center">
-            <div id="sidenav" class="sidenav">
+        <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
+            <div class="bar">
+            <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;">  Consult Doctor</font>
+            </div>
+                <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
                     <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
                     <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
-            </div>
-        </div>
+                </div>
+            
         </section>
-    </div>    
+    </div>
     <br>
-
+    <br>
     <div id="myModal" class="modal">
         <form action="insertchat.php" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>
-                &nbsp;&nbsp;&nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB"><U>Describe Symptom</U></font>
+                    &nbsp;&nbsp;&nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB" style="padding-left:35px;"><U>Describe Symptom</U></font>
                 </p>
                 <div class="row1">
-                    <div class="column1">
-                        <textarea rows="9" cols="70" name="describe"></textarea><br><br>
+                    <div class="column1" style="padding-left:35px;">
+                        <textarea rows="8" cols="75" name="describe"></textarea><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
-                            <input type="number" name="long" style="width:50px; height: 38px;" min="1" ></font>
+                            <input type="number" name="long" style="width:50px; height: 38px;" min="1"></font>
                         <select style="width:110px;" name="unitlong">
                             <option value="Minute">Minute</option>
                             <option value="Hour">Hour</option>
@@ -71,7 +261,7 @@
                         &nbsp; <input type="text" name="often"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="./img/upimg.png" style="width:80px;"><br>
+                            <img src="./img/upimg.png" style="width:75px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>
@@ -94,12 +284,12 @@
                     <div class="column1">
                         <font size='6' color="#47b6c7" face="Agency FB"> <U> Payment Card</U></font><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Card Number</font>
-                         <input type="text" style="width:120px;"  name="CardNumber1">
-                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber2">
-                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber3">
-                        &nbsp;<input type="text" style="width:120px;"  name="CardNumber4"><br>
+                        <input type="text" style="width:120px;" name="CardNumber1">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber2">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber3">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber4"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
-                        &nbsp; <select style="width:110px;"  name="MonthExpired">
+                        &nbsp; <select style="width:110px;" name="MonthExpired">
                             <option value="">Month</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -115,8 +305,8 @@
                             <option value="12">12</option>
                         </select>
                         &nbsp;
-                        <select  name="YearExpired">
-                            <option value="0" >Year</option>
+                        <select name="YearExpired">
+                            <option value="0">Year</option>
                             <?php
                             for ($i = 2019; $i <= 2043; $i++) {
                                 ?>
@@ -126,7 +316,7 @@
                             ?>
                         </select><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp;
-                         <input type="text" style="width:100px;" name="CVV"><br>
+                        <input type="text" style="width:95px;" name="CVV"><br>
 
                     </div>
                     <div class="column1">

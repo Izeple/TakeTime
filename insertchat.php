@@ -49,24 +49,29 @@ if (
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
+    $sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`, `star`, `answer`)  
+	VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','-','0','')";
+    if ($Connect->query($sql) === TRUE) {
+        // header("location: car.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $Connect->error;
+    }
 } else {
     $newname = rand(0, 9999);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
-        // echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+        $sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`, `star`, `answer`)  
+        VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','$namefile','0','')";
+        if ($Connect->query($sql) === TRUE) {
+            // header("location: car.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . $Connect->error;
+        }
     } else {
         // echo "Sorry, there was an error uploading your file.";
     }
     $namefile = $newname . "." . $imageFileType;
 }
-$sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`, `star`, `answer`)  
-	VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','$namefile','0','')";
-if ($Connect->query($sql) === TRUE) {
-    // header("location: car.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $Connect->error;
-}
+
 ?>
 <html>
 
@@ -124,7 +129,7 @@ if ($Connect->query($sql) === TRUE) {
             text-decoration: none;
             cursor: pointer;
         }
-        
+
         .buttonconfirm {
             background-color: #47b6c7;
             border: none;
@@ -154,8 +159,9 @@ if ($Connect->query($sql) === TRUE) {
         <div class="modal-content">
             <span class="close">&times;</span>
             <form action="chat.php" method="POST">
-            <p>    &nbsp;&nbsp;&nbsp;<font size='6' color="#a4a4a4" face="Agency FB"> Success Financial Transactions.</font></p>
-            &nbsp;&nbsp;&nbsp;<input type="submit" class="buttonconfirm" value="OK" >
+                <p> &nbsp;&nbsp;&nbsp;<font size='6' color="#a4a4a4" face="Agency FB"> Success Financial Transactions.</font>
+                </p>
+                &nbsp;&nbsp;&nbsp;<input type="submit" class="buttonconfirm" value="OK">
         </div>
     </div>
 

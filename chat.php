@@ -16,6 +16,7 @@
             xhttp.send();
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .bar {
 
@@ -106,9 +107,11 @@
             border-radius: 5px;
             border-style: solid;
         }
+        
     </style>
 </head>
 <?php require "condb.php"; ?>
+
 <body style="margin :0px;">
     <header>
         <img type="image" src="./img/header1.jpg" style="width:100%; height: 225px;">
@@ -118,20 +121,20 @@
     </div>
     <div class="row">
         <div class="column">
-                <?php
-                $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
-                $result1 = mysqli_query($Connect, $mysql_qry1);
-                while ($row12 =  $result1->fetch_assoc()) {
+            <?php
+            $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
+            $result1 = mysqli_query($Connect, $mysql_qry1);
+            while ($row12 =  $result1->fetch_assoc()) {
                 ?>
                 <br>
                 <div class="card" onclick="myFunction(<?php echo $row12['staff_id']; ?>)">
-                <img src="./img/picdoc.png" alt="Avatar" style="width:68px; float: left;">
-                <br>
-                &nbsp;&nbsp; &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB">Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font>
+                    <img src="./img/picdoc.png" alt="Avatar" style="width:68px; float: left;">
+                    <br>
+                    &nbsp;&nbsp; &nbsp;&nbsp;<font size='6' color="#47b6c7" face="Agency FB">Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font>
                 </div>
-                <?php
-                }
-                ?>
+            <?php
+            }
+            ?>
         </div>
         <div class="column">
             <div class="barchat">
@@ -140,56 +143,60 @@
                 <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
             </div>
             <div id="Standard">
-            <div class="card1">
-                <div>
-                    <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
-                    <div style="width:400px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
-                        <font size='3' color="#6e6e6e" face="[supermarket]">
-                            <br>
-                            รู้สึกช่วงนี้กินไม่ได้นอนไม่หลับ หงุดหงิดง่าย ปวดหัวแบบ
-                            บีบๆ บางทีเห็นภาพหลอน แล้วก็รู้สึกเหมือนมีคนกระซิบข้างหู
-                            ตลอดเวลา อาการแบบนี้เป็นโรคซึมเศร้ารึเปล่าคะ หรือควร
-                            จะทำยังไงดี
-                            <br>
-                            <br>
-                            How long? : 3 weeks
-                            <br>
-                            How often? :
-                            <br>
+                <div class="card1">
+                    <div>
+                        <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
+                        <div style="width:350px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
+                            <font size='3' color="#6e6e6e" face="[supermarket]">
+                                <br>
+                                รู้สึกช่วงนี้กินไม่ได้นอนไม่หลับ หงุดหงิดง่าย ปวดหัวแบบ
+                                บีบๆ บางทีเห็นภาพหลอน แล้วก็รู้สึกเหมือนมีคนกระซิบข้างหู
+                                ตลอดเวลา อาการแบบนี้เป็นโรคซึมเศร้ารึเปล่าคะ หรือควร
+                                จะทำยังไงดี
+                                <br>
+                                <br>
+                                How long? : 3 weeks
+                                <br>
+                                How often? :
+                                <br>
 
-                        </font>
+                            </font>
+                        </div>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br>
+                        <img src="./img/card.png" style="width:150px; margin-top: 15px; float: right; margin-right: 90px;">
                     </div>
                     <br><br>
                     <br><br>
                     <br><br>
                     <br><br>
                     <br><br>
-                    <br>
-                    <img src="./img/card.png" style="width:150px; margin-top: 15px; float: right; margin-right: 90px;">
-                </div>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <div>
-                    <img src="./img/picdoc.png" style="width:75px; margin-top: 15px; float: left; margin-right: 8px;">
-                    <div style="width:400px; margin-top: 6px; float: left; margin-right: 10px;  margin-top: 15px; background-color: #ffffff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
-                        <font size='3' color="#6e6e6e" face="[supermarket]">
-                            <br>
-                            หมอแนะนำให้คนไข้เขียนไดอารี่บันทึกอาการและมาพูดคุยกับ
-                            หมออาทิตย์ละหนึ่งวันนะครับ เพื่อติดตามอาการถ้าเป็น
-                            ไปได้ อาการของคนไข้ก้ำกึ่งระหว่างคนเมายา กับจิตวิตกขั้น
-                            รุนแรงแนะนำให้มาพบหมอโดยเร็วนะครับ
-                        </font>
+                    <div>
+                        <img src="./img/picdoc.png" style="width:75px; margin-top: 15px; float: left; margin-right: 8px;">
+                        <div style="width:350px; margin-top: 6px; float: left; margin-right: 10px;  margin-top: 15px; background-color: #ffffff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
+                            <font size='3' color="#6e6e6e" face="[supermarket]">
+                                <br>
+                                หมอแนะนำให้คนไข้เขียนไดอารี่บันทึกอาการและมาพูดคุยกับ
+                                หมออาทิตย์ละหนึ่งวันนะครับ เพื่อติดตามอาการถ้าเป็น
+                                ไปได้ อาการของคนไข้ก้ำกึ่งระหว่างคนเมายา กับจิตวิตกขั้น
+                                รุนแรงแนะนำให้มาพบหมอโดยเร็วนะครับ
+                            </font>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br>
                     </div>
-                    <br><br>
-                    <br><br>
-                    <br><br>
-                    <br><br>
-                    <br><br>
-                    <br>
-                </div>
                 </div>
             </div>
             <form action="chat.php" method="POST">

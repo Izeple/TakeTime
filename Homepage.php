@@ -24,7 +24,6 @@
 </head>
 <body>
 
-
     <div id="main">
         <ul>
             <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>

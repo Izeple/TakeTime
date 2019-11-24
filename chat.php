@@ -15,12 +15,26 @@
             xhttp.open("GET", "selectchat.php?staffid=" + staffid, true);
             xhttp.send();
         }
+
+        function star1() {
+
+            var icon = document.getElementById("star1");
+            alert(".......");
+            if (icon.classList.contains("fa-star-o")) {
+                icon.classList.remove("fa-star-o");
+                icon.classList.add("fa-star");
+            } else {
+                icon.classList.remove("fa-star");
+                icon.classList.add("fa-star-o");
+            }
+        }
     </script>
 
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="./js/clickNav.js"></script> 
+
     <style>
         .bar {
             padding-top: 4px;
@@ -34,6 +48,11 @@
             height: 7%;
             background-color: #0f5a66;
         }
+
+        .checked {
+            color: #efce4a;
+        }
+
 
         .barchat {
             margin-top: 5px;
@@ -204,8 +223,8 @@
                                 ไปได้ อาการของคนไข้ก้ำกึ่งระหว่างคนเมายา กับจิตวิตกขั้น
                                 รุนแรงแนะนำให้มาพบหมอโดยเร็วนะครับ
                             </font><br>
-                            <span class="fa fa-star checked" style=" float: right;"></span>
-                            <span class="fa fa-star" style=" float: right;"></span>
+                            <span id="star1" class="fa fa-star checked" style=" float: right;" onclick="star1()"></span>
+                            
                         </div>
                         <br><br>
                         <br><br>

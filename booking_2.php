@@ -55,16 +55,19 @@
     ?>
 
 
-    <div style="margin-left:250px;  width:80%; background-color:#d3d3d3;">
-        <div style="margin-left:1100px; background-color:#cacaca; width:15%;  padding: 35px;">
+    <div style="margin-left:250px;  width:70%; background-color:#d3d3d3;">
+        <div style="margin-left:80%; background-color:#cacaca; width:18%;  padding: 35px;">
             <font size="6px">
                 Select Time <br>
-                <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 AM <br>
-                <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 AM <br>
-                <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 AM <br>
-                <input type="radio" name="times" value="09:30:00"> 11:30 - 12:00 <br>
-                <input type="radio" name="times" value="09:30:00"> 12:30 - 13:00 <br>
-                <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 AM <br>
+                <form id="formid" action="booking_3.php" method="POST">
+                    <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 AM <br>
+                    <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 AM <br>
+                    <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 AM <br>
+                    <input type="radio" name="times" value="09:30:00"> 11:30 - 12:00 <br>
+                    <input type="radio" name="times" value="09:30:00"> 12:30 - 13:00 <br>
+                    <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 AM <br>
+                    <input type='submit' value='Select' name='submit'>
+                </from>
             </font>
         </div>
     </div>

@@ -45,6 +45,8 @@
         </section>
     </div>    
 
+    <h1 class="HeadModule">Booking Doctor</h1>
+
     <?php 
         if(!isset($_POST['myform'])){
             $id = $_POST['id'];

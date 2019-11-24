@@ -46,11 +46,9 @@
     </div>    
 
     
-    <h1 style="position: relative; width: 15%; color: white; background-color: #47B6C7; padding: 15px; font-size: 50;
-        text-align: center;margin-top: -50px;">Booking Doctor</h1>
+    <h1 class="HeadModule">Booking Doctor</h1>
     <div style="text-align:center; margin-top: -50px;">    
         <?php 
-        session_start();
         echo $_SESSION['staff_id'];
         require_once("connectPDO.php");
         $pdo = conPDO();     

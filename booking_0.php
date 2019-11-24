@@ -43,32 +43,57 @@
         </div>
         </section>
     </div>  
+
     
-
-
+    <h1 class="HeadModule">Booking Doctor</h1>
+    <h2 class="HeadModule-h2-1">Booking</h2>
+    <h2 class="HeadModule-h2-2">Complete</h2>
 
     <?php //'".$result_User['patient_id']."'
         $sql = "SELECT * FROM schedule WHERE patient_id = 1";
         $result_Schedule = PDOfetchAll($sql);
         if(!$result_Schedule)
         {
-            echo "<center>";
-            echo "<img src='./img/add.jpg' style='width:100px;'><br>";
-            echo "</center>";
+            
         }
         else
         {
             foreach ($result_Schedule as $row) {?>
-            <?php echo $row['bookingdate'];?><br>
-            <?php echo $row['staff_id'];?><br>
-            <?php echo $row['detail'];?><br>
-            <?php echo $row['status'];?><br>      
-        
+
+            <?php if($row['status']=="Complete") { ?>
+            <div id="complete" class="card"  style="margin-top:60px; margin-left:100px;">
+                <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                
+                Dr. <?php  
+                $sql = "SELECT * FROM staff WHERE staff_id = '".$row['staff_id']."'";
+                $result_doctor = PDOfetchAll($sql)[0];
+                echo $result_doctor['name'],$result_doctor['surname'];?><br>
+
+
+                <?php $dates = explode(' ', $row['bookingdate']); ?>
+                Date <?php echo $dates[0];?><br>
+                Time <?php echo $dates[1];?><br>
+
+                Hospital <?php  
+                $sql = "SELECT * FROM hospital WHERE hospital_id = '".$result_doctor['hospital_id']."'";
+                $result_Hospital = PDOfetchAll($sql)[0];
+                echo $result_Hospital['hospital_name']?><br>
+
+                <br>    
+            </div>  
         <?php
+                }
             }
         }
+        $_SESSION['staff_id'] = $result_doctor['staff_id'];
     ?>
-    
+
+    <center>
+        <a href="booking_1.php" ><img src='./img/add.jpg' style='width:100px;'><br></a>
+    </center>
+
+
+    <br><br><br><br><br><br><br><br><br><br>      
 
 
 

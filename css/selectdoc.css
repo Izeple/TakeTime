@@ -187,3 +187,45 @@
             top: 0;
             opacity: 0;
         }
+
+
+        .HeadModule {
+            position: relative;
+            width: 15%;
+            color: white;
+            background-color: #47B6C7;
+            padding: 15px;
+            font-size: 50;
+            text-align: center;
+            margin-top: -50px;
+        }
+
+        .HeadModule-h2-1 {
+            position: relative;
+            width: 10%;
+            color: white; 
+            background-color: #47B6C7; 
+            padding: 10px; 
+            font-size: 30;
+            text-align:center; 
+            margin-top:-110px; 
+            margin-left:400px;
+        }
+
+        .HeadModule-h2-2 {
+            position: relative; 
+            width: 10%; 
+            color: white; 
+            background-color: #47B6C7; 
+            padding: 10px; 
+            font-size: 30;
+            text-align:center; 
+            margin-top:-80px; 
+            margin-left:650px;
+        }
+
+
+        
+
+
+             

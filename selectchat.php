@@ -5,7 +5,7 @@ $mysql_qry1 = "SELECT * FROM `consult` WHERE `staff_id`= '" . $staffid . "' AND 
 $result1 = mysqli_query($Connect, $mysql_qry1);
 while ($row12 =  $result1->fetch_assoc()) {
 $img = $row12['img'];
-echo "<div class='card1' id='Standard'>
+echo "<div >
                 <div>
                     <img src='./img/man.png' style='width:75px; margin-top: 15px; float: right; margin-right: 8px;'>
                     <div style='width:350px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;'>

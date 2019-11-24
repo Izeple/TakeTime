@@ -16,10 +16,13 @@
             xhttp.send();
         }
     </script>
+
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="./script/clickNav.js"></script> 
     <style>
         .bar {
-
             padding-top: 4px;
             width: 100%;
             height: 6%;
@@ -49,7 +52,7 @@
         }
 
         .card {
-            margin-left: 185px;
+            margin-left: 170px;
             box-shadow: 0.3px 0.3px 0.3px 0.3px rgba(0, 0, 0, 0.2);
             transition: 0.3s;
             width: 375px;
@@ -82,8 +85,8 @@
             color: #e79d94;
             float: right;
             font-size: 15px;
-            width: 18px;
-            height: 18px;
+            width: 2%;
+            height: 25%;
             font-weight: bold;
             margin-right: 15px;
             border-radius: 60px;
@@ -93,9 +96,9 @@
         }
 
         .buttonconfirm {
-            width: 700px;
+            width: 100%;
             background-color: #ffffff;
-            color: #a8a8a8;
+            color: #acacac;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -105,21 +108,37 @@
             cursor: pointer;
             font-family: Agency FB;
             border-radius: 5px;
+            border-color: #c6c6c6;
             border-style: solid;
         }
-        
     </style>
+
 </head>
 <?php require "condb.php"; ?>
 
 <body style="margin :0px;">
-    <header>
-        <img type="image" src="./img/header1.jpg" style="width:100%; height: 225px;">
-    </header>
+    <div id="main">
+        <ul>
+            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+            <li><a href="#news"><img src="./img/nametag.png" height="15"></a></li>
+            <li style="float:right"><button class="btn" id="btn">Sign up</button></li>
+            <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
+        </ul>
+
+        <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
+            <div id="sidenav" class="sidenav">
+                <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
+                <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+                <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
+                <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
+            </div>
+
+        </section>
+    </div>
     <div class="bar">
         &nbsp;&nbsp; &nbsp;<font size='6' color="#ffffff" face="Agency FB">Consult Doctor</font>
     </div>
-    <div class="row">
+    <div class="row" style="margin :0px;">
         <div class="column">
             <?php
             $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
@@ -142,8 +161,8 @@
                 &nbsp;&nbsp;<font size='6' color="#ffffff" face="Agency FB">Dr.Jin Hong</font>
                 <span class="close">&nbsp;<font face="Myriad Pro">X</font></span>
             </div>
-            <div id="Standard">
-                <div class="card1">
+            <div class="card1" id="Standard">
+                <div>
                     <div>
                         <img src="./img/man.png" style="width:75px; margin-top: 15px; float: right; margin-right: 8px;">
                         <div style="width:350px; margin-top: 6px; float: right; margin-right: 10px;  margin-top: 15px; background-color: #dffbff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;">
@@ -184,12 +203,10 @@
                                 หมออาทิตย์ละหนึ่งวันนะครับ เพื่อติดตามอาการถ้าเป็น
                                 ไปได้ อาการของคนไข้ก้ำกึ่งระหว่างคนเมายา กับจิตวิตกขั้น
                                 รุนแรงแนะนำให้มาพบหมอโดยเร็วนะครับ
-                            </font>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
+                            </font><br>
+                            <span class="fa fa-star checked" style=" float: right;"></span>
+                            <span class="fa fa-star" style=" float: right;"></span>
                         </div>
-
                         <br><br>
                         <br><br>
                         <br><br>

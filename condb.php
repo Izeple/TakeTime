@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "123456789";
-$dbname = "softeng";
+$password = "";
+$dbname = "projectdead";
 $Connect = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($Connect,"utf8");
 if ($Connect->connect_error)

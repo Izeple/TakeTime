@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
-    <script type="text/javascript" src="./script/clickNav.js"></script>
+    <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
     <?php

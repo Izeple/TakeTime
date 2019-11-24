@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
-    <script type="text/javascript" src="./script/clickNav.js"></script>
+    <script type="text/javascript" src="./js/clickNav.js"></script>
 
 </head>
 <body>

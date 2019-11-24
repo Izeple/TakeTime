@@ -14,7 +14,6 @@ try {
     //$stmt = $pdo->query('SELECT * FROM patient');
     //$row_count = $stmt->rowCount();
 
-    $patientid = 4;
     $name = $_POST["name"];
     $surname = $_POST["surname"]; 
     $dob = $_POST["dob"]; 
@@ -24,15 +23,15 @@ try {
     $address = $_POST["address"]; 
     $tel = $_POST["Tel"]; 
 
-    $sql = "INSERT INTO patient VALUES ('$patientid','$name','$surname','$dob','$id_card','$tel','$address','$email','$password')";
+    $sql = "INSERT INTO patient VALUES ('','$name','$surname','$dob','$id_card','$tel','$address','$email','$password')";
     
     $result = $conn->prepare($sql);
     $result->execute();
     }
-catch(PDOException $sql)
+catch(PDOException $e)
     {
          echo $sql."<br>".$e->getMessage();
     }
-
 $conn = null;
+header("location:Homepage.php");
 ?>

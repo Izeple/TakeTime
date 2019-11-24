@@ -8,7 +8,6 @@
     <script type="text/javascript" src="./script/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
-    <?php //require "signup.php"; ?>
     <?php
     
     if(isset($_SESSION["email"]))
@@ -113,9 +112,9 @@
             <div class="log-content">
               <span class="close" onclick="document.getElementById('signpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
-              <form class="user" method="post">
+              <form class="user" method="post" action="signup.php">
                 <div class="sep" style="width:46%; display:inline-block;">Name</div>
-                <div class="sep" style="width:46%; display:inline-block;" >Surname</div>
+                <div class="sep" style="width:46%; display:inline-block;">Surname</div>
                 <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="name"></div>
                 <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="surname"></div>
                 <div class="sep"> <a>Email</a></div>

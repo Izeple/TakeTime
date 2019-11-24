@@ -46,8 +46,9 @@
 
     
     <h1 class="HeadModule">Booking Doctor</h1>
-    <h2 class="HeadModule-h2-1">Booking</h2>
-    <h2 class="HeadModule-h2-2">Complete</h2>
+    <h2 onclick="" class="HeadModule-h2-1">Booking</h2>
+    <h2 onclick="" class="HeadModule-h2-2">Complete</h2>
+    
 
     <?php //'".$result_User['patient_id']."'
         $sql = "SELECT * FROM schedule WHERE patient_id = 1";
@@ -61,23 +62,28 @@
             foreach ($result_Schedule as $row) {?>
 
             <?php if($row['status']=="Complete") { ?>
+            <h4 class="HeadModule-h4-1">Booking</h4>     
             <div id="complete" class="card"  style="margin-top:60px; margin-left:100px;">
                 <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                 
-                Dr. <?php  
-                $sql = "SELECT * FROM staff WHERE staff_id = '".$row['staff_id']."'";
-                $result_doctor = PDOfetchAll($sql)[0];
-                echo $result_doctor['name'],$result_doctor['surname'];?><br>
 
+                <font size='5' color="#47b6c7"> 
+                    Dr. <?php  
+                    $sql = "SELECT * FROM staff WHERE staff_id = '".$row['staff_id']."'";
+                    $result_doctor = PDOfetchAll($sql)[0];
+                    echo $result_doctor['name'],$result_doctor['surname'];?><br>
+                </font>
 
-                <?php $dates = explode(' ', $row['bookingdate']); ?>
-                Date <?php echo $dates[0];?><br>
-                Time <?php echo $dates[1];?><br>
+                <font size='3' color="#a4a4a4">
+                    <?php $dates = explode(' ', $row['bookingdate']); ?>
+                    Date <?php echo $dates[0];?><br>
+                    Time <?php echo $dates[1];?><br>
 
-                Hospital <?php  
-                $sql = "SELECT * FROM hospital WHERE hospital_id = '".$result_doctor['hospital_id']."'";
-                $result_Hospital = PDOfetchAll($sql)[0];
-                echo $result_Hospital['hospital_name']?><br>
+                    Hospital <?php  
+                    $sql = "SELECT * FROM hospital WHERE hospital_id = '".$result_doctor['hospital_id']."'";
+                    $result_Hospital = PDOfetchAll($sql)[0];
+                    echo $result_Hospital['hospital_name']?><br>
+                </font>
 
                 <br>    
             </div>  

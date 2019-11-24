@@ -224,6 +224,15 @@
             margin-left:650px;
         }
 
+        .HeadModule-h4-1 {
+            position: relative;
+            width: 5%;
+            color: white; 
+            background-color: #47B6C7; 
+            padding: 8px; 
+            font-size: 5;
+            text-align:center; 
+        }
 
         
 

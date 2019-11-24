@@ -47,6 +47,7 @@ echo"                </div>
                             <br>";
                             echo $row12['answer'];
  echo"                       </font>
+ 
                     </div>";
                 }
 echo"               <br><br>

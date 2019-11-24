@@ -16,7 +16,10 @@
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
-		  <?php require "condb.php"; ?>
+		  <?php
+			session_start();
+			$userid = $_SESSION["userid"];
+			require "condb.php"; ?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
@@ -53,9 +56,7 @@
 
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
             <?php
-			$patient_id	= 1;
-            $i = 0;
-            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$patient_id  JOIN hospital h ON h.hospital_id = st.hospital_id";
+            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid  JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
             while ($doc =  $result1->fetch_assoc()) {
                 if ($doc['count']!=0) {
@@ -79,7 +80,7 @@
                 </div>
 
 	 <?php } ?>
-            <?php   $i++;  
+            <?php    
 			if ($doc['count']==0){
 				?>
 				<div class="column">
@@ -94,14 +95,47 @@
 			}
 		} ?>
 
-				  
-			  
+ 
 			 <div class="notimenu" style="font-size: 30px">
 			 Medicine
 			 </div>
-			 		
-			 Medicine
-		 
+	
+	
+			 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 30px;margin-bottom: 10px;width: 463px;">
+						<div style="margin-top: 10px;margin-bottom: 10px;">
+			            <?php
+			$patient_id	= 1;
+            $i = 0;
+            $mysql_qry1 = "SELECT * FROM `medical`m";
+            $result2 = mysqli_query($Connect, $mysql_qry1);
+           while ($medic =  $result2->fetch_assoc()) {
+                if ($i % 2 == 0 && $i != 0) {
+                    ?>
+		
+        <?php
+            } ?>
+                <div class="column">
+                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 0px; margin-left: 10px;">
+                        <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
+                        <div class="side left" align="left">
+                            <p>
+                                <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Time to take <?php echo $medic['medicine_name']; ?>&nbsp;!</font></div>
+                               <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
+                                &nbsp; <?php echo $medic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
+								   <?php echo date('d/m/Y',strtotime(medic['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
+              </p><p style="margin-top: -40px;">
+								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
+                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($medic['bookingdate'])); ?>. </font>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+	 <?php } ?>
+            <?php   $i++;?>
+		 </div>
+		 </div>
+
 	<script>
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];

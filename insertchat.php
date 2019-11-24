@@ -60,8 +60,8 @@ if ($uploadOk == 0) {
     }
     $namefile = $newname . "." . $imageFileType;
 }
-$sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`)  
-	VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','$namefile')";
+$sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `howlong`, `unitlong`, `often`, `CardNumber`, `CVV`, `MonthExpired`, `YearExpired`, `img`, `star`, `answer`)  
+	VALUES (NULL,'$staffid','1','$describe','$long','$unitlong','$often','$CardNumber','$CVV','$MonthExpired','$YearExpired','$namefile','0','')";
 if ($Connect->query($sql) === TRUE) {
     // header("location: car.php");
 } else {

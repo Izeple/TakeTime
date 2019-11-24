@@ -121,6 +121,7 @@
                 <div class="sep" style="width:100%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Accept Terms and Condition</a></div>
                 <div class="sep"><input type="submit" name="register" class="sub" value="Register" /> </div>
               </form> 
+
               <div class="sep" style="margin-top: 1rem; margin-bottom: 1rem;"><div class="line"></div></div>
               <div class="sep"><button class="face">Facebook</button><button class="goog">Google</button></div>
             </div>

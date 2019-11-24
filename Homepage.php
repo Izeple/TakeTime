@@ -12,11 +12,11 @@
     
     if(isset($_SESSION["email"]))
     {
-        $email = $_SESSION["email"];
         require_once("connectPDO.php");
         $pdo = conPDO();
-        $sql = "SELECT * FROM patient WHERE email = '".$email."'";
+        $sql = "SELECT * FROM patient WHERE email = '".$_SESSION["email"]."'";
         $result_User = PDOfetchAll($sql)[0];
+        $_SESSION["userid"] = $result_User["patient_id"];
     }
     ?>
     <title>Homepage</title>

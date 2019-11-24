@@ -52,7 +52,7 @@
 
     
     <h1 style="position: relative; width: 15%; color: white; background-color: #47B6C7; padding: 15px; font-size: 40;
-        text-align: center;margin-top: -50px;margin-bottom: 40px">Booking Doctor</h1>
+        text-align: center;margin-top: -50px;margin-bottom: 40px">Notification</h1>
 
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
             <?php

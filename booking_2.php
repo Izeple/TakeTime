@@ -34,7 +34,7 @@
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%">
-        <div class="ab" align="center">
+        <div class="ab" align="center"> 
             <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
@@ -55,7 +55,21 @@
     ?>
 
 
+    <div style="margin-left:250px;  width:80%; background-color:#d3d3d3;">
+        <div style="margin-left:1100px; background-color:#cacaca; width:15%;  padding: 35px;">
+            <font size="6px">
+                Select Time <br>
+                <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 AM <br>
+                <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 AM <br>
+                <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 AM <br>
+                <input type="radio" name="times" value="09:30:00"> 11:30 - 12:00 <br>
+                <input type="radio" name="times" value="09:30:00"> 12:30 - 13:00 <br>
+                <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 AM <br>
+            </font>
+        </div>
+    </div>
 
+<?php //if($role!="Admin") echo "disabled" ?> 
 
 </body>
 </html>

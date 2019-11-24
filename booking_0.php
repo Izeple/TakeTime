@@ -46,8 +46,8 @@
 
     
     <h1 class="HeadModule">Booking Doctor</h1>
-    <h2 onclick="" class="HeadModule-h2-1">Booking</h2>
-    <h2 onclick="" class="HeadModule-h2-2">Complete</h2>
+    <h2 onclick="document.getElementById('logpop').style.display='block'" class="HeadModule-h2-1">Booking</h2>
+    <h2 onclick="document.getElementById('logpop').style.display='block'" class="HeadModule-h2-2">Complete</h2>
     
 
     <?php //'".$result_User['patient_id']."'

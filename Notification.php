@@ -18,7 +18,7 @@
         }
 		  <?php
 			session_start();
-			$userid = 5;
+			$userid = $_SESSION["userid"];;
 			require "condb.php"; ?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,20 +100,19 @@
 			 Medicine
 			 </div>
 	
-	
-			 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 30px;margin-bottom: 10px;width: 463px;">
-						<div style="margin-top: 10px;margin-bottom: 10px;">
 			            <?php
 			$patient_id	= 1;
             $i = 0;
-            $mysql_qry1 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id = $userid;";
+            $mysql_qry1 = "SELECT s.bookingdate,hi.times,m.medicine_timetake,m.medicine_timeloop,m.meal_status,s.status,m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
             $result2 = mysqli_query($Connect, $mysql_qry1);
-           while ($medic =  $result2->fetch_assoc()) {
-                if ($i % 2 == 0 && $i != 0) {
-                    ?>
-		
-        <?php
-            } ?>
+			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
+			$countResult = mysqli_query($Connect, $mysql_qryCount1);
+			$count = $countResult->fetch_assoc();
+			$mysql_qry2 = "SELECT * FROM `notification`n JOIN schedule s ON n.patient_id = s.patient_id;";
+			if ($count['count']!=0) {?>
+				 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 30px;margin-bottom: 10px;width: 463px;">
+						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
+				while ($medic =  $result2->fetch_assoc()) { ?>
                 <div class="column">
                     <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 0px; margin-left: 10px;">
                         <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
@@ -130,12 +129,24 @@
                         </div>
                     </div>
                 </div>
-
-	 <?php } ?>
-            <?php   $i++;?>
+	 		<?php } ?> 						
+			</div>
 		 </div>
-		 </div>
+			 <?php } ?>
 
+          <?php   
+						if ($count['count']==0){
+				?>
+				<div class="column">
+                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">    
+     
+						<br><table width="420" height="110"> <tr align="center" valign="middle"> <td>
+						<font size='6'  color="#a4a4a4" >Don't have medicine.</font>
+						</td></tr></table>
+                    </div>
+                </div>
+			 <?php	
+		   }?>
 	<script>
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];

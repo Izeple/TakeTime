@@ -18,8 +18,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
+
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
-    <script type="text/javascript" src="./script/clickNav.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src="js/index.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <title>Booking</title>
 </head>
@@ -56,16 +64,20 @@
 
 
     <div style="margin-left:250px;  width:70%; background-color:#d3d3d3;">
-        <div style="margin-left:80%; background-color:#cacaca; width:18%;  padding: 35px;">
-            <font size="6px">
+
+        <div class='datepicker' style="margin-left:20px;">
+            <div class="datepicker-header"></div>
+        </div>
+        <div style="margin-left:50%; margin-top:-380px; background-color:#cacaca; width:18%;  padding: 35px;">
+            <font size="4px">
                 Select Time <br>
                 <form id="formid" action="booking_3.php" method="POST">
-                    <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 AM <br>
-                    <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 AM <br>
-                    <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 AM <br>
+                    <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 <br>
+                    <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 <br>
+                    <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 <br>
                     <input type="radio" name="times" value="09:30:00"> 11:30 - 12:00 <br>
                     <input type="radio" name="times" value="09:30:00"> 12:30 - 13:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 AM <br>
+                    <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 <br>
                     <input type='submit' value='Select' name='submit'>
                 </from>
             </font>

@@ -18,7 +18,7 @@
         }
 		  <?php
 			session_start();
-			$userid = $_SESSION["userid"];
+			$userid = 5;
 			require "condb.php"; ?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,7 +56,7 @@
 
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
             <?php
-            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MAX(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid  JOIN hospital h ON h.hospital_id = st.hospital_id";
+            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MIN(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid  JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
             while ($doc =  $result1->fetch_assoc()) {
                 if ($doc['count']!=0) {
@@ -106,7 +106,7 @@
 			            <?php
 			$patient_id	= 1;
             $i = 0;
-            $mysql_qry1 = "SELECT * FROM `medical`m";
+            $mysql_qry1 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id = $userid;";
             $result2 = mysqli_query($Connect, $mysql_qry1);
            while ($medic =  $result2->fetch_assoc()) {
                 if ($i % 2 == 0 && $i != 0) {
@@ -122,10 +122,10 @@
                                 <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Time to take <?php echo $medic['medicine_name']; ?>&nbsp;!</font></div>
                                <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
                                 &nbsp; <?php echo $medic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
-								   <?php echo date('d/m/Y',strtotime(medic['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
+								   <?php echo date('H:i a',strtotime($medic['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
               </p><p style="margin-top: -40px;">
 								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
-                                <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($medic['bookingdate'])); ?>. </font>
+         
                             </p>
                         </div>
                     </div>

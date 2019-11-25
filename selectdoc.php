@@ -16,6 +16,14 @@
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
+
+        function backadd() {
+            window.open('adddoc.php', "_self");
+        }
+
+        function backconsult() {
+            window.open('chat.php', "_self");
+        }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome Icon Library -->
@@ -208,8 +216,15 @@
             width: 13%;
             height: 7%;
             background-color: #47b6c7;
-            position:absolute;
-            padding-top:12px;
+            position: absolute;
+            padding-top: 12px;
+        }
+
+        .barback {
+            width: 100%;
+            height: 7%;
+            margin-top: 11px;
+            background-color: #0f5a66;
         }
     </style>
 </head>
@@ -225,15 +240,15 @@
 
         <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
             <div class="bar">
-            <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;">  Consult Doctor</font>
+                <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;"> Consult Doctor</font>
             </div>
-                <div id="sidenav" class="sidenav">
-                    <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
-                    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
-                    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
-                </div>
-            
+            <div id="sidenav" class="sidenav">
+                <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
+                <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+                <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
+                <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
+            </div>
+
         </section>
     </div>
     <br>
@@ -393,6 +408,23 @@
             }
         }
     </script>
+    <?php require "condb.php"; ?>
+    <?php
+    $mysql_qry1 = "SELECT * FROM `consult` WHERE  patient_id ='1'";
+    $result1 = mysqli_query($Connect, $mysql_qry1);
+    $rowcount = mysqli_num_rows($result1);
+    if ($rowcount == 0) {
+        ?><div class="barback">
+            <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px; float: left;" onclick="backadd()">
+        </div>
+    <?php
+    } else {
+      ?>
+        <div class="barback">
+            <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px; float: left;" onclick="backconsult()">
+        </div>
+    <?php } ?>
+
 </body>
 
 </html>

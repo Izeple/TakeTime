@@ -20,11 +20,6 @@ body {
   margin: 50px auto;
   overflow: hidden;
 }
-.datepicker .datepicker-header {
-  height: 250px;
-  background-image: url("https://d13yacurqjgara.cloudfront.net/users/247458/screenshots/2135645/minimalistic_low_poly_style_summer_wallpaper_vector_illustration._small_island_in_the_middle_of_the_ocean_reflecting_in_the_water._tiny_boat_approaching_the_land_on_the_moonlight._flat_design.jpg");
-  background-size: 100%;
-}
 .datepicker .ui-datepicker-inline {
   padding: 30px;
 }

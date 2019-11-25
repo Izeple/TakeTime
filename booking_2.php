@@ -26,7 +26,7 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
     <script src="js/index.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <title>Booking</title>
@@ -58,17 +58,17 @@
     <?php 
         if(!isset($_POST['myform'])){
             $id = $_POST['id'];
-            echo $id;
+            //echo $id;
           }
+        $_SESSION['staff_id'] = $id;
+        $_SESSION["date"] = 2019-11-27;
     ?>
 
 
     <div style="margin-left:250px;  width:70%; background-color:#d3d3d3;">
 
-        <div class='datepicker' style="margin-left:20px;">
-            <div class="datepicker-header"></div>
-        </div>
-        <div style="margin-left:50%; margin-top:-380px; background-color:#cacaca; width:18%;  padding: 35px;">
+        <div class='datepicker' style="margin-left:20px;"></div>
+        <div style="margin-left:50%; margin-top:-480px; background-color:#cacaca; width:25%;  padding: 35px;">
             <font size="4px">
                 Select Time <br>
                 <form id="formid" action="booking_3.php" method="POST">
@@ -83,8 +83,8 @@
             </font>
         </div>
     </div>
-
 <?php //if($role!="Admin") echo "disabled" ?> 
 
 </body>
 </html>
+

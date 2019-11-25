@@ -1,6 +1,6 @@
 <html>
 <head>
-		<script>
+		<script >
 			function pillFunction() {
             // alert(name+" "+surname+hospital+department+price);
             var modal = document.getElementById("myModal");
@@ -8,12 +8,14 @@
             document.getElementById("Name").innerHTML = 'Dr. ' + name + ' ' + surname;
             document.getElementById("staffid").value = staffid;
 			}
-
+			
+			function closeForm() {
+  				document.getElementById("myForm").style.display = "none";
+			}
 	</script>
     <title>Notification</title>
 	    <script type="text/javascript">
 
-        }
 		  <?php
 			session_start();
 			$userid = $_SESSION["userid"];;
@@ -37,12 +39,12 @@
        <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
         </ul>
 
-        <section><img src="./img/Banner.png" style="width:100%">
+        <section><img src="./img/Banner.png" style="width:100%"  >
         <div class="ab" align="center">
             <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+                    <div class="sidein"><a href="noti-test.php"><img src="img/time.png" height="30"></a></div>
                     <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>

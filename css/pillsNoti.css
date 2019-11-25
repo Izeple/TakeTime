@@ -13,13 +13,13 @@
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;	
+  position: fixed;
+  
 }
 
 .dropdown-content {
   display: none;
-  position:absolute;
+  position:fixed;
 }
 
 
@@ -28,7 +28,7 @@
 .show {display:block;}
 
  .modal {
-            Position: relative;
+            Position: fixed;
             display: none;
             /* Hidden by default */
             position: fixed;

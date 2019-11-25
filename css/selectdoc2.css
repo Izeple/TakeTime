@@ -11,28 +11,20 @@
             color: #a4a4a4;
         }
 
-        .card {
+        .ccard {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            width: 420px;
-            height: 140px;
+            width: 650px;
+            height: 300px;
             overflow: auto;
         }
         
 
-        .card1 {
+        .ccard1 {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
             width:  250px;
             height: 290px;
-            overflow: auto;
-        }
-
-        .card2 {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            width: 420px;
-            height: 150px;
             overflow: auto;
         }
 

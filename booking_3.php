@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
+    <link rel="stylesheet" type="text/css" href="./css/selectdoc2.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
     <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
@@ -45,8 +46,7 @@
     </div>  
 
     <h1 class="HeadModule">Booking Doctor</h1>
-    <div class="card3">
-        <div class="card"  style="margin-top:60px; margin-left:100px;">
+    <div class="ccard" style=margin-left:120px;>
         <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
             <font size='5' color="#47b6c7"> 
                 Dr. <?php  
@@ -56,14 +56,17 @@
             </font>
 
             <font size='3' color="#a4a4a4">
+            Department : <?php  
+            $sql = "SELECT * FROM department WHERE department_id = '".$result_doctor['department_id']."'";
+            $result_Department = PDOfetchAll($sql)[0];
+            echo $result_Department['department_name']?><br>
 
-
-            Hospital <?php  
+            Hospital : <?php  
             $sql = "SELECT * FROM hospital WHERE hospital_id = '".$result_doctor['hospital_id']."'";
             $result_Hospital = PDOfetchAll($sql)[0];
             echo $result_Hospital['hospital_name']?><br>
         </font><br>    
-        </div>  
+ 
 
         <font size='5' color="#a4a4a4">
             Date : <?php echo $_SESSION["date"];?><br>
@@ -75,12 +78,15 @@
             
         </form>
 
-        <textarea name="comment" form="usrform">Enter text here...</textarea>
-
-
-        <input type="submit" form="usrform">
+        <div style="margin-left:420px; margin-top:-140px;">
+            Symptom Detail<br>
+            <textarea name="comment" form="usrform"></textarea><br>
+        </div>
     </div>
-
+    <div style="margin-left:650px;">
+        <button value="Cancel">Cancel</button>
+        <input type="submit" form="usrform" value="Comfirm">
+    </div>
 
 
     <br><br><br><br><br>

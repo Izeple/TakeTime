@@ -1,0 +1,20 @@
+.Profile{
+    position:absolute;
+    top:80px;
+    background:white;
+    width:40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 2%;
+}
+.leftpro{
+    width:30%;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.rightpro{
+    width:68%;
+    display: inline-block;
+    vertical-align: text-top;
+
+}

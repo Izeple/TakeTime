@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/profile.css">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
@@ -39,15 +40,17 @@
         </div>
         </section>
     </div>    
-    <center >
-        <div class="card1">
-        <img src="./img/picdoc.jpg" style="width:100px;"><br>
-        <?php echo $result_User['name']; ?> <br>
-        <?php echo $result_User['surname']; ?><br>
-        <?php echo $result_User['email']; ?><br>
-        <?php echo $result_User['tel']; ?><br>
+        <div class="Profile">
+            <div class="leftpro"><img src="./img/picdoc.jpg" style="width:90%;"><br>
         </div>
-    </center>
+        <div class="rightpro">
+           <a> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></a> <br>
+            <br>
+            <?php echo $result_User['email']; ?><br>
+            <?php echo $result_User['tel']; ?><br>
+        </div>
+        
+        </div>
 
 </body>
 </html>

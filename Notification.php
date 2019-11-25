@@ -1,21 +1,21 @@
 <html>
 <head>
-    <title>Notification</title>
-	    <script type="text/javascript">
-        function myFunction(name, surname, hospital, department, price) {
+		<script >
+			function pillFunction() {
             // alert(name+" "+surname+hospital+department+price);
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
             document.getElementById("Name").innerHTML = 'Dr. ' + name + ' ' + surname;
-            document.getElementById("Department").innerHTML = 'Department : ' + department;
-            document.getElementById("Hospital").innerHTML = 'Hepartment : ' + hospital;
-            document.getElementById("price").innerHTML = price + ' Baht';
-        }
+            document.getElementById("staffid").value = staffid;
+			}
+			
+			function closeForm() {
+  				document.getElementById("myForm").style.display = "none";
+			}
+	</script>
+    <title>Notification</title>
+	    <script type="text/javascript">
 
-        function Cancel() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
 		  <?php
 			session_start();
 			$userid = $_SESSION["userid"];;
@@ -24,8 +24,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
+	<link rel="stylesheet" type="text/css" href="./css/pillsNoti.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
-    <script type="text/javascript" src="./script/clickNav.js"></script>
+    <script type="text/javascript" src="./js/clickNav.js"></script>
 
 </head>
 <body>
@@ -38,12 +39,12 @@
        <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
         </ul>
 
-        <section><img src="./img/Banner.png" style="width:100%">
+        <section><img src="./img/Banner.png" style="width:100%"  >
         <div class="ab" align="center">
             <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="booking.php"><img src="img/time.png" height="30"></a></div>
+                    <div class="sidein"><a href="noti-test.php"><img src="img/time.png" height="30"></a></div>
                     <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>
@@ -55,7 +56,7 @@
         text-align: center;margin-top: -50px;margin-bottom: 40px">Notification</h1>
 
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
-            <?php
+            <?php //Show next date meeting doctor.
             $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MIN(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid  JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
             while ($doc =  $result1->fetch_assoc()) {
@@ -80,12 +81,12 @@
                 </div>
 
 	 <?php } ?>
-            <?php    
+            <?php   //If booking is empty. 
 			if ($doc['count']==0){
 				?>
-				<div class="column">
+				<div class="column" >
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">    
-                     <a href="booking.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
+                     <a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
 						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
 						<font size='5'  color="#a4a4a4" >Add Booking</font>
 						</td></tr></table>
@@ -101,40 +102,57 @@
 			 </div>
 	
 			            <?php
-			$patient_id	= 1;
-            $i = 0;
-            $mysql_qry1 = "SELECT s.bookingdate,hi.times,m.medicine_timetake,m.medicine_timeloop,m.meal_status,s.status,m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
-            $result2 = mysqli_query($Connect, $mysql_qry1);
+			//Queue pills info.
+            $mysql_qry2 = "SELECT s.bookingdate,hi.times,m.medicine_id,m.medicine_timetake,m.medicine_timeloop,m.meal_status,s.status,m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
+            $result2 = mysqli_query($Connect, $mysql_qry2);
+			//Count pills in history medicine.
 			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();
-			$mysql_qry2 = "SELECT * FROM `notification`n JOIN schedule s ON n.patient_id = s.patient_id;";
 			if ($count['count']!=0) {?>
-				 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 30px;margin-bottom: 10px;width: 463px;">
+				 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
 				while ($medic =  $result2->fetch_assoc()) { ?>
                 <div class="column">
-                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 0px; margin-left: 10px;">
+                    <div class="card" onclick="pillFunction()" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 0px; margin-left: 10px;">
                         <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
                                 <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Time to take <?php echo $medic['medicine_name']; ?>&nbsp;!</font></div>
                                <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
                                 &nbsp; <?php echo $medic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
-								   <?php echo date('H:i a',strtotime($medic['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
-              </p><p style="margin-top: -40px;">
+								   <?php 
+									//Queue time alart of that pill and show.
+									$medicid = $medic['medicine_id'];
+									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON 	hi.schedule_id = s.schedule_id AND s.patient_id =5 JOIN notification n ON n.medicine_id= $medicid;";
+									$result3 = mysqli_query($Connect, $mysql_qry3);
+									$noti = $result3->fetch_assoc();
+									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?></font></div> &nbsp;&nbsp;
+             			 		</p><p style="margin-top: -40px;">
 								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
-         
+								<?php if($noti['remaining_times']!=NULL && $noti['remaining_times']>0){ ?>
+         						 	<font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo $noti['remaining_times']; ?> times </font><?php } ?>
                             </p>
+									<div id="myModal" class="dropdown-content">
+									<div class="rightContainer" style=" height: 350px;width: 1100px; background-color: #E9E9E9;border-radius: 5px;margin-top: -450px; margin-left: 500px;margin-bottom: 50px; "> 
+							
+							
+									</div>
+							     	<div class="rightContainer" style="height: 350px;width: 1100px; background-color: #E9E9E9;border-radius: 5px; margin-left: 500px;"> 
+							
+							
+									</div>
+  								</div>	
                         </div>
-                    </div>
+		
+                    </div>	
                 </div>
 	 		<?php } ?> 						
 			</div>
 		 </div>
 			 <?php } ?>
 
-          <?php   
+          <?php  //If pills is empty. 
 						if ($count['count']==0){
 				?>
 				<div class="column">
@@ -147,19 +165,8 @@
                 </div>
 			 <?php	
 		   }?>
-	<script>
-        var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-			 
+
+
     <script>
             function clickNav(){
                 console.log(document.getElementById("sidenav").style.width);

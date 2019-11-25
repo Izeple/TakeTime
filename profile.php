@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/profile.css">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
@@ -39,15 +40,31 @@
         </div>
         </section>
     </div>    
-    <center >
-        <div class="card1">
-        <img src="./img/picdoc.jpg" style="width:100px;"><br>
-        <?php echo $result_User['name']; ?> <br>
-        <?php echo $result_User['surname']; ?><br>
-        <?php echo $result_User['email']; ?><br>
-        <?php echo $result_User['tel']; ?><br>
+    <div class="boxe">
+        <div class="hpro">Profile</div>
+        <div class="Profile">
+            <div class="leftpro">
+                <img src="./img/man.png" class="picpro" >
+                <img src="./img/cam.jpg" class="pichov" >
+            </div>
+        <div class="rightpro">
+           <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
+           <div style="height:0.75px; background:grey;"></div>
+           <p class="tl"> Email</p>
+           <p class="tr"> : <?php echo $result_User['email']; ?></p>
+           <p class="tl"> ID Card</p>
+           <p class="tr"> : <?php echo $result_User['id_card']; ?></p>
+           <p class="tl"> Telephone</p>
+           <p class="tr"> : <?php echo $result_User['tel']; ?></p>
+           <p class="tl"> Address</p>
+           <p class="tr"> : <?php echo $result_User['address']; ?></p>
+           <p class="tl"> Date of birth</p>
+           <p class="tr"> : <?php echo $result_User['dob']; ?></p>
+            <img class="edit"style="border-radius:0px 0px 5px 0px; width:10%"src="./img/edit.png">
         </div>
-    </center>
+        
+        </div>
+    </div>
 
 </body>
 </html>

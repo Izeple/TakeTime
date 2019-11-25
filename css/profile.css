@@ -1,13 +1,24 @@
-.Profile{
+.boxe{
     position:absolute;
     top:80px;
-    background:white;
     width:40%;
     margin-left: 30%;
     margin-right: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:5px;
+}
+.Profile{
+    position: relative;
+    background:white;
+
     padding: 2%;
+    width:100%;
+    border-radius: 0px 0px 5px 5px;
+
 }
 .leftpro{
+    position:relative;
+    margin-top:2%;
     width:30%;
     display: inline-block;
     vertical-align: text-top;
@@ -17,4 +28,48 @@
     display: inline-block;
     vertical-align: text-top;
 
+}
+.hpro{
+    font-size:30px;
+    color: white;
+    padding:2% 4% 2% 4%;
+    width:96%;
+    background:#207a85;     
+    border-radius: 5px 5px 0px 0px;
+}
+.edit{
+    position: absolute;
+    bottom:0;
+    right:0;
+    cursor: pointer;
+}
+.tr{
+    width:55%; 
+    display:inline-block; 
+    margin: 10px 10px 10px 10px; 
+    color:#a4a4a4;
+}
+.tl{
+    width:30%; 
+    display:inline-block; 
+    margin: 10px 10px 10px 10px; 
+    color:#a4a4a4;
+}
+.picpro{
+    position:absolute;
+    margin-left:10%;
+    cursor:pointer; 
+    border-radius:70%; 
+    width:70%;
+}
+.pichov:hover{
+    opacity:30%
+}
+.pichov{
+    position:absolute;
+    opacity:0;
+    margin-left:10%;
+    cursor:pointer; 
+    border-radius:70%; 
+    width:70%;
 }

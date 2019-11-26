@@ -1,5 +1,6 @@
 <html>
 <head>
+	<STYLE>A {text-decoration: none;} </STYLE>
     <title>Notification</title>
 	<!-- Login User -->
 	    <script type="text/javascript">
@@ -65,7 +66,7 @@
             
 <!-- Queue next date meeting doctor -->
 			<?php 
-            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MIN(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid  JOIN hospital h ON h.hospital_id = st.hospital_id";
+            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MIN(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'G%' JOIN hospital h ON h.hospital_id = st.hospital_id";
             $result1 = mysqli_query($Connect, $mysql_qry1);
             while ($doc =  $result1->fetch_assoc()) {
                 if ($doc['count']!=0) {
@@ -76,12 +77,12 @@
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
-                                <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;Dr.<?php echo $doc['name']; ?>&nbsp;<?php echo $doc['surname']; ?></font></div>
-                               <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4">
+                                <div style="margin-bottom: 10px;margin-top: -100px;margin-left: 100;"> <font size="6px" color="#47b6c7"> &nbsp;Dr.<?php echo $doc['name']; ?>&nbsp;<?php echo $doc['surname']; ?></font></div>
+                               <div style="margin-bottom: 5px;margin-left: 100;"> <font size='5' color="#a4a4a4">
                                 &nbsp; At <?php echo $doc['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 								   <?php echo date('d/m/Y',strtotime($doc['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
               </p><p style="margin-top: -40px;">
-								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
+								<font size='4' color="#a4a4a4" style="float: left;margin-left: 100;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
                                 <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($doc['bookingdate'])); ?>. </font>
                             </p>
                         </div>
@@ -194,29 +195,29 @@
 							<!--Morning-->
 								<div id="Morn" style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; 		 margin-top: 15;"> 
 									<img src="./img/sunrise (2).png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-									<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Morning"; ?></div>
+									<div style="margin-top: -12;margin-left:40;"><font id="FMorn" size='5'><?php echo "Morning"; ?></font></div>
 								</div>
 							<!--Noon-->
 								<div id="Noon" style="border: 2px solid #D5D5D5;height: 135px; width: 135px; background-color: whitesmoke;border-radius: 5px; margin-left: 		160;margin-top: -138;"> 
 									<img src="./img/sun (1).png" style="width:95px; margin-top: 10px; margin-left: 20px;" >
-									<div style="margin-left:50;"><font size='5' color="#828282"><?php echo "Noon"; ?></div>
+									<div style="margin-left:50;"><font id="FNoon" size='5'><?php echo "Noon"; ?></font></div>
 								</div>
 							<!--Evening-->
 								<div  id="Even"style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 10;"> 
 									<img src="./img/sunset.png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-									<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Evening"; ?></div>
+									<div style="margin-top: -12;margin-left:40;"><font id="FEven" size='5'><?php echo "Evening"; ?></font></div>
 								</div>
 							<!--Night-->
 								<div  id="Night" style="border: 2px solid #D5D5D5;height: 135px; width: 135px; background-color: whitesmoke;border-radius: 5px; 	  margin-left: 160;margin-top: -138;"> 
 									<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
-									<div style="margin-top: 5;margin-left:50;"><font size='5' color="#828282"><?php echo "Night"; ?></div>
+									<div style="margin-top: 5;margin-left:50;"><font id="FNight" size='5'><?php echo "Night"; ?></font></div>
 								</div>
 						</div>
 				</div>
 									<!--Botton-->
 									<div>
 										<div  id="closeNoti" class="closeNoti" href="#close" onclick="closeForm()"> 
-							<div  style="margin-left: 33;margin-top: 7"><font size='6' color="white"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
+							<div  style="margin-left: 33;margin-top: 7"><font size='6' color="#475254"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 										</div>
 											<div  class="confirmNoti" href="#confirm"> 
 							<div style="margin-left: 36;margin-top: 7"><font size='6' color="white"><?php echo "Save"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
@@ -242,11 +243,11 @@
                 <div class="column" >
                     <div class="pills" onclick="openForm('<?php echo $medic['medicine_name']; ?>','<?php echo $medic['times']; ?>','<?php echo $medic['medicine_timetake']; ?>','<?php echo $medic['meal_status']; ?>')">
                         <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
-                        <div class="side left" align="left">
+       
                             <p>
-                         			 <div style="margin-bottom: 10px;margin-top: -5px;"> <font size="6px" color="#47b6c7"> &nbsp;
+                         			 <div style="margin-bottom: 10px;margin-top: -110px;margin-left: 100px;"> <font size="6px" color="#47b6c7"> &nbsp;
 										  Time to take <?php echo $medic['medicine_name']; ?>&nbsp;!</font></div>
-                               		 <div style="margin-bottom: 5px;"> <font size='5' color="#a4a4a4"> &nbsp; 
+                               		 <div style="margin-bottom: 5px;margin-left: 100px;"> <font size='5' color="#a4a4a4"> &nbsp; 
 										  <?php echo $medic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   
 										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 							<!-- Queue time alart of that pill and show -->
@@ -258,13 +259,13 @@
 								</font></div> &nbsp;&nbsp;
              			 	</p>
 							<p style="margin-top: -50px;">
-								<font size='4' color="#a4a4a4" style="float: left;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
+								<font size='4' color="#a4a4a4" style="float: left;margin-left: 100px;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
 								<?php if($noti['remaining_times']!=NULL && $noti['remaining_times']>0){ ?>
          						 	<font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo $noti['remaining_times']; ?> times </font><?php } ?>
                             </p>
                         </div>
                     </div>	
-                </div>
+      
 	 		<?php } ?> 						
 			</div>
 		 </div>
@@ -290,10 +291,10 @@
 		document.getElementById("After").style.backgroundColor = "f5f5f5";
 		document.getElementById("BeforeFont").style.color = "#828282";
 		document.getElementById("AfterFont").style.color = "#828282";
-		document.getElementById("Morn").style.backgroundColor = "f5f5f5";
-		document.getElementById("Even").style.backgroundColor = "f5f5f5";
-		document.getElementById("Noon").style.backgroundColor = "f5f5f5";
-		document.getElementById("Night").style.backgroundColor = "f5f5f5";
+		document.getElementById("Morn").style.backgroundColor = "f5f5f5";document.getElementById("FMorn").style.color = "828282";
+		document.getElementById("Even").style.backgroundColor = "f5f5f5";document.getElementById("FEven").style.color = "#828282";
+		document.getElementById("Noon").style.backgroundColor = "f5f5f5";document.getElementById("FNoon").style.color = "#828282";
+		document.getElementById("Night").style.backgroundColor = "f5f5f5";document.getElementById("FNight").style.color = "#828282";
 		//Set up back
 		
   		document.getElementById("setNoti").style.display = "block";
@@ -309,15 +310,19 @@
 		}
 		if(daytime==1000||daytime==1100||daytime==1110||daytime==1111||daytime==1001||daytime==1011||daytime==1010||daytime==1101){
 			document.getElementById("Morn").style.backgroundColor = "#f57988";
+			document.getElementById("FMorn").style.color = "white";
 		}
 		if(daytime==0100||daytime==1100||daytime==1110||daytime==1111||daytime==0110||daytime==0111||daytime==0101||daytime==1101){
 			document.getElementById("Even").style.backgroundColor = "#f57988";
+			document.getElementById("FEven").style.color = "white";
 		}
 		if(daytime==0010||daytime==1010||daytime==1110||daytime==1111||daytime==0011||daytime==1010||daytime==1011||daytime==0110){
 			document.getElementById("Noon").style.backgroundColor = "#f57988";
+			document.getElementById("FNoon").style.color = "white";
 		}
 		if(daytime==0001||daytime==1001||daytime==1101||daytime==1111||daytime==0101||daytime==0111||daytime==0011||daytime==1011){
 			document.getElementById("Night").style.backgroundColor = "#f57988";
+			document.getElementById("FNight").style.color = "white";
 		}
 	}
 	function closeForm() {

@@ -53,7 +53,7 @@
 
                 <div class="upload-btn-wrapper">
                     <div>
-                    <img src="./img/man.png" class="picpro">
+                        <img src="./img/man.png" class="picpro">
                     </div>
                     <input class="picpro" type="file" name="fileToUpload" />
                 </div>
@@ -75,7 +75,6 @@
             </div>
         </div>
     </div>
-
     <div id="propop" class="login">
         <!-- Modal content -->
         <div class="propop">
@@ -86,7 +85,7 @@
 
                     <div class="upload-btn-wrapper">
                         <div>
-                        <img src="./img/man.png" class="picpro">
+                            <img src="./img/man.png" class="picpro">
                         </div>
                         <input class="picpro" type="file" name="fileToUpload" />
                     </div>

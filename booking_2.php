@@ -58,7 +58,7 @@
     <?php 
         if(!isset($_POST['myform'])){
             $id = $_POST['id'];
-            //echo $id;
+            echo $id;
           }
         $_SESSION['staff_id'] = $id;
         $_SESSION["date"] = "2019-11-27";

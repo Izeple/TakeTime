@@ -74,7 +74,7 @@
     width:70%;
 }
 .propop{
-    width:40%;
+    width:250px;
     margin: auto;
     padding: 0;
     color: #aaaaaa;
@@ -88,4 +88,14 @@
     border:0.5px solid #aaaaaa;
   
   }
-  
+.save{
+    background-color:#47b6c7;
+    border:none;
+    border-radius: 5px;
+}
+
+.cancel{
+    background-color: antiquewhite;
+    border:none;
+    border-radius: 5px;
+}

@@ -81,13 +81,14 @@
                             <p class="tl"> Email</p>
                             <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['email']; ?>"></p>
                             <p class="tl"> ID Card</p>
-                            <p class="tr"> : <?php echo $result_User['id_card']; ?></p>
+                            <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['id_card']; ?>"></p>
                             <p class="tl"> Telephone</p>
-                            <p class="tr"> : <?php echo $result_User['tel']; ?></p>
+                            <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['tel']; ?>"></p>
                             <p class="tl"> Address</p>
-                            <p class="tr"> : <?php echo $result_User['address']; ?></p>
+                            <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['address']; ?>"></p>
                             <p class="tl"> Date of birth</p>
-                            <p class="tr"> : <?php echo $result_User['dob']; ?></p>
+                            <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['dob']; ?>"></p>
+                            <center><button class="save"style="display:inline-block; margin:3px;">Save</button><button class="cancel" style="display:inline-block">Cancel</button></center>
                             </div>
                     </div>
                 </div>

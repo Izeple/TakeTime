@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="./script/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
@@ -22,6 +23,23 @@
         $result_User = PDOfetchAll($sql)[0];
     }
     ?>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#profile-img-tag').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#profile-img").change(function() {
+            readURL(this);
+        });
+        $("#imgInp").change(function() {
+            readURL(this);
+        });
+    </script>
     <title>Profile</title>
 </head>
 
@@ -53,9 +71,10 @@
 
                 <div class="upload-btn-wrapper">
                     <div>
-                    <img src="./img/man.png" class="picpro">
+                        <img src="./img/man.png" class="picpro" >
                     </div>
-                    <input class="picpro" type="file" name="fileToUpload" />
+                    <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
+
                 </div>
             </div>
             <div class="rightpro">
@@ -79,22 +98,23 @@
     <div id="propop" class="login">
         <!-- Modal content -->
         <div class="propop">
+        <form action="editproflie.php" method="POST" enctype="multipart/form-data">
             <div class="hpro">Profile</div>
             <div class="Profile">
                 <div class="leftpro">
                     <img src="./img/cam.jpg" class="pichov">
 
                     <div class="upload-btn-wrapper">
-                        <div>
-                        <img src="./img/man.png" class="picpro">
-                        </div>
-                        <input class="picpro" type="file" name="fileToUpload" />
+                    <div>
+                        <img src="./img/man.png" class="picpro" id="profile-img-tag">
                     </div>
+                    <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
+
+                </div>
                 </div>
                 <div class="rightpro">
                     <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
                     <div style="margin:15px 0px; height:0.75px; background:grey;"></div>
-                    <form action="editproflie.php" method="POST">
                         <input type="hidden" name="patientid" value="<?php echo $result_User['patient_id']; ?>">
                         <p class="tl"> Email</p>
                         <p class="tr"> : <input class="ip" type="email" name="email" value="<?php echo $result_User['email']; ?>"></p>
@@ -109,6 +129,7 @@
                         <center><button type="submit" class="save" style="display:inline-block; margin-right:10px;">Save</button><button class="cancel" style="display:inline-block">Cancel</button></center>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

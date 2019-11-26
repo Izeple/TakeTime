@@ -44,7 +44,7 @@
             <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                     <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="noti-test.php"><img src="img/time.png" height="30"></a></div>
+                    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
                     <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                     ?>
               <!--Show next booking-->
                 <div class="column">
-                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">
+                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
@@ -85,7 +85,7 @@
 			if ($doc['count']==0){
 				?>
 				<div class="column" >
-                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">    
+                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
                      <a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
 						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
 						<font size='5'  color="#a4a4a4" >Add Booking</font>
@@ -110,7 +110,7 @@
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();
 			if ($count['count']!=0) {?>
-				 		<div style=" border: 2px solid #e3e7e7; margin-left: 90px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
+				 		<div style=" border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
 				while ($medic =  $result2->fetch_assoc()) { ?>
                 <div class="column">
@@ -156,7 +156,7 @@
 						if ($count['count']==0){
 				?>
 				<div class="column">
-                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 100px;">    
+                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
      
 						<br><table width="420" height="110"> <tr align="center" valign="middle"> <td>
 						<font size='6'  color="#a4a4a4" >Don't have medicine.</font>
@@ -167,29 +167,35 @@
 		   }?>
 
 						<!--Set time noti-->
-					<div>
+					<div style="margin-top: -1100;">
 						<!--Set time noti eat-->
 							<div  style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-left: 700px;margin-bottom: 50px; "> 
-								<div style="float: left;height: 172;width: 525;">
+								<div style="float: left;height: 345px;width: 1050px;">
 									
-							<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 30;margin-left: 50;"> 
+							<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 20;margin-left: 100;"> 
 									<img src="./img/sunrise (2).png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
 									<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Morning"; ?></div>
 								</div>
+								
+									<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 30;margin-left: 100;"> 
+									<img src="./img/sunset.png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
+									<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Evening"; ?></div>
+								</div>
+										<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: -305;margin-left: 550;"> 
+									<img src="./img/sun (1).png" style="width:95px; margin-top: 10px; margin-left: 20px;" >
+									<div style="margin-left:50;"><font size='5' color="#828282"><?php echo "Noon"; ?></div>
+								</div>
+										<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 25;margin-left: 550;"> 
+							<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
+									<div style="margin-top: 5;margin-left:50;"><font size='5' color="#828282"><?php echo "Night"; ?></div>
+								</div>
 						</div>
-								<div style="height: 172;width: 525;margin-left: 525;">
-				
-						</div>
-									<div style="height: 172;width: 525;">
-						
-						</div>
-								<div style="height: 172;width: 525;margin-left: 525;margin-top: -172">
-						
-						</div>
+
+					
 					</div>
 						
 						<!--Infomation Noti-->
-					<div  style="height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-left: 700px;margin-bottom: 70;"> 
+					<div  style="height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-left: 700px;"> 
 						<!--Infomation Noti Left Side-->
 						 <div><img src="./img/pills.png" style="width:130px; margin-top: 35px; margin-left: 30px;">	
 							 <div style="width:500px;margin-top: -120px; margin-left: 190px"><font size='7' color="#828282" >
@@ -231,6 +237,15 @@
 								</div>
 						</div>
 				</div>
+									<!--Botton-->
+									<div>
+										<div  style="border: 2px solid #f26d7d; height: 55px;width: 120px; background-color: #f26d7d;border-radius: 5px; margin-left:1400px;margin-top: 30px;"> 
+							<div style="margin-left: 33;margin-top: 7"><font size='6' color="white"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
+										</div>
+											<div  style="border: 2px solid #47b6c7; height: 55px;width: 120px; background-color: #47b6c7;border-radius: 5px; margin-left:1550px; margin-bottom: 40px;margin-top: -58"> 
+							<div style="margin-left: 36;margin-top: 7"><font size='6' color="white"><?php echo "Save"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
+											</div>
+									</div>
 			</div>
 									
 									

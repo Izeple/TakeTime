@@ -92,7 +92,11 @@
                             <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_booking.php" method="POST">
                                 <input type='submit' value='x' onclick="return confirm('Are you sure to Delete?')">
                             </form>
-                            <button class="btn" id="btn" onclick="document.getElementById('logpop').style.display='block'">Edit</button></li>
+
+                            <form style="position: absolute; margin-top:17px; margin-left:380px;" action="booking_2.php" method="POST">
+                                <input type="hidden" name="booking_id" value="<?php echo $result_Schedule['schedule_id']; ?>" />    
+                                <input type='submit' value='Edit'>
+                            </form>
                             <br> 
                         </div>   
                     </div> 

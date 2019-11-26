@@ -20,6 +20,15 @@
 			session_start();
 			$userid = $_SESSION["userid"];;
 			require "condb.php"; ?>
+			 <?php require "login.php"; 
+			if(isset($_SESSION["email"]))
+    {
+        require_once("connectPDO.php");
+        $pdo = conPDO();
+        $sql = "SELECT * FROM patient WHERE email = '".$_SESSION["email"]."'";
+        $result_User = PDOfetchAll($sql)[0];
+        $_SESSION["userid"] = $result_User["patient_id"];
+    }?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
@@ -35,9 +44,33 @@
         <ul>
        <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
        <li><a href="Homepage.php"><img src="./img/nametag.png" height="15"></a></li>
-       <li style="float:right"><button class="btn" id="btn">Sign up</button></li>
-       <li style="float:right"><button class="btn2" id="btn2">Log in</button></li>
+ 	 <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
+			    <li style="float:right">
+            <?php if(isset($_SESSION["email"])) {  
+                echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;' onclick=location.replace('./profile.php');>Hi, ".$result_User["name"]."</p>"; 
+            }?>
+            </li>        
+            
+            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+            
+            <?php if(isset($_SESSION["email"])) {  
+                
+                echo "<script language=\"JavaScript\">";
+                echo "document.getElementById('btn').style.display='none';";
+                echo "document.getElementById('btn2').style.display='none';";
+                echo "</script>";
+            }
+            else {
+                echo "<script language=\"JavaScript\">";
+                echo "document.getElementById('btn3').style.display='none';";
+                echo "document.getElementById('btn4').style.display='none';";
+                echo "</script>";   
+            }
+            ?>
         </ul>
+		
+
+            
 
         <section><img src="./img/Banner.png" style="width:100%"  >
         <div class="ab" align="center">
@@ -110,7 +143,7 @@
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();
 			if ($count['count']!=0) {?>
-				 		<div style=" border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
+				 		<div style=" display: inline-block border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
 				while ($medic =  $result2->fetch_assoc()) { ?>
                 <div class="column">

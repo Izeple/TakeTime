@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/profile.css">
+    <link rel="stylesheet" type="text/css" href="./css/profile2.css">
     <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
@@ -79,7 +79,7 @@
                             <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
                             <div style="height:0.75px; background:grey;"></div>
                             <p class="tl"> Email</p>
-                            <p class="tr"> : <input type="email" value="<?php echo $result_User['email']; ?>"></p>
+                            <p class="tr"> : <input class="ip" type="email" value="<?php echo $result_User['email']; ?>"></p>
                             <p class="tl"> ID Card</p>
                             <p class="tr"> : <?php echo $result_User['id_card']; ?></p>
                             <p class="tl"> Telephone</p>

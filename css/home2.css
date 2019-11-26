@@ -192,7 +192,7 @@ body {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 30px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -205,8 +205,11 @@ body {
   
   .log-content{
     width:30%;
+    padding-bottom: 30px;
+
     background-color: #fefefe;
     margin: auto;
+  margin-bottom: 100px;  
     padding: 20px;
     color: #aaaaaa;
   }
@@ -214,27 +217,14 @@ body {
     margin: 5px;
   }
   
-  input[type=email]{
-    width:100%;
-    height: 40px;
-    border-radius: 2px;
-    border:0.5px solid #aaaaaa;
-  
-  }
-  input[type=password]{
-    width:100%;
-    height: 40px;
+  .homeput{
+    width:96%;
+    padding: 5px;
     border-radius: 2px;
     border:0.5px solid #aaaaaa;
   
   }
   
-  input[type=text]{
-    width:100%;
-    height: 40px;
-    border-radius: 2px;
-    border:0.5px solid #aaaaaa;
-  }
   /* The Close Button */
   .close {
     color: #aaaaaa;

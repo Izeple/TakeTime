@@ -106,9 +106,9 @@
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p></div>
               <form class="user" method="post">
                 <div class="sep"><p>Email</p><span class="required">*</span></div>
-                <div class="sep"><input type="email" name="email"></div>
+                <div class="sep"><input type="email" name="email" class="homeput"></div>
                 <div class="sep"><p>Password</p><span class="required">*</span></div>
-                <div class="sep"><input type="password" name="password"></div>
+                <div class="sep"><input type="password" name="password" class="homeput"></div>
                 <div class="sep" style="width:50%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Remember me</a></div>
                 <div class="sep" style="width:43%; text-align:right; display:inline-block;"><a class="aa" href="#" style="font-size:18px; text-decoration:none;">Forget Password ?</a></div>
                 <div class="sep"><input type="submit" name="login" class="sub" value="Login" /> </div>
@@ -125,22 +125,22 @@
               <span class="close" onclick="document.getElementById('signpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
               <form class="user" method="post" action="signup.php">
-                <div class="sep" style="width:46%; display:inline-block;">Name</div>
+                <div class="sep" style="width:46%; display:inline-block;" >Name</div>
                 <div class="sep" style="width:46%; display:inline-block;">Surname</div>
-                <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="name"></div>
-                <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="surname"></div>
+                <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="name" class="homeput"></div>
+                <div class="sep" style="width:46%; display:inline-block;"><input type="text" name="surname" class="homeput"></div>
                 <div class="sep"> <a>Email</a></div>
-                <div class="sep"><input type="email" name="email"></div>
+                <div class="sep"><input type="email" name="email" class="homeput"></div>
                 <div class="sep"><a>Password</a></div>
-                <div class="sep"><input type="password" name="password" ></div>
+                <div class="sep"><input type="password" name="password" class="homeput"></div>
                 <div class="sep"><a>address</a></div>
-                <div class="sep"><input type="text" name="address" ></div>
+                <div class="sep"><input type="text" name="address" class="homeput"></div>
                 <div class="sep"><a>dob</a></div>
-                <div class="sep"><input type="date" name="dob" ></div>
+                <div class="sep"><input type="date" name="dob" class="homeput"></div>
                 <div class="sep"> <a>ID Card</a></div>
-                <div class="sep"><input type="text" name="IDcard"></div>
+                <div class="sep"><input type="text" name="IDcard" class="homeput"></div>
                 <div class="sep"> <a>Telephone</a></div>
-                <div class="sep"><input type="text" name="Tel"></div>
+                <div class="sep"><input type="text" name="Tel" class="homeput"></div>
                 <div class="sep" style="width:100%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Accept Terms and Condition</a></div>
                 <div class="sep"><input type="submit" name="register" class="sub" value="Register" /> </div>
               </form> 

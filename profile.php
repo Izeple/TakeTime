@@ -49,13 +49,14 @@
         <div class="hpro">Profile</div>
         <div class="Profile">
             <div class="leftpro">
+            <img src="./img/cam.jpg" class="pichov">
+
                 <div class="upload-btn-wrapper">
                     <div>
                     <img src="./img/man.png" class="picpro">
                     </div>
                     <input class="picpro" type="file" name="fileToUpload" />
                 </div>
-                    <img src="./img/cam.jpg" class="pichov">
             </div>
             <div class="rightpro">
                 <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>

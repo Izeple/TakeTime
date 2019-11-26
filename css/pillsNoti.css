@@ -78,4 +78,14 @@
             text-decoration: none;
             cursor: pointer;
         }
+.triangle-up {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 20px solid #C1C1C1;
+}
 
+.triangle-down {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 20px solid #C1C1C1;
+}

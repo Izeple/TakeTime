@@ -1,27 +1,6 @@
 <html>
 <head>
-		<script >
-		var hmorn=8;
-function clicked(n,area) {
-    var img = document.getElementsByTagName("img");
-    var htime = document.getElementById(<?php $htime ?>);
-alert htime;
-	if(area==HOUR){
-    hmorn+timeday = hmorn + n;
-    htime.innerHTML = hmorn;
-	}
-
-};
-	function openForm(name, times, daytime, status) {
-  document.getElementById("setNoti").style.display = "block";
-		document.getElementById("status").innerHTML = status;
-}
-
-function closeForm() {
-  document.getElementById("setNoti").style.display = "none";
-}
-	</script>
-	<STYLE>A {text-decoration: none;} </STYLE>
+	=
     <title>Notification</title>
 	    <script type="text/javascript">
 
@@ -140,7 +119,7 @@ function closeForm() {
 		} ?>
 
 							<!--Set time noti-->
-					<div id="setNoti" class="popSetup">
+					<div id="setNoti" class="popSetup" style="display: none;float: right; margin-top: -100;margin-right:  120px;">
 						<form>
 							<div class="popUp-container">
 						<!--Set time noti eat-->
@@ -248,7 +227,7 @@ function closeForm() {
 				</div>
 									<!--Botton-->
 									<div>
-										<div  class="closeNoti" href="#close"> 
+										<div  id="closeNoti" class="closeNoti" href="#close" onclick="closeForm()"> 
 							<div  style="margin-left: 33;margin-top: 7"><font size='6' color="white"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 										</div>
 											<div  class="confirmNoti" href="#confirm"> 
@@ -319,18 +298,16 @@ function closeForm() {
 
 
 									
-<script>
-        var modal = document.getElementById("setNoti");
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+<script >
+	
+	function openForm(name, times, daytime, status) {
+  document.getElementById("setNoti").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("setNoti").style.display = "none";
+}
+	</script>
 		
 </body>
 

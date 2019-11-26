@@ -72,16 +72,3 @@ div.confirmNoti:hover {
 	div:focus {
    		 background-color:red;
 	}
-.popSetup{
-
-  position: relative;
-  bottom: 0;
-  right: 15px;
-
-
-}
-.popUp-container{
-	float: right; 
-	margin-top: -170;
-	margin-right:  120px;
-}

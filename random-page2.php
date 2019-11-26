@@ -1,12 +1,11 @@
 <?php 
-session_start();
-
 $schedule_id = $_POST["booking_id"];
-$_SESSION["schedule_id"]=$schedule_id;
 require_once("connectPDO.php");
 $sql = "SELECT * FROM schedule WHERE schedule_id = '".$schedule_id."'";
 $result_schedule = PDOfetchAll($sql)[0];
+
 $id = $result_schedule["staff_id"]; 
+echo $id;
 ?>
 
     <html>
@@ -15,8 +14,8 @@ $id = $result_schedule["staff_id"];
         <input type='submit' name='myform' />
       </form>
 
+
       <script type="text/javascript">
         document.getElementById('form1').submit(); // SUBMIT FORM
       </script>
-     
     </html>

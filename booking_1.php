@@ -47,7 +47,7 @@
 
     
     <h1 class="HeadModule">Booking Doctor</h1>
-    <div style="text-align:center; margin-top: -50px;">    
+    <div style="margin-left:300px; margin-top: -50px;">    
         <?php 
         //echo $_SESSION['staff_id'];
         require_once("connectPDO.php");
@@ -94,7 +94,6 @@
     
     
     
-    <center>
         <div class="row">
             <?php
             $i = 0;
@@ -114,13 +113,15 @@
                 <div class="column" id="<?php echo $row12['staff_id']?>" onclick="ContentPage(this)">
                     <div class="card2">
                         
-                        <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
-                        <div class="side right" align="left">
-                            <p>
-                                <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
-                                <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
-                                &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
-                                &nbsp;&nbsp;
+                    <div class="sideleft">   
+                        <img src="./img/picdoc.jpg"  >
+                    </div>
+                        <div class="sideright">
+                            
+                                <font size='5' color="#47b6c7"> Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
+                                <font size='3' color="#a4a4a4">Department : <?php echo $row12['department_name']; ?><br>
+                                 Hospital : <?php echo $row12['hospital_name']; ?></font><br>
+                                
                                 <?php
                                     for ($j = 0; $j < 5; $j++) {
                                         $star = $row12['star'];
@@ -134,15 +135,13 @@
                                             }
                                     }
                                     ?><br>
-                                <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
+                                <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht</font>
                                 <img src="./img/coin.png" style="width:20px; float: right;" align="top">
-                            </p>
+                            
                         </div>
                     </div>
                 </div>
             <?php   $i++;   } ?>
-    </center>
-    <br><br><br><br><br><br><br><br><br><br>  
 
 
     <!--- 

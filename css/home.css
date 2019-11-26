@@ -6,7 +6,7 @@ body {
 
 button {
   font-family: 'Agency FB', arial;
-  font-size: 20px;
+  font-size:20px;
 }
 
 ul {
@@ -70,6 +70,7 @@ li .btn2 {
   text-decoration: none;
   cursor:pointer;
 }
+
 li .btn2:hover {
     background:rgb(226, 226, 226);;
     border:none;
@@ -80,6 +81,51 @@ li .btn2:hover {
   cursor:pointer;
   color: #6690a0;
 
+}
+
+li .btn3 {
+  color:#4e707e;
+    Height:52px;
+    background:white;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+li .btn3:hover {
+  opacity: 50%;
+  border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+  cursor:pointer;
+  color: #6690a0;
+
+}
+.usern{
+    cursor: pointer;
+}
+.usern:hover{
+  background:rgb(226, 226, 226);;
+  border:none;
+display: block;
+text-align: center;
+padding: 14px 10px;
+text-decoration: none;
+cursor:pointer;
+color: #6690a0;
+
+}
+li a {
+  display: block;
+  color:rgb(139, 139, 139);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 li a:hover {
   background-color: rgb(226, 226, 226);
@@ -226,15 +272,15 @@ input[type=text]{
   border:0.3px solid #aaaaaa;
   background:#aaaaaa;
 }
-	.notimenu {
- 		 width: 9%;
-    	color: white;
-		background-color: #EB7273;
-  		padding: 8px;
-		font-size: 30;
-		text-align: center;
-		border-top-right-radius:25px;
-		border-bottom-right-radius: 25px;
+    .notimenu {
+          width: 9%;
+        color: white;
+        background-color: #EB7273;
+          padding: 8px;
+        font-size: 30;
+        text-align: center;
+        border-top-right-radius:25px;
+        border-bottom-right-radius: 25px;
 }
 .face{
   margin-right: 4%;

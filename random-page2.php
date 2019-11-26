@@ -1,6 +1,7 @@
 <?php 
 $schedule_id = $_POST["booking_id"];
 require_once("connectPDO.php");
+echo $schedule_id;
 $sql = "SELECT * FROM schedule WHERE schedule_id = '".$schedule_id."'";
 $result_schedule = PDOfetchAll($sql)[0];
 
@@ -15,7 +16,5 @@ echo $id;
       </form>
 
 
-      <script type="text/javascript">
-        document.getElementById('form1').submit(); // SUBMIT FORM
-      </script>
+      
     </html>

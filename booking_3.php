@@ -70,7 +70,7 @@
  
 
         <font size='5' color="#a4a4a4">
-            Date : <?php echo $_SESSION["date"];?><br>
+            Date : <?php echo $_POST["date"];?><br>
             Time : <?php echo $_POST["times"]; 
                     $_SESSION["times"]=$_POST["times"];?><br>
         </font>

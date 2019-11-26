@@ -15,6 +15,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script >
+	    $(function () {
+	        $('#datepicker').datepicker({
+	            format: "dd/mm/yyyy",
+	            todayHighlight: true,
+		        showOtherMonths: true,
+		        selectOtherMonths: true,
+		        autoclose: true,
+		        changeMonth: true,
+		        changeYear: true,
+                todayHighlight:true,
+                endDate:"31/12/2020",
+                startDate: 'd',
+		        orientation: "button"
+	        });
+
+            $('#datepicker').on('changeDate', function() {
+                $('#my_hidden_input').val(
+                    $('#datepicker').datepicker('getFormattedDate')
+                );
+            });
+	    });
+	</script>
+    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
@@ -22,8 +52,7 @@
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
     <script src="js/index.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -61,17 +90,38 @@
             echo $id;
           }
         $_SESSION['staff_id'] = $id;
-        $_SESSION["date"] = "2019-11-27";
     ?>
 
 
     <div style="margin-left:250px;  width:70%; background-color:#d3d3d3;">
 
-        <div class='datepicker' style="margin-left:20px;"></div>
-        <div style="margin-left:50%; margin-top:-480px; background-color:#cacaca; width:25%;  padding: 35px;">
+
+
+    <div class="container">
+            <div class="row">
+                <h2>Bootstrap Datepicker</h2>
+            </div>
+            <div class="row">
+                <div class='col-sm-6'>
+                     <form id="formid" action="booking_3.php" method="POST"><form>
+                        <div class="form-group">
+                            <div class='input-group date' id='datepicker'>
+                                <input type='text' name="date" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    
+
+        <div style="margin-left:50%; background-color:#cacaca; width:25%;  padding: 35px;">
             <font size="4px">
                 Select Time <br>
-                <form id="formid" action="booking_3.php" method="POST">
                     <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 <br>
                     <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 <br>
                     <input type="radio" name="times" value="10:30:00"> 10:30 - 11:00 <br>

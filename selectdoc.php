@@ -276,7 +276,7 @@
                         &nbsp; <input type="text" name="often"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="./img/upimg.png" style="width:75px;"><br>
+                            <img src="./img/bell.png" style="width:75px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>

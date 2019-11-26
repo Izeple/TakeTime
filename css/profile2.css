@@ -56,25 +56,24 @@
     color:#a4a4a4;
 }
 .picpro{
-    position:absolute;
     margin-left:10%;
     cursor:pointer; 
     border-radius:70%; 
     width:70%;
 }
-.pichov:hover{
+.picpro:hover{
     opacity:30%
 }
 .pichov{
     position:absolute;
-    opacity:0;
+    opacity:100%;
     margin-left:10%;
     cursor:pointer; 
     border-radius:70%; 
     width:70%;
 }
 .propop{
-    width:250px;
+    width:600px;
     margin: auto;
     padding: 0;
     color: #aaaaaa;
@@ -89,13 +88,31 @@
   
   }
 .save{
+    padding:5px 10px;
     background-color:#47b6c7;
     border:none;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
-.cancel{
-    background-color: antiquewhite;
+.cancel{    
+    padding:5px 10px;
+    background-color: #e1e1e1;
     border:none;
-    border-radius: 5px;
+    border-radius: 2px;
 }
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .upload-btn-wrapper:hover {
+    opacity: 0.5;
+  }
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }

@@ -46,12 +46,11 @@
 
     
     <h1 class="HeadModule">Booking Doctor</h1>
-    <h2 onclick="location.replace('./booking_0.php');" class="HeadModule-h2-1">Booking</h2>
-    <h2 onclick="location.replace('./booking_0c.php');" class="HeadModule-h2-2">Complete</h2>
+    <h2 onclick="window.open('booking_0.php', '_self');" class="HeadModule-h2-1">Booking</h2>
+    <h2 onclick="window.open('booking_0c.php', '_self');" class="HeadModule-h2-2">Complete</h2>
 
     <div class="row" style="margin-left:-20px;">
         <?php
-            $status_select="Going on";
             $i = 0;
             //'".$result_User['patient_id']."'
             $sql = "SELECT * FROM schedule WHERE patient_id = ".$result_User["patient_id"];
@@ -65,7 +64,7 @@
         </div>
         <div class="row" style="margin-left:-20px;">
         <?php } ?>
-            <?php if($row['status']==$status_select && $row['status']=="Going on") { ?>
+            <?php if($row['status']=="Going on") { ?>
                 <div class="column" >
                     <div class="card"  style="margin-top:60px; margin-left:100px;">
                         <div class="side right" align="left">
@@ -89,13 +88,13 @@
                                 $result_Hospital = PDOfetchAll($sql)[0];
                                 echo $result_Hospital['hospital_name']?><br>
                             </font>
-                            <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_booking.php" method="POST">
-                                <input type="hidden" name="booking_id" value="<?php echo $result_Schedule['schedule_id']; ?>" />  
+                            <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_schedule.php" method="POST">
+                                <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />  
                                 <input type='submit' value='x' onclick="return confirm('Are you sure to Delete?')">
                             </form>
 
                             <form style="position: absolute; margin-top:17px; margin-left:380px;" action="random-page2.php" method="POST">
-                                <input type="hidden" name="booking_id" value="<?php echo $result_Schedule['schedule_id']; ?>" />    
+                                <input type="hidden" name="booking_id" value="<?php echo $row['schedule_id']; ?>" />    
                                 <input type='submit' value='Edit'>
                             </form>
                             <br> 

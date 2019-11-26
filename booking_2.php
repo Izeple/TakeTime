@@ -25,6 +25,8 @@
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
     <script src="js/index.js"></script>
+    <script src="js/datepick.js"></script>
+
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="./js/clickNav.js"></script>
@@ -67,8 +69,18 @@
 
     <div style="margin-left:250px;  width:70%; background-color:#d3d3d3;">
 
-        <div class='datepicker' style="margin-left:20px;"></div>
-        <div style="margin-left:50%; margin-top:-480px; background-color:#cacaca; width:25%;  padding: 35px;">
+
+   
+    <script>
+        $('.datepicker').pickadate();
+    </script>
+    <div class="md-form">
+        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
+        <label for="date-picker-example"></label>
+    </div>
+
+
+        <div style="margin-left:50%; background-color:#cacaca; width:25%;  padding: 35px;">
             <font size="4px">
                 Select Time <br>
                 <form id="formid" action="booking_3.php" method="POST">

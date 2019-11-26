@@ -30,9 +30,11 @@
             <li style="float:right"><button class="btn" id="btn" onclick="document.getElementById('signpop').style.display='block'">Sign up</button></li>
             <li style="float:right"><button class="btn2" id="btn2" onclick="document.getElementById('logpop').style.display='block'">Log in</button></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
+            <li style="float:right"><button class="btn3" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+
             <li style="float:right">
             <?php if(isset($_SESSION["email"])) {  
-                echo $result_User["name"]; 
+                echo "<p style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,".$result_User["name"]."</p>"; 
                 echo "<script language=\"JavaScript\">";
                 echo "document.getElementById('btn').style.display='none';";
                 echo "document.getElementById('btn2').style.display='none';";

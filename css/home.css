@@ -25,13 +25,7 @@ li {
   float: left;
 }
 
-li a {
-  display: block;
-  color:rgb(139, 139, 139);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+
 li .btn {
   color:#4e707e;
     Height:52px;
@@ -53,6 +47,18 @@ li .btn:hover {
   cursor:pointer;
   color: #6690a0;
 }
+li .btn {
+  color:#4e707e;
+    Height:52px;
+    background:white;
+    border:none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor:pointer;
+}
+
 li .btn2 {
   color:#4e707e;
     Height:52px;

@@ -20,6 +20,7 @@
     }
     ?>
     <title>Homepage</title>
+   
 </head>
 <body>
 
@@ -33,21 +34,27 @@
 
             <li style="float:right">
             <?php if(isset($_SESSION["email"])) {  
-                echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi, ".$result_User["name"]."</p>"; 
+                echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;' onclick=location.replace('./profile.php');>Hi, ".$result_User["name"]."</p>"; 
+            }?>
+            </li>        
+            
+            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+            
+            <?php if(isset($_SESSION["email"])) {  
+                
                 echo "<script language=\"JavaScript\">";
                 echo "document.getElementById('btn').style.display='none';";
                 echo "document.getElementById('btn2').style.display='none';";
                 echo "</script>";
-            }else
-            {
+            }
+            else {
                 echo "<script language=\"JavaScript\">";
-                echo "document.getElementById('btn3').style.display='none'";
-                echo "document.getElementById('btn4').style.display='none'";
+                echo "document.getElementById('btn3').style.display='none';";
+                echo "document.getElementById('btn4').style.display='none';";
                 echo "</script>";   
             }
-            ?></li>        
-            <li style="float:right"><button class="btn3" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
-
+            ?>
+            
 
         </ul>
             

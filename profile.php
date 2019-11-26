@@ -30,7 +30,7 @@
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right"><p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p></li>
-            <li style="float:right"><button class="btn3" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
         </ul>
         <section><img src="./img/Banner.png" style="width:100%">
         <div id="sidenav" class="sidenav">
@@ -70,28 +70,29 @@
             <!-- Modal content -->
                 <div class="propop">
                 <div class="hpro">Profile</div>
-        <div class="Profile">
-            <div class="leftpro">
-                <img src="./img/man.png" class="picpro" >
-                <img src="./img/cam.jpg" class="pichov" >
-            </div>
-        <div class="rightpro">
-           <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
-           <div style="height:0.75px; background:grey;"></div>
-           <p class="tl"> Email</p>
-           <p class="tr"> : <input type="email" value="<?php echo $result_User['email']; ?>"></p>
-           <p class="tl"> ID Card</p>
-           <p class="tr"> : <?php echo $result_User['id_card']; ?></p>
-           <p class="tl"> Telephone</p>
-           <p class="tr"> : <?php echo $result_User['tel']; ?></p>
-           <p class="tl"> Address</p>
-           <p class="tr"> : <?php echo $result_User['address']; ?></p>
-           <p class="tl"> Date of birth</p>
-           <p class="tr"> : <?php echo $result_User['dob']; ?></p>
-        </div>
-        </div>
+                    <div class="Profile">
+                            <div class="leftpro">
+                                <img src="./img/man.png" class="picpro" >
+                                <img src="./img/cam.jpg" class="pichov" >
+                            </div>
+                            <div class="rightpro">
+                            <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
+                            <div style="height:0.75px; background:grey;"></div>
+                            <p class="tl"> Email</p>
+                            <p class="tr"> : <input type="email" value="<?php echo $result_User['email']; ?>"></p>
+                            <p class="tl"> ID Card</p>
+                            <p class="tr"> : <?php echo $result_User['id_card']; ?></p>
+                            <p class="tl"> Telephone</p>
+                            <p class="tr"> : <?php echo $result_User['tel']; ?></p>
+                            <p class="tl"> Address</p>
+                            <p class="tr"> : <?php echo $result_User['address']; ?></p>
+                            <p class="tl"> Date of birth</p>
+                            <p class="tr"> : <?php echo $result_User['dob']; ?></p>
+                            </div>
+                    </div>
                 </div>
-            </div>
+                </div>
+    </div>
 
 </body>
 </html>

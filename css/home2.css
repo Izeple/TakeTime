@@ -83,7 +83,7 @@ body {
   
   }
   
-  li .btn3 {
+  li .btn4 {
     color:#4e707e;
       Height:52px;
       background:white;
@@ -95,7 +95,7 @@ body {
     cursor:pointer;
   }
   
-  li .btn3:hover {
+  li .btn4:hover {
     opacity: 50%;
     border:none;
     display: block;

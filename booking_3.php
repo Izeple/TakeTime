@@ -6,6 +6,7 @@
         require_once("connectPDO.php");
         $sql = "SELECT * FROM patient WHERE email = '".$email."'";
         $result_User = PDOfetchAll($sql)[0];
+        $_SESSION['patient_id'] = $result_User["patient_id"];
     }
     else
         header("location:Homepage.php");
@@ -70,7 +71,8 @@
 
         <font size='5' color="#a4a4a4">
             Date : <?php echo $_SESSION["date"];?><br>
-            Time : <?php echo $_POST["times"];?><br>
+            Time : <?php echo $_POST["times"]; 
+                    $_SESSION["times"]=$_POST["times"];?><br>
         </font>
 
         <form action="insert_schedule.php" method="post" id="usrform">
@@ -78,13 +80,13 @@
             
         </form>
 
-        <div style="margin-left:420px; margin-top:-140px;">
+        <div style="margin-left:420px; margin-top:-100px;">
             Symptom Detail<br>
-            <textarea name="comment" form="usrform"></textarea><br>
+            <textarea name="detail" rows="10" cols="40" form="usrform"></textarea><br>
         </div>
     </div>
     <div style="margin-left:650px;">
-        <button value="Cancel">Cancel</button>
+        <button onclick="location.replace('./booking_0.php');" value="Cancel">Cancel</button>
         <input type="submit" form="usrform" value="Comfirm">
     </div>
 

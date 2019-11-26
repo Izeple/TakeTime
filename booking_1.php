@@ -49,7 +49,7 @@
     <h1 class="HeadModule">Booking Doctor</h1>
     <div style="text-align:center; margin-top: -50px;">    
         <?php 
-        echo $_SESSION['staff_id'];
+        //echo $_SESSION['staff_id'];
         require_once("connectPDO.php");
         $pdo = conPDO();     
         if(isset($_POST["HospitalID_Select"]) || !isset($_SESSION['HospitalID_Select']))

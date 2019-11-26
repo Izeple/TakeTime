@@ -74,10 +74,10 @@
                 <form id="formid" action="booking_3.php" method="POST">
                     <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 <br>
                     <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 10:30 - 11:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 11:30 - 12:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 12:30 - 13:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 13:30 - 14:00 <br>
+                    <input type="radio" name="times" value="10:30:00"> 10:30 - 11:00 <br>
+                    <input type="radio" name="times" value="11:30:00"> 11:30 - 12:00 <br>
+                    <input type="radio" name="times" value="12:30:00"> 12:30 - 13:00 <br>
+                    <input type="radio" name="times" value="13:30:00"> 13:30 - 14:00 <br>
                     <input type='submit' value='Select' name='submit'>
                 </from>
             </font>

@@ -1,30 +1,11 @@
 <html>
 <head>
-		<script >
-			var morningHR = 8;
-			i=morningHR;
-function clicked(n) {
-    var img = document.getElementsByTagName("img");
-    var test = document.getElementById("hour");
-    i = i + n;
-    test.innerHTML = i;
-};
-			function pillFunction() {
-            // alert(name+" "+surname+hospital+department+price);
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-            document.getElementById("Name").innerHTML = 'Dr. ' + name + ' ' + surname;
-            document.getElementById("staffid").value = staffid;
-			}
-			
-			function closeForm() {
-  				document.getElementById("myForm").style.display = "none";
-			}
-	</script>
+	=
     <title>Notification</title>
 	    <script type="text/javascript">
 
 		  <?php
+	
 			session_start();
 			$userid = $_SESSION["userid"];;
 			require "condb.php"; ?>
@@ -39,7 +20,7 @@ function clicked(n) {
     }?>
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
 	<link rel="stylesheet" type="text/css" href="./css/pillsNoti.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
@@ -104,8 +85,8 @@ function clicked(n) {
                 if ($doc['count']!=0) {
                     ?>
               <!--Show next booking-->
-                <div class="column">
-                    <div class="card" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">
+                <div class="column" style="width: 500px;"><a href="#doctor">
+                    <div class="pills"  style="margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
@@ -118,14 +99,14 @@ function clicked(n) {
                                 <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($doc['bookingdate'])); ?>. </font>
                             </p>
                         </div>
-                    </div>
+					</div></a>
                 </div>
-
+		
 	 <?php } ?>
             <?php   //If booking is empty. 
 			if ($doc['count']==0){
 				?>
-				<div class="column" >
+				 <div class="column"  href="#" style="width: 500px;">
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
                      <a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
 						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
@@ -138,7 +119,9 @@ function clicked(n) {
 		} ?>
 
 							<!--Set time noti-->
-					<div style="position: absolute; margin-top: -170; left: 720px;">
+					<div id="setNoti" class="popSetup" style="display: none;float: right; margin-top: -100;margin-right:  120px;">
+						<form>
+							<div class="popUp-container">
 						<!--Set time noti eat-->
 							<div  style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-bottom: 50px; "> 
 								<div style="float: left;height: 345px;width: 1050px;">
@@ -149,39 +132,51 @@ function clicked(n) {
 								</div>
 								<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
 								<div style="position: absolute; margin-top: -100;margin-left:400;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
-								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"> <div style="float: right;"><font id="hour"size='5' color="#828282"><?php echo "8"; ?></font></div></div>
-				
-								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 360;margin-top: -70;"></div>
-								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 360;margin-top: -40;"></div>
-
-								<div  style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> </div>
+								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"> <div style="float: right;"><font id="<?php $htime="hour_mornning" ?>"size='5' color="#828282"><?php echo "8"; ?></font></div></div>
+								<div  style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> <div style="float: right;"><font id="minute" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
+								<div class="triangle-up" onclick="clicked(1,HOUR)" style="position: absolute;margin-left: 360;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1,hour)" style="position: absolute;margin-left: 360;margin-top: -40;"></div>
+								<div class="triangle-up" onclick="clicked(1,minute)" style="position: absolute;margin-left:469;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1,minute)" style="position: absolute;margin-left: 469;margin-top: -40;"></div>
 									<!--Evenning-->
 									<div style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 30;margin-left: 100;"> 
 									<img src="./img/sunset.png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
 									<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Evening"; ?></div>
 								</div>
-										<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></div>
-								<div style="position: absolute; margin-top: -100;margin-left:380;"><font size='5' color="#828282"><?php echo "Minute "; ?></div>
+										<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -100;margin-left:400;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
 								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"> </div>
-								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 385;"> </div>
+								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> </div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 360;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 360;margin-top: -40;"></div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left:469;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 469;margin-top: -40;"></div>
 										<!--Sun-->
 										<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: -305;margin-left: 550;"> 
 									<img src="./img/sun (1).png" style="width:95px; margin-top: 10px; margin-left: 20px;" >
 									<div style="margin-left:50;"><font size='5' color="#828282"><?php echo "Noon"; ?></div>
-									<div style="position: absolute; margin-top: -100;margin-left:200;"><font size='5' color="#828282"><?php echo "Hour "; ?></div>
-								<div style="position: absolute; margin-top: -100;margin-left:280;"><font size='5' color="#828282"><?php echo "Minute "; ?></div>
+									<div style="position: absolute; margin-top: -100;margin-left:200;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
 								</div>
 								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 750;"> </div>
-								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 835;"> </div>
+								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 859;"> </div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 814;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 814;margin-top: -40;"></div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 923;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 923;margin-top: -40;"></div>
 											<!--Night-->
 										<div style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 25;margin-left: 550;"> 
 							<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
 									<div style="margin-top: 5;margin-left:50;"><font size='5' color="#828282"><?php echo "Night"; ?></div>
 								</div>
-								<div style="position: absolute; margin-top: -100;margin-left:750;"><font size='5' color="#828282"><?php echo "Hour "; ?></div>
-								<div style="position: absolute; margin-top: -100;margin-left:830;"><font size='5' color="#828282"><?php echo "Minute "; ?></div>
+								<div style="position: absolute; margin-top: -100;margin-left:750;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -100;margin-left:850;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
 								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 750;"> </div>
-								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 835;"> </div>
+								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 859;"> </div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 814;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 814;margin-top: -40;"></div>
+								<div class="triangle-up" onclick="clicked(1)" style="position: absolute;margin-left: 923;margin-top: -70;"></div>
+								<div class="triangle-down" onclick="clicked(-1)" style="position: absolute;margin-left: 923;margin-top: -40;"></div>
 						</div>
 
 					
@@ -232,22 +227,24 @@ function clicked(n) {
 				</div>
 									<!--Botton-->
 									<div>
-										<div  style="border: 2px solid #f26d7d; height: 55px;width: 120px; background-color: #f26d7d;border-radius: 5px; margin-left:1400px;margin-top: 30px;"> 
-							<div style="margin-left: 33;margin-top: 7"><font size='6' color="white"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
+										<div  id="closeNoti" class="closeNoti" href="#close" onclick="closeForm()"> 
+							<div  style="margin-left: 33;margin-top: 7"><font size='6' color="white"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 										</div>
-											<div  style="border: 2px solid #47b6c7; height: 55px;width: 120px; background-color: #47b6c7;border-radius: 5px; margin-left:1550px; margin-bottom: 40px;margin-top: -58"> 
+											<div  class="confirmNoti" href="#confirm"> 
 							<div style="margin-left: 36;margin-top: 7"><font size='6' color="white"><?php echo "Save"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 											</div>
 									</div>
+									</div>
+				</form>
 			</div>
  
-			 <div class="notimenu" style="font-size: 30px">
+			 <div class="notimenu" style="font-size: 30px; ">
 			 Medicine
 			 </div>
 	
 			            <?php
 			//Queue pills info.
-            $mysql_qry2 = "SELECT s.bookingdate,hi.times,m.medicine_id,m.medicine_timetake,m.medicine_timeloop,m.meal_status,s.status,m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
+            $mysql_qry2 = "SELECT s.bookingdate ,hi.times, m.medicine_id, m.medicine_timetake, m.medicine_timeloop, m.meal_status, s.status, m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
             $result2 = mysqli_query($Connect, $mysql_qry2);
 			//Count pills in history medicine.
 			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
@@ -257,8 +254,8 @@ function clicked(n) {
 				 		<div style=" border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
 				while ($medic =  $result2->fetch_assoc()) { ?>
-                <div class="column">
-                    <div class="card" onclick="pillFunction()" style="height: 135px; background-color: #E9E9E9;border-radius: 5px; margin-top: 0px; margin-left: 10px;">
+                <div class="column" >
+                    <div class="pills" onclick="openForm('<?php echo $medic['medicine_name']; ?>','<?php echo $medic['times']; ?>','<?php echo $medic['medicine_timetake']; ?>','<?php echo $medic['meal_status']; ?>')">
                         <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
@@ -277,18 +274,7 @@ function clicked(n) {
 								<?php if($noti['remaining_times']!=NULL && $noti['remaining_times']>0){ ?>
          						 	<font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo $noti['remaining_times']; ?> times </font><?php } ?>
                             </p>
-									<div id="myModal" class="dropdown-content">
-									<div class="rightContainer" style=" height: 350px;width: 1100px; background-color: #E9E9E9;border-radius: 5px;margin-top: -450px; margin-left: 500px;margin-bottom: 50px; "> 
-							
-							
-									</div>
-							     	<div class="rightContainer" style="height: 350px;width: 1100px; background-color: #E9E9E9;border-radius: 5px; margin-left: 500px;"> 
-							
-							
-									</div>
-  								</div>	
                         </div>
-		
                     </div>	
                 </div>
 	 		<?php } ?> 						
@@ -299,7 +285,7 @@ function clicked(n) {
           <?php  //If pills is empty. 
 						if ($count['count']==0){
 				?>
-				<div class="column">
+				 <div class="column"  style="width: 500px;">
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
      
 						<br><table width="420" height="110"> <tr align="center" valign="middle"> <td>
@@ -312,22 +298,16 @@ function clicked(n) {
 
 
 									
-									
-<script>
-            function clickNav(){
-                console.log(document.getElementById("sidenav").style.width);
-                if(document.getElementById("sidenav").style.width == "250px")
-                {
-                    document.getElementById("sidenav").style.width = "0%";
-                }
-                else
-                {
-                    document.getElementById("sidenav").style.width = "250px";
-                }
-            }
+<script >
+	
+	function openForm(name, times, daytime, status) {
+  document.getElementById("setNoti").style.display = "block";
+}
 
-                
-    </script>
+function closeForm() {
+  document.getElementById("setNoti").style.display = "none";
+}
+	</script>
 		
 </body>
 

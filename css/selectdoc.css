@@ -1,14 +1,20 @@
-        input[type=text],
-        select {
+        input[type=text]{
             width:90%;
             padding: 5px;
             display: inline-block;
-            border: 1px solid #ccc;
+            border: 0.5px solid #aaaaaa;
             border-radius: 2px;
-            box-sizing: border-box;
             color: #a4a4a4;
         }
-
+        select{
+            width:;
+            padding: 5px;
+            display: inline-block;
+            border: 0.5px solid #aaaaaa;
+            border-radius: 2px;
+            color: #a4a4a4;
+        }
+        
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
@@ -27,10 +33,9 @@
         }
 
         .card2 {
+            width:380px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            width: 420px;
-            height: 150px;
             overflow: auto;
         }
 
@@ -46,9 +51,7 @@
             float: right;
         }
 
-        .img2 {
-            float: left;
-        }
+        
 
         .fa {
             font-size: 25px;
@@ -61,7 +64,7 @@
 
         .row {
             display: flex;
-            margin-left: 25%;
+            margin-left: 100px;
             margin-right: auto;
         }
 
@@ -188,7 +191,7 @@
 
         .HeadModule {
             position: relative;
-            width: 15%;
+            width: 200px;
             color: white;
             background-color: #47B6C7;
             padding: 15px;
@@ -223,7 +226,7 @@
 
         .HeadModule-h4-1 {
             position: relative;
-            width: 5%;
+            width: 100px;
             color: white; 
             background-color: #47B6C7; 
             padding: 8px; 
@@ -232,6 +235,23 @@
         }
 
         
-
-
+.sideleft{
+    
+    margin:auto;
+    left:16px;
+    padding:10px 0px 10px 10px;
+    display: inline-block;
+}
+.sideright{
+    float:right;
+    margin:auto;
+    padding:18px 16px 10px 16px;
+    display: inline-block;
+}
              
+.sider{
+    top:0;
+    margin-top:auto;
+    padding:18px 16px 10px 16px;
+    display: inline-block;
+}

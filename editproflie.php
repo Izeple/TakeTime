@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $patientid = $_POST["patientid"];
 $email = $_POST["email"];
@@ -38,6 +39,19 @@ if (
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "',picture='man.png' WHERE `patient_id` = '" . $patientid . "'";
+=======
+<?php 
+ $patientid = $_POST["patientid"];
+ $email = $_POST["email"];
+ $idcard = $_POST["idcard"];
+ $tel = $_POST["tel"];
+ $address = $_POST["address"];
+ $dob = $_POST["dob"];
+ require "condb.php";
+ $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',address =  '" . $address . "',dob ='" . $dob . "' WHERE `patient_id` = '" . $patientid . "'";
+ if ($Connect->query($sql) === TRUE) {
+    header("location: ./profile.php");
+>>>>>>> a52d5294f95833c248794d455c30a0a51a3b3fe3
 } else {
     $t=time();
     $newname = $t .date("Ymd",$t);

@@ -46,7 +46,7 @@
 <body>
     <div id="main">
         <ul>
-            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+            <li><a class="active" href="#" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
@@ -56,11 +56,12 @@
         </ul>
         <section><img src="./img/Banner.png" style="width:100%">
             <div id="sidenav" class="sidenav">
-                <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
-                <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
-                <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
+            <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>
+            <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
+            <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
+            <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
             </div>
+        
         </section>
     </div>
     <div class="boxe">
@@ -71,7 +72,11 @@
 
                 <div class="upload-btn-wrapper">
                     <div>
+<<<<<<< HEAD
                         <img src="./img/man.png" class="picpro" >
+=======
+                        <img src="./img/man.png" class="picpro">
+>>>>>>> a52d5294f95833c248794d455c30a0a51a3b3fe3
                     </div>
                     <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
 
@@ -87,14 +92,13 @@
                 <p class="tl"> Telephone</p>
                 <p class="tr"> : <?php echo $result_User['tel']; ?></p>
                 <p class="tl"> Address</p>
-                <p class="tr"> : <?php echo $result_User['addresspatient']; ?></p>
+                <p class="tr"> : <?php echo $result_User['address']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
                 <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
             </div>
         </div>
     </div>
-
     <div id="propop" class="login">
         <!-- Modal content -->
         <div class="propop">
@@ -123,7 +127,7 @@
                         <p class="tl"> Telephone</p>
                         <p class="tr"> : <input class="ip" type="text" name="tel" value="<?php echo $result_User['tel']; ?>"></p>
                         <p class="tl"> Address</p>
-                        <p class="tr"> : <input class="ip" type="text" name="address" value="<?php echo $result_User['addresspatient']; ?>"></p>
+                        <p class="tr"> : <input class="ip" type="text" name="address" value="<?php echo $result_User['address']; ?>"></p>
                         <p class="tl"> Date of birth</p>
                         <p class="tr"> : <input class="ip" type="date" name="dob" value="<?php echo $result_User['dob']; ?>"></p>
                         <center><button type="submit" class="save" style="display:inline-block; margin-right:10px;">Save</button><button class="cancel" style="display:inline-block">Cancel</button></center>
@@ -134,7 +138,67 @@
         </div>
     </div>
     </div>
+    <div class="bookhis">
+        <?php
+        $status_select = "Complete";
+        $i = 0;
+        //'".$result_User['patient_id']."'
+        $sql = "SELECT * FROM schedule WHERE patient_id = 1";
+        $result_Schedule = PDOfetchAll($sql);
+        if ($result_Schedule) {
+            foreach ($result_Schedule as $row) {
+                if ($i % 2 == 0 && $i != 0) {
 
+                    ?>
+    </div>
+    <?php } ?>
+    <?php if ($row['status'] == $status_select && $row['status'] == "Complete") { ?>
+        <div class="column">
+            <div class="card2" >
+            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px;">Complete</h4>
+
+            <div class="sideleft">
+                    <img src="./img/picdoc.jpg"  style="width:100px;">
+    
+            </div>
+                <div class="sider">
+                    
+                    <font size='5' color="#47b6c7">
+                        Dr. <?php
+                                        $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
+                                        $result_doctor = PDOfetchAll($sql)[0];
+                                        echo $result_doctor['name'], $result_doctor['surname']; ?><br>
+                    </font>
+
+                    <font size='3' color="#a4a4a4">
+                        <?php $dates = explode(' ', $row['bookingdate']); ?>
+                        Date <?php echo $dates[0]; ?><br>
+                        Time <?php echo $dates[1]; ?><br>
+
+                        Hospital <?php
+                                                $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
+                                                $result_Hospital = PDOfetchAll($sql)[0];
+                                                echo $result_Hospital['hospital_name'] ?><br>
+                    </font>
+
+                    
+                </div>
+            </div> 
+        </div>
+<?php
+            $i++;
+        }
+    }
+}
+?>
+
+
+
+
+
+
+
+    </div>
 </body>
 
 </html>

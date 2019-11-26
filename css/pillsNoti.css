@@ -1,87 +1,13 @@
-.show {display:block;}
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
-
-.dropdown {
-  position: fixed;
-  
-}
-
-.dropdown-content {
-  display: none;
-  position:fixed;
-}
-
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
- .modal {
-            Position: fixed;
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 10px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-
-        }
-
-        /* Modal Content */
-        .modal-content {
-            Position: relative;
-            background-color: #fefefe;
-            width: 61%;
-            height: 94.5%;
-            margin: auto;
-            padding: 10px;
-            border: 1px solid #888;
-            border-radius: 10px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
 .triangle-up {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 20px solid #C1C1C1;
+}
+
+div.triangle-up:hover {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 20px solid #A4A4A4;
 }
 
 .triangle-down {
@@ -89,3 +15,60 @@
 	border-right: 10px solid transparent;
 	border-top: 20px solid #C1C1C1;
 }
+div.triangle-down:hover {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 20px solid #A4A4A4;
+}
+
+.closeNoti {
+
+	border: 2px solid #f26d7d; 
+	height: 55px;
+	width: 120px; 
+	background-color: #f26d7d;
+	border-radius: 5px; 
+	margin-left:700px;
+	margin-top: 30px;
+}
+
+
+div.closeNoti:hover {
+	border: 2px solid #dc5e6d; 
+	background-color: #dc5e6d;
+
+}
+.confirmNoti {
+	border: 2px solid #47b6c7; 
+	height: 55px;
+	width: 120px; 
+	background-color: #47b6c7;
+	border-radius: 5px; 
+	margin-left:900px; 
+	margin-bottom: 40px;
+	margin-top: -58
+}
+div.confirmNoti:hover {
+	border: 2px solid #3fabbc; 
+	background-color: #3fabbc;
+}
+
+	div.pills {
+        	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			height: 135px;
+			border-radius: 5px; 
+			margin-top: 0px; 
+			margin-left: 10px;
+			background-color: #E9E9E9;
+            transition: 0.3s;
+            width: 420px;
+            height: 140px;
+            overflow: auto;
+        }
+   div.pills:active {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+	div:focus {
+   		 background-color:red;
+	}

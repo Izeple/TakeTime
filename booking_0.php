@@ -8,7 +8,15 @@
         $result_User = PDOfetchAll($sql)[0];
     }
     else
+    {
         header("location:Homepage.php");
+    }
+    if($_SESSION["edit"]==1 && !isset($_POST["edit"]))
+    {
+        $_SESSION["edit"] = 0;
+        header("location:delete_schedule.php");
+    }
+   
 ?>
 
 <!DOCTYPE html>
@@ -89,13 +97,13 @@
                                 $result_Hospital = PDOfetchAll($sql)[0];
                                 echo $result_Hospital['hospital_name']?><br>
                             </font>
-                            <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_booking.php" method="POST">
-                                <input type="hidden" name="booking_id" value="<?php echo $result_Schedule[0]['schedule_id']; ?>" />  
+                            <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_schedule.php" method="POST">
+                                <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />  
                                 <input type='submit' value='x' onclick="return confirm('Are you sure to Delete?')">
                             </form>
 
                             <form style="position: absolute; margin-top:17px; margin-left:380px;" action="random-page2.php" method="POST">
-                                <input type="hidden" name="booking_id" value="<?php echo $result_Schedule[0]['schedule_id']; ?>" />    
+                                <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />    
                                 <input type='submit' value='Edit'>
                             </form>
                             <br> 

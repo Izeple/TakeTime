@@ -127,10 +127,10 @@
                     ?>
     </div>
     <?php } ?>
-    <?php if ($row['status'] == $status_select && $row['status'] == "Complete") { ?>
+    <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
         <div class="column">
             <div class="card2" >
-            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px;">Complete</h4>
+            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Ongoing</h4>
 
             <div class="sideleft">
                     <img src="./img/picdoc.jpg"  style="width:100px;">
@@ -162,7 +162,43 @@
         </div>
 <?php
             $i++;
-        }
+        } else{ ?>
+        <div class="column">
+            <div class="card2" >
+            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
+
+            <div class="sideleft">
+                    <img src="./img/picdoc.jpg"  style="width:100px;">
+    
+            </div>
+                <div class="sider">
+                    
+                    <font size='5' color="#47b6c7">
+                        Dr. <?php
+                                        $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
+                                        $result_doctor = PDOfetchAll($sql)[0];
+                                        echo $result_doctor['name'], $result_doctor['surname']; ?><br>
+                    </font>
+
+                    <font size='3' color="#a4a4a4">
+                        <?php $dates = explode(' ', $row['bookingdate']); ?>
+                        Date <?php echo $dates[0]; ?><br>
+                        Time <?php echo $dates[1]; ?><br>
+
+                        Hospital <?php
+                                                $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
+                                                $result_Hospital = PDOfetchAll($sql)[0];
+                                                echo $result_Hospital['hospital_name'] ?><br>
+                    </font>
+
+                    
+                </div>
+            </div> 
+        </div>
+<?php
+            $i++;
+        }?>
+        <?php
     }
 }
 ?>

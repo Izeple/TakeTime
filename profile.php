@@ -127,10 +127,10 @@
                     ?>
     </div>
     <?php } ?>
-    <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
+    <?php if ($row['status'] == $status_select && $row['status'] == "ongoing") { ?>
         <div class="column">
             <div class="card2" >
-            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Ongoing</h4>
+            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On going</h4>
 
             <div class="sideleft">
                     <img src="./img/picdoc.jpg"  style="width:100px;">
@@ -165,7 +165,7 @@
         } else{ ?>
         <div class="column">
             <div class="card2" >
-            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
+            <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
 
             <div class="sideleft">
                     <img src="./img/picdoc.jpg"  style="width:100px;">

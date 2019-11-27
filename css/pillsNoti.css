@@ -23,10 +23,10 @@ div.triangle-down:hover {
 
 .closeNoti {
 
-	border: 2px solid #f26d7d; 
+	border: 2px solid #E9E9E9; 
 	height: 55px;
 	width: 120px; 
-	background-color: #f26d7d;
+	background-color: #E9E9E9;
 	border-radius: 5px; 
 	margin-left:700px;
 	margin-top: 30px;
@@ -34,8 +34,8 @@ div.triangle-down:hover {
 
 
 div.closeNoti:hover {
-	border: 2px solid #dc5e6d; 
-	background-color: #dc5e6d;
+	border: 2px solid #c0c0c0; 
+	background-color: #c0c0c0;
 
 }
 .confirmNoti {
@@ -65,23 +65,10 @@ div.confirmNoti:hover {
             height: 140px;
             overflow: auto;
         }
-   div.pills:active {
+   div.pills:hover {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
 
 	div:focus {
    		 background-color:red;
 	}
-.popSetup{
-
-  position: relative;
-  bottom: 0;
-  right: 15px;
-
-
-}
-.popUp-container{
-	float: right; 
-	margin-top: -170;
-	margin-right:  120px;
-}

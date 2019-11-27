@@ -24,6 +24,66 @@
         function backconsult() {
             window.open('chat.php', "_self");
         }
+
+        function checktext() {
+           var describe = document.forms["forminsert"]["describe"].value.trim().length;
+            if (describe == 0) {
+                document.getElementById("describe").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("describe").style.borderColor = "#47b6c7";
+            }
+            var often = document.forms["forminsert"]["often"].value.trim().length;
+            if (often == 0) {
+                document.getElementById("often").style.borderColor = "red";
+            }
+            var CardNumber1 = document.forms["forminsert"]["CardNumber1"].value.trim().length;
+            var CardNumber = document.forms["forminsert"]["CardNumber1"].value;
+            if (CardNumber1 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber1!=4) {
+                document.getElementById("CardNumber1").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("CardNumber1").style.borderColor = "#47b6c7";
+            }
+            var CardNumber2 = document.forms["forminsert"]["CardNumber2"].value.trim().length;
+            var CardNumber = document.forms["forminsert"]["CardNumber2"].value;
+            if (CardNumber2 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber2!=4) {
+                document.getElementById("CardNumber2").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("CardNumber2").style.borderColor = "#47b6c7";
+            }   
+            var CardNumber3 = document.forms["forminsert"]["CardNumber3"].value.trim().length;
+            var CardNumber = document.forms["forminsert"]["CardNumber3"].value;
+            if (CardNumber3 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber3!=4) {
+                document.getElementById("CardNumber3").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("CardNumber3").style.borderColor = "#47b6c7";
+            }     
+            var CardNumber4 = document.forms["forminsert"]["CardNumber4"].value.trim().length;
+            var CardNumber = document.forms["forminsert"]["CardNumber4"].value;
+            if (CardNumber4 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber4!=4) {
+                document.getElementById("CardNumber4").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("CardNumber4").style.borderColor = "#47b6c7";
+            }      
+            var CVV1 = document.forms["forminsert"]["CVV"].value.trim().length;
+            var CVV = document.forms["forminsert"]["CVV"].value;
+            if (CVV1  == 0||Number.isInteger(Number(CVV))==false ||CVV1 !=3) {
+                document.getElementById("CVV").style.borderColor = "red";
+            }
+            else
+            {
+                document.getElementById("CVV").style.borderColor = "#47b6c7";
+            }              
+        }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome Icon Library -->
@@ -254,7 +314,7 @@
     <br>
     <br>
     <div id="myModal" class="modal">
-        <form action="insertchat.php" method="POST" enctype="multipart/form-data">
+        <form action="insertchat.php" method="POST" enctype="multipart/form-data" name="forminsert">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>
@@ -262,9 +322,9 @@
                 </p>
                 <div class="row1">
                     <div class="column1" style="padding-left:35px;">
-                        <textarea rows="8" cols="75" name="describe"></textarea><br><br>
+                        <textarea rows="8" cols="75" name="describe" id="describe" onchange="checktext()"></textarea><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
-                            <input type="number" name="long" style="width:50px; height: 38px;" min="1"></font>
+                            <input type="number" name="long" id="long" style="width:50px; height: 38px;" min="1" onchange="checktext()"></font>
                         <select style="width:110px;" name="unitlong">
                             <option value="Minute">Minute</option>
                             <option value="Hour">Hour</option>
@@ -273,7 +333,7 @@
                             <option value="Year">Year</option>
                         </select><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How often? </font>
-                        &nbsp; <input type="text" name="often"><br>
+                        &nbsp; <input type="text" name="often" id="often" onchange="checktext()"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
                             <img src="./img/bell.png" style="width:75px;"><br>
@@ -299,10 +359,10 @@
                     <div class="column1">
                         <font size='6' color="#47b6c7" face="Agency FB"> <U> Payment Card</U></font><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Card Number</font>
-                        <input type="text" style="width:120px;" name="CardNumber1">
-                        &nbsp;<input type="text" style="width:120px;" name="CardNumber2">
-                        &nbsp;<input type="text" style="width:120px;" name="CardNumber3">
-                        &nbsp;<input type="text" style="width:120px;" name="CardNumber4"><br>
+                        <input type="text" style="width:120px;" name="CardNumber1" id="CardNumber1" onchange="checktext()">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber2" id="CardNumber2" onchange="checktext()">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber3" id="CardNumber3" onchange="checktext()">
+                        &nbsp;<input type="text" style="width:120px;" name="CardNumber4" id="CardNumber4" onchange="checktext()"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
                         &nbsp; <select style="width:110px;" name="MonthExpired">
                             <option value="">Month</option>
@@ -331,7 +391,7 @@
                             ?>
                         </select><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> CVV</font> &nbsp;
-                        <input type="text" style="width:95px;" name="CVV"><br>
+                        <input type="text" style="width:95px;" name="CVV" id="CVV" onchange="checktext()"><br>
 
                     </div>
                     <div class="column1">
@@ -419,7 +479,7 @@
         </div>
     <?php
     } else {
-      ?>
+        ?>
         <div class="barback">
             <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px; float: left;" onclick="backconsult()">
         </div>

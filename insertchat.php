@@ -52,8 +52,10 @@ if ($uploadOk == 0) {
     } else {
     }
 } else {
-    $newname = rand(0, 9999);
+    $t=time();
+    $newname = $t .date("Ymd",$t);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
+        $namefile = $newname . "." . $imageFileType;
         $sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `time frame`, `often`, `CardNumber`, `img`, `star`, `answer`)  
         VALUES (NULL,'$staffid','1','$describe','$long.$unitlong','$often','$CardNumber','$namefile','0','')";
         if ($Connect->query($sql) === TRUE) {
@@ -64,7 +66,7 @@ if ($uploadOk == 0) {
     } else {
         // echo "Sorry, there was an error uploading your file.";
     }
-    $namefile = $newname . "." . $imageFileType;
+
 }
 
 ?>

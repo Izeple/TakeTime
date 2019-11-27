@@ -70,7 +70,12 @@
  
 
         <font size='5' color="#a4a4a4">
-            Date : <?php echo $_POST["date"];?><br>
+            Date : <?php echo $_POST["date"];
+                    $date = str_replace('/', '-',  $_POST["date"]);
+                    $_SESSION["date"] = date("Y-m-d", strtotime($date));
+                    echo $_SESSION["date"];
+                    
+                    ?><br>
             Time : <?php echo $_POST["times"]; 
                     $_SESSION["times"]=$_POST["times"];?><br>
         </font>
@@ -86,8 +91,10 @@
         </div>
     </div>
     <div style="margin-left:650px;">
-        <button onclick="location.replace('./booking_0.php');" value="Cancel">Cancel</button>
+    <form action="./booking_0.php" method="post" id="usrform">
+        <button name="edit" value="0">Cancel</button>
         <input type="submit" form="usrform" value="Comfirm">
+    </form>
     </div>
 
 

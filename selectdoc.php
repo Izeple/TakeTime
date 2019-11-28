@@ -25,13 +25,25 @@
             window.open('chat.php', "_self");
         }
 
+        function sql() {
+            var departmentname = document.getElementById("departmentname").value;
+            var hospitalname = document.getElementById("hospitalname").value;
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("sql").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "selectdepartment.php?departmentname=" + departmentname + "&hospitalname="+hospitalname, true);
+            xhttp.send();
+        }
+
         function checktext() {
-           var describe = document.forms["forminsert"]["describe"].value.trim().length;
+            var describe = document.forms["forminsert"]["describe"].value.trim().length;
             if (describe == 0) {
                 document.getElementById("describe").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("describe").style.borderColor = "#47b6c7";
             }
             var often = document.forms["forminsert"]["often"].value.trim().length;
@@ -40,49 +52,39 @@
             }
             var CardNumber1 = document.forms["forminsert"]["CardNumber1"].value.trim().length;
             var CardNumber = document.forms["forminsert"]["CardNumber1"].value;
-            if (CardNumber1 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber1!=4) {
+            if (CardNumber1 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber1 != 4) {
                 document.getElementById("CardNumber1").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("CardNumber1").style.borderColor = "#47b6c7";
             }
             var CardNumber2 = document.forms["forminsert"]["CardNumber2"].value.trim().length;
             var CardNumber = document.forms["forminsert"]["CardNumber2"].value;
-            if (CardNumber2 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber2!=4) {
+            if (CardNumber2 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber2 != 4) {
                 document.getElementById("CardNumber2").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("CardNumber2").style.borderColor = "#47b6c7";
-            }   
+            }
             var CardNumber3 = document.forms["forminsert"]["CardNumber3"].value.trim().length;
             var CardNumber = document.forms["forminsert"]["CardNumber3"].value;
-            if (CardNumber3 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber3!=4) {
+            if (CardNumber3 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber3 != 4) {
                 document.getElementById("CardNumber3").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("CardNumber3").style.borderColor = "#47b6c7";
-            }     
+            }
             var CardNumber4 = document.forms["forminsert"]["CardNumber4"].value.trim().length;
             var CardNumber = document.forms["forminsert"]["CardNumber4"].value;
-            if (CardNumber4 == 0||Number.isInteger(Number(CardNumber))==false ||CardNumber4!=4) {
+            if (CardNumber4 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber4 != 4) {
                 document.getElementById("CardNumber4").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("CardNumber4").style.borderColor = "#47b6c7";
-            }      
+            }
             var CVV1 = document.forms["forminsert"]["CVV"].value.trim().length;
             var CVV = document.forms["forminsert"]["CVV"].value;
-            if (CVV1  == 0||Number.isInteger(Number(CVV))==false ||CVV1 !=3) {
+            if (CVV1 == 0 || Number.isInteger(Number(CVV)) == false || CVV1 != 3) {
                 document.getElementById("CVV").style.borderColor = "red";
-            }
-            else
-            {
+            } else {
                 document.getElementById("CVV").style.borderColor = "#47b6c7";
-            }              
+            }
         }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -164,7 +166,14 @@
         .column1 {
             margin: auto;
         }
+        .row2 {
+            display: flex;
+            margin-left: 1%;
+        }
 
+        .column2 {
+            margin: auto;
+        }
         .modal {
             Position: relative;
             display: none;
@@ -299,9 +308,26 @@
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
+      
+           
             <div class="bar">
-                <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;"> Consult Doctor</font>
-            </div>
+            <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;"> Consult Doctor</font>
+            <select style="width:110px;" name="departmentname" style="float: right;" id="departmentname" onchange="sql()">
+                <?php $mysql_qry = "SELECT * FROM `department`" ; ?> 
+            <?php $result = mysqli_query($Connect, $mysql_qry);
+            while ($row12 =  $result->fetch_assoc()) { ?>
+                    <font size='5' color="#a4a4a4" face="Agency FB">
+                    <option value="<?php echo $row12['department_id']; ?>"><?php echo $row12['department_name']; ?></option>
+            <?php  } ?> </select>
+            <select style="width:110px;" name="hospitalname" style="float: right;"  id="hospitalname" onchange="sql()"> 
+            <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
+            <?php $result = mysqli_query($Connect, $mysql_qry);
+            while ($row12 =  $result->fetch_assoc()) { ?>  
+                    <font size='5' color="#a4a4a4" face="Agency FB">
+                    <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>
+            <?php  } ?></div>
+            </select>
+            
             <div id="sidenav" class="sidenav">
                 <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                 <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
@@ -409,7 +435,8 @@
         </form>
     </div>
     <center>
-        <div class="row">
+    <div id="sql">
+    <div class="row" >
             <?php
             $i = 0;
             $mysql_qry1 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id";
@@ -455,6 +482,8 @@
     <?php
         $i++;
     } ?>
+        </div>
+    </div>
     </center>
     <script>
         var modal = document.getElementById("myModal");

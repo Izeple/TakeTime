@@ -54,7 +54,10 @@
             </li>
             <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
         </ul>
-        <section><img src="./img/Banner.png" style="width:100%">
+        <section>
+            <div style="position:absolute; z-index:-1; width:100%;">
+                <img src="./img/Banner.png" style="width:100% ">
+            </div>
             <div id="sidenav" class="sidenav">
                 <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>
                 <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
@@ -64,6 +67,7 @@
 
         </section>
     </div>
+    
     <div class="boxe">
         <div class="hpro">Profile</div>
         <div class="Profile">
@@ -96,6 +100,7 @@
             </div>
         </div>
     </div>
+    
     <div id="propop" class="login">
         <!-- Modal content -->
         <div class="propop">
@@ -134,24 +139,67 @@
     </div>
     </div>
     </div>
-    <div class="bookhis">
-        <?php
-        //        $status_select = "Complete";
-        $i = 0;
-        //'".$result_User['patient_id']."'
-        $sql = "SELECT * FROM schedule WHERE patient_id = 1";
-        $result_Schedule = PDOfetchAll($sql);
-        if ($result_Schedule) {
-            foreach ($result_Schedule as $row) {
-                if ($i % 3 == 0 && $i != 0) {
+    <div class="down">
+        <div class="bookhis">
+            <?php
+            //        $status_select = "Complete";
+            $i = 0;
+            //'".$result_User['patient_id']."'
+            $sql = "SELECT * FROM schedule WHERE patient_id = 1";
+            $result_Schedule = PDOfetchAll($sql);
+            if ($result_Schedule) {
+                foreach ($result_Schedule as $row) {
+                    if ($i != 0) {
 
-                    ?>
-    </div>
+                        ?>
+        <?php } ?>
+    <?php if ($row['status'] == "Ongoing") { ?>
+        <div class="column">
+            <div class="card2">
+                <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
+
+                <div class="sideleft">
+                    <img src="./img/picdoc.jpg" style="width:100px;">
+
+                </div>
+                <div class="sider">
+
+                    <font size='5' color="#47b6c7">
+                        Dr. <?php
+                                        $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
+                                        $result_doctor = PDOfetchAll($sql)[0];
+                                        echo $result_doctor['name'], $result_doctor['surname']; ?><br>
+                    </font>
+
+                    <font size='3' color="#a4a4a4">
+                        <?php $dates = explode(' ', $row['bookingdate']); ?>
+                        Date <?php echo $dates[0]; ?><br>
+                        Time <?php echo $dates[1]; ?><br>
+
+                        Hospital <?php
+                                                $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
+                                                $result_Hospital = PDOfetchAll($sql)[0];
+                                                echo $result_Hospital['hospital_name'] ?><br>
+                    </font>
+
+
+                </div>
+            </div>
+        </div>
+    <?php
+                $i++;
+            }
+        }
+        foreach ($result_Schedule as $row) {
+            if ($i != 0) {
+
+                ?>
+    
 <?php } ?>
-<?php if ($row['status'] == "Ongoing") { ?>
+<?php if ($row['status'] == "Complete") { ?>
     <div class="column">
-        <div class="card2">
-            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
+        <div class="card2" style="position:relative">
+            <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
 
             <div class="sideleft">
                 <img src="./img/picdoc.jpg" style="width:100px;">
@@ -179,91 +227,73 @@
 
 
             </div>
+            <img src="./img/tag.png" style="position:absolute; right:-161.24px; top:24px;" height="80px;">
+            <div class="med">
+                <font size='3' color="#8c8c8c" style="margin:0px;"><u>Medicine </u>
+                    <font size='2' color="#8c8c8c">
+                        <?php
+                                    $sql = "SELECT * FROM history_medicine WHERE schedule_id = '" . $row['schedule_id'] . "'";
+                                    $result_Med = PDOfetchAll($sql);
+                                    if ($result_Med) {
+                                        foreach ($result_Med as $medt) {
+
+                                            $sql = "SELECT * FROM medical WHERE medicine_id = '" . $medt['medicine_id'] . "'";
+                                            $rest_Med = PDOfetchAll($sql)[0];
+                                            ?>
+                                <br>
+                            <?php
+                                                echo $rest_Med['medicine_name'] . "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" . $medt['times'] . "&nbsp&nbsptimes";
+                                            }
+                                        } else {
+                                            ?>
+                            <br>
+                        <?php
+                                        echo "None";
+                                    }
+                                    ?><br>
+
+                    </font>
+            </div>
+
         </div>
     </div>
 <?php
             $i++;
-        } 
+        }
     }
-    foreach ($result_Schedule as $row) {
-        if ($i % 3 == 0 && $i != 0) {
-
-            ?>
-</div>
-<?php } ?>
-<?php if ($row['status'] == "Complete") { ?>
-<div class="column">
-<div class="card2">
-    <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
-
-    <div class="sideleft">
-        <img src="./img/picdoc.jpg" style="width:100px;">
-
-    </div>
-    <div class="sider">
-
-        <font size='5' color="#47b6c7">
-            Dr. <?php
-                            $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
-                            $result_doctor = PDOfetchAll($sql)[0];
-                            echo $result_doctor['name'], $result_doctor['surname']; ?><br>
-        </font>
-
-        <font size='3' color="#a4a4a4">
-            <?php $dates = explode(' ', $row['bookingdate']); ?>
-            Date <?php echo $dates[0]; ?><br>
-            Time <?php echo $dates[1]; ?><br>
-
-            Hospital <?php
-                                    $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
-                                    $result_Hospital = PDOfetchAll($sql)[0];
-                                    echo $result_Hospital['hospital_name'] ?><br>
-        </font>
-
-
-    </div>
-            <div class="med">
-                    <font size='3' color="#a4a4a4">
-                    Medicine<?php 
-                                            $sql = "SELECT * FROM history_medicine WHERE schedule_id = '" . $row['schedule_id'] . "'";
-                                            $result_Med = PDOfetchAll($sql);
-                                            if($result_Med){
-                                                foreach($result_Med as $medt){
-                                                    
-                                                $sql = "SELECT * FROM medical WHERE medicine_id = '" . $medt['medicine_id'] . "'";
-                                                $rest_Med = PDOfetchAll($sql)[0];
-                                                ?>
-                                                <br>
-                                                <?php
-                                                echo $rest_Med['medicine_name'];
-                                                }
-
-                                            }
-                                            else{
-                                                ?>
-                                                <br>
-                                                <?php
-                                                echo "none";
-                                            }
-                                             ?><br>
-                 </font>
-            </div>
-</div>
-</div>
-<?php
-    $i++;
-} 
-}
 }
 ?>
 
+    </div>
+    
 
+<div class="allergy">
+    <?php
+    $sql = "SELECT * FROM allergy_medicine WHERE patient_id = '" . $result_User['patient_id'] . "'";
+    $result_allergy = PDOfetchAll($sql);
+    if ($result_allergy) {
+        foreach ($result_allergy as $aller) {
 
-
-
-
+            $sql = "SELECT * FROM medical WHERE medicine_id = '" . $aller['medicine_id'] . "'";
+            $realler = PDOfetchAll($sql)[0];
+            ?>
+            <br>
+        <?php
+                echo $realler['medicine_name'];
+            }
+        } else {
+            ?>
+        <br>
+    <?php
+        echo "None";
+    }
+    ?><br>
 
 </div>
+
+</div>
+
+
 </body>
 
 </html>

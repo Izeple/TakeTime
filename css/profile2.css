@@ -1,9 +1,8 @@
+
 .boxe{
-    position:absolute;
-    top:130px;
+    z-index: 1;
+    margin:60px auto auto auto;
     width:40%;
-    margin-left: 30%;
-    margin-right: 30%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius:5px;
 }
@@ -119,12 +118,12 @@
   }
 
   .bookhis{
-    position:absolute;
-    top:550px;
+    margin-top:100px;
     width:600px;
     background-color: white;
-    margin-left: 10%;
-    margin-right: 50%;
+    margin-left: 150px;
+    display:inline-block;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius:5px;
     margin-bottom: 300px;
@@ -132,12 +131,22 @@
 }
 
 .med{
-    width: 200px;
-    background-image: url(/img/tag.png);
-    background-repeat: no-repeat;
-  background-attachment: fixed;
-    margin:auto;
-    padding:10px 10px 10px 10px;
-    display: inline-block;
+    font-size:16px;
+    position:absolute; 
+    padding:9px; 
+    right:-120px; 
+    top:24px; 
+    overflow:auto; 
+    width:100px;
+    height: 60px;
+
+}
+.allergy{
+    margin-left:1rem;
+    width:400px;
+    display:inline-block;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:5px;
 
 }

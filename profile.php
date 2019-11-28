@@ -72,8 +72,8 @@
 
                 <div class="upload-btn-wrapper">
                     <div>
-                       <img src="./img/man.png" class="picpro">
-                            
+                        <img src="./img/man.png" class="picpro">
+
                     </div>
                     <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
 
@@ -136,22 +136,22 @@
     </div>
     <div class="bookhis">
         <?php
-        $status_select = "Complete";
+        //        $status_select = "Complete";
         $i = 0;
         //'".$result_User['patient_id']."'
         $sql = "SELECT * FROM schedule WHERE patient_id = 1";
         $result_Schedule = PDOfetchAll($sql);
         if ($result_Schedule) {
             foreach ($result_Schedule as $row) {
-                if ($i % 2 == 0 && $i != 0) {
+                if ($i % 3 == 0 && $i != 0) {
 
                     ?>
     </div>
-    <?php } ?>
-    <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
-        <div class="column">
-            <div class="card2" >
-            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On going</h4>
+<?php } ?>
+<?php if ($row['status'] == "Ongoing") { ?>
+    <div class="column">
+        <div class="card2">
+            <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
 
             <div class="sideleft">
                 <img src="./img/picdoc.jpg" style="width:100px;">
@@ -183,44 +183,77 @@
     </div>
 <?php
             $i++;
-        } else{ ?>
-        <div class="column">
-            <div class="card2" >
-            <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
-
-            <div class="sideleft">
-                    <img src="./img/picdoc.jpg"  style="width:100px;">
-    
-            </div>
-                <div class="sider">
-                    
-                    <font size='5' color="#47b6c7">
-                        Dr. <?php
-                                        $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
-                                        $result_doctor = PDOfetchAll($sql)[0];
-                                        echo $result_doctor['name'], $result_doctor['surname']; ?><br>
-                    </font>
-
-                    <font size='3' color="#a4a4a4">
-                        <?php $dates = explode(' ', $row['bookingdate']); ?>
-                        Date <?php echo $dates[0]; ?><br>
-                        Time <?php echo $dates[1]; ?><br>
-
-                        Hospital <?php
-                                                $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
-                                                $result_Hospital = PDOfetchAll($sql)[0];
-                                                echo $result_Hospital['hospital_name'] ?><br>
-                    </font>
-
-                    
-                </div>
-            </div> 
-        </div>
-<?php
-            $i++;
-        }?>
-        <?php
+        } 
     }
+    foreach ($result_Schedule as $row) {
+        if ($i % 3 == 0 && $i != 0) {
+
+            ?>
+</div>
+<?php } ?>
+<?php if ($row['status'] == "Complete") { ?>
+<div class="column">
+<div class="card2">
+    <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
+
+    <div class="sideleft">
+        <img src="./img/picdoc.jpg" style="width:100px;">
+
+    </div>
+    <div class="sider">
+
+        <font size='5' color="#47b6c7">
+            Dr. <?php
+                            $sql = "SELECT * FROM staff WHERE staff_id = '" . $row['staff_id'] . "'";
+                            $result_doctor = PDOfetchAll($sql)[0];
+                            echo $result_doctor['name'], $result_doctor['surname']; ?><br>
+        </font>
+
+        <font size='3' color="#a4a4a4">
+            <?php $dates = explode(' ', $row['bookingdate']); ?>
+            Date <?php echo $dates[0]; ?><br>
+            Time <?php echo $dates[1]; ?><br>
+
+            Hospital <?php
+                                    $sql = "SELECT * FROM hospital WHERE hospital_id = '" . $result_doctor['hospital_id'] . "'";
+                                    $result_Hospital = PDOfetchAll($sql)[0];
+                                    echo $result_Hospital['hospital_name'] ?><br>
+        </font>
+
+
+    </div>
+            <div class="med">
+                    <font size='3' color="#a4a4a4">
+                    Medicine<?php 
+                                            $sql = "SELECT * FROM history_medicine WHERE schedule_id = '" . $row['schedule_id'] . "'";
+                                            $result_Med = PDOfetchAll($sql);
+                                            if($result_Med){
+                                                foreach($result_Med as $medt){
+                                                    
+                                                $sql = "SELECT * FROM medical WHERE medicine_id = '" . $medt['medicine_id'] . "'";
+                                                $rest_Med = PDOfetchAll($sql)[0];
+                                                ?>
+                                                <br>
+                                                <?php
+                                                echo $rest_Med['medicine_name'];
+                                                }
+
+                                            }
+                                            else{
+                                                ?>
+                                                <br>
+                                                <?php
+                                                echo "none";
+                                            }
+                                             ?><br>
+                 </font>
+            </div>
+</div>
+</div>
+<?php
+    $i++;
+} 
+}
 }
 ?>
 

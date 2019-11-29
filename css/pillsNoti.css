@@ -1,4 +1,3 @@
-
 .triangle-up {
 	position: absolute;
 	border-left: 10px solid transparent;
@@ -80,4 +79,5 @@ div.confirmNoti:hover {
 #pills:visited {
     color: white;
     background-color: black;
+
 }

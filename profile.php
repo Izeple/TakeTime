@@ -139,8 +139,11 @@
     </div>
     </div>
     </div>
-    <div class="down">
-        <div class="bookhis">
+    <div class="down" style="width:750; margin-left:25%;margin-right:25%;">
+
+    <div class="bookhis">
+    <div style="z-index:2;position:absolute; left:5px;top:-44px; background-color:#1cbbb4; color:#FFFFFF; padding:10px 15px;">Booking</div>
+
             <?php
             //        $status_select = "Complete";
             $i = 0;
@@ -268,6 +271,7 @@
     
 
 <div class="allergy">
+    <div style="position:absolute; left:5px;top:-38.4px; background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
     <?php
     $sql = "SELECT * FROM allergy_medicine WHERE patient_id = '" . $result_User['patient_id'] . "'";
     $result_allergy = PDOfetchAll($sql);
@@ -277,22 +281,26 @@
             $sql = "SELECT * FROM medical WHERE medicine_id = '" . $aller['medicine_id'] . "'";
             $realler = PDOfetchAll($sql)[0];
             ?>
-            <br>
         <?php
-                echo $realler['medicine_name'];
+                echo "- ".$realler['medicine_name'];
             }
-        } else {
+        } 
             ?>
         <br>
-    <?php
-        echo "None";
-    }
-    ?><br>
+        <img onclick="document.getElementById('aller').style.display='block'"  class="edit"style="border-radius:0px 0px 3px 0px; width:20%" src="./img/edit.png">
 
 </div>
 
 </div>
+<div id="aller" class="login">
+        <!-- Modal content -->
+        <div class="aller">
+            <p> FFFF</p>
+        </div>
 
+    </div>
+   
+    
 
 </body>
 

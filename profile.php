@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./script/clickNav.js"></script>
+    <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
     <?php //require "signup.php"; 
@@ -46,7 +46,7 @@
 <body>
     <div id="main">
         <ul>
-            <li><a class="active" href="#" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
@@ -288,15 +288,65 @@
             ?>
         <br>
         <img onclick="document.getElementById('aller').style.display='block'"  class="edit"style="border-radius:0px 0px 3px 0px; width:20%" src="./img/edit.png">
-
 </div>
 
 </div>
 <div id="aller" class="login">
         <!-- Modal content -->
         <div class="aller">
-            <p> FFFF</p>
+            <span class="close" onclick="document.getElementById('signpop').style.display='none'">&times;</span>
+              <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
+              <form class="user" method="post" action="signup.php">
+                <div class="sep"> <a>Telephone</a></div>
+                <div class="sep"><input type="submit" name="register" class="sub" value="Edit" /> </div>
+              </form> 
         </div>
+
+
+
+
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                        <th>Medicine</th>
+                        <th>Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      
+                    <?php
+                       if ($result_allergy) {
+                        foreach ($result_allergy as $aller) {
+                
+                            $sql = "SELECT * FROM medical WHERE medicine_id = '" . $aller['medicine_id'] . "'";
+                            $realler = PDOfetchAll($sql)[0];
+                    ?> 
+
+                    <?php
+                        }
+                    } 
+                    ?>
+                     
+
+                        <form action="insert_medicine.php" method="POST">
+                        <tr id="department" style="display:none">
+                            <td><?php echo $realler['medicine_name'];  $_SESSION["DepartmentID_Insert"]=$DepartmentID_show; ?></td>
+                            <td><input class="form-control" type="tel" , name="Dtel"></td>
+                        </tr>
+                        </table>  
+                        <div align="right" id="s_department" style="display:none">
+                            <button type=" button" class="btn btn-primary btn-user"
+                                onclick="document.getElementById('demo').style.display='none'">ADD Medicine</button>
+                        </div>
+                        </form>
+                    </div>
+                  </tbody>
+                </table>
+
+
+
+
+
 
     </div>
    

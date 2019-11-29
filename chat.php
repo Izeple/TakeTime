@@ -290,9 +290,6 @@
 
         </div>
     </div>
-    <div class="barback">
-        <img src="./img/consult.jpg" style="width:100px; padding-top: 4px; padding-right: 5px; float: right;" onclick="consult()">
-    </div>
 </body>
 
 </html>

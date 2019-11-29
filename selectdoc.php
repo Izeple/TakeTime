@@ -35,25 +35,53 @@
                     document.getElementById("sql").innerHTML = this.responseText;
                 }
             }
-            xhttp.open("GET", "selectdepartment.php?departmentname=" + departmentname + "&hospitalname="+hospitalname, true);
+            xhttp.open("GET", "selectdepartment.php?departmentname=" + departmentname + "&hospitalname=" + hospitalname, true);
             xhttp.send();
+        }
+
+        function checktext1() {
+            var describe = document.forms["forminsert"]["describe"].value.trim().length;
+            var often = document.forms["forminsert"]["often"].value.trim().length;
+            var CardNumber1 = document.forms["forminsert"]["CardNumber1"].value.trim().length;
+            var valueCardNumber1 = document.forms["forminsert"]["CardNumber1"].value;
+            var CardNumber2 = document.forms["forminsert"]["CardNumber2"].value.trim().length;
+            var valueCardNumber2 = document.forms["forminsert"]["CardNumber2"].value;
+            var CardNumber3 = document.forms["forminsert"]["CardNumber3"].value.trim().length;
+            var valueCardNumber3 = document.forms["forminsert"]["CardNumber3"].value;
+            var CardNumber4 = document.forms["forminsert"]["CardNumber4"].value.trim().length;
+            var valueCardNumber4 = document.forms["forminsert"]["CardNumber4"].value;
+            var CVV1 = document.forms["forminsert"]["CVV"].value.trim().length;
+            var CVV = document.forms["forminsert"]["CVV"].value;
+            var MonthExpired = document.forms["forminsert"]["MonthExpired"].value;
+            var YearExpired = document.forms["forminsert"]["YearExpired"].value;
+            if (describe == 0 || often == 0 || CardNumber1 == 0 || Number.isInteger(Number(valueCardNumber1)) == false || CardNumber1 != 4 || CardNumber2 == 0 || Number.isInteger(Number(valueCardNumber2)) == false || CardNumber2 != 4 || CardNumber3 == 0 || Number.isInteger(Number(valueCardNumber3)) == false || CardNumber3 != 4 || CardNumber4 == 0 || Number.isInteger(Number(valueCardNumber4)) == false || CardNumber4 != 4 || CVV1 == 0 || Number.isInteger(Number(CVV)) == false || CVV1 != 3 || MonthExpired == 0 || YearExpired == 0) {
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                return false;
+            } else {
+                return true;
+            }
         }
 
         function checktext() {
             var describe = document.forms["forminsert"]["describe"].value.trim().length;
             if (describe == 0) {
                 document.getElementById("describe").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("describe").style.borderColor = "#47b6c7";
             }
             var often = document.forms["forminsert"]["often"].value.trim().length;
             if (often == 0) {
                 document.getElementById("often").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+            } else {
+                document.getElementById("often").style.borderColor = "#47b6c7";
             }
             var CardNumber1 = document.forms["forminsert"]["CardNumber1"].value.trim().length;
             var CardNumber = document.forms["forminsert"]["CardNumber1"].value;
             if (CardNumber1 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber1 != 4) {
                 document.getElementById("CardNumber1").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("CardNumber1").style.borderColor = "#47b6c7";
             }
@@ -61,6 +89,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber2"].value;
             if (CardNumber2 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber2 != 4) {
                 document.getElementById("CardNumber2").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("CardNumber2").style.borderColor = "#47b6c7";
             }
@@ -68,6 +97,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber3"].value;
             if (CardNumber3 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber3 != 4) {
                 document.getElementById("CardNumber3").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("CardNumber3").style.borderColor = "#47b6c7";
             }
@@ -75,6 +105,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber4"].value;
             if (CardNumber4 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber4 != 4) {
                 document.getElementById("CardNumber4").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("CardNumber4").style.borderColor = "#47b6c7";
             }
@@ -82,8 +113,19 @@
             var CVV = document.forms["forminsert"]["CVV"].value;
             if (CVV1 == 0 || Number.isInteger(Number(CVV)) == false || CVV1 != 3) {
                 document.getElementById("CVV").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
             } else {
                 document.getElementById("CVV").style.borderColor = "#47b6c7";
+            }
+            var MonthExpired = document.forms["forminsert"]["MonthExpired"].value;
+            var YearExpired = document.forms["forminsert"]["YearExpired"].value;
+            if (MonthExpired == 0 || YearExpired == 0) {
+                document.getElementById("MonthExpired").style.borderColor = "red";
+                document.getElementById("YearExpired").style.borderColor = "red";
+                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+            } else {
+                document.getElementById("MonthExpired").style.borderColor = "#47b6c7";
+                document.getElementById("YearExpired").style.borderColor = "#47b6c7";
             }
         }
     </script>
@@ -151,8 +193,8 @@
 
         .row {
             display: flex;
-            margin-left: 25%;
-            margin-right: auto;
+            margin-left: 20%;
+            margin-right: 20%;
         }
 
         .column {
@@ -160,20 +202,26 @@
         }
 
         .row1 {
-            display: flex;
+            width: 1000px;
         }
 
         .column1 {
+            padding-left: 35px;
+            width: 900px;
+            display: inline-block;
             margin: auto;
         }
+
         .row2 {
             display: flex;
             margin-left: 1%;
         }
 
         .column2 {
-            margin: auto;
+            width: 500px;
+            display: inline-block;
         }
+
         .modal {
             Position: relative;
             display: none;
@@ -201,10 +249,9 @@
 
         /* Modal Content */
         .modal-content {
+            width: 950px;
             Position: relative;
             background-color: #fefefe;
-            width: 61%;
-            height: 94.5%;
             margin: auto;
             padding: 10px;
             border: 1px solid #888;
@@ -282,11 +329,11 @@
         }
 
         .bar {
-            width: 13%;
-            height: 7%;
+            width: 180px;
             background-color: #47b6c7;
             position: absolute;
-            padding-top: 12px;
+            margin-top: -30px;
+            padding: 10px;
         }
 
         .barback {
@@ -308,26 +355,30 @@
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
-      
-           
+
+
             <div class="bar">
-            <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;"> Consult Doctor</font>
-            <select style="width:110px;" name="departmentname" style="float: right;" id="departmentname" onchange="sql()">
-                <?php $mysql_qry = "SELECT * FROM `department`" ; ?> 
-            <?php $result = mysqli_query($Connect, $mysql_qry);
-            while ($row12 =  $result->fetch_assoc()) { ?>
-                    <font size='5' color="#a4a4a4" face="Agency FB">
-                    <option value="<?php echo $row12['department_id']; ?>"><?php echo $row12['department_name']; ?></option>
-            <?php  } ?> </select>
-            <select style="width:110px;" name="hospitalname" style="float: right;"  id="hospitalname" onchange="sql()"> 
-            <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
-            <?php $result = mysqli_query($Connect, $mysql_qry);
-            while ($row12 =  $result->fetch_assoc()) { ?>  
-                    <font size='5' color="#a4a4a4" face="Agency FB">
-                    <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>
-            <?php  } ?></div>
-            </select>
-            
+                <font size='6' color="#ffffff" face="Agency FB"> Consult Doctor</font>
+            </div>
+            <center>
+                <div class="selecty">
+                    <select style="width:110px;" name="departmentname" style="float: right;" id="departmentname" onchange="sql()">
+                        <?php $mysql_qry = "SELECT * FROM `department`"; ?>
+                        <?php $result = mysqli_query($Connect, $mysql_qry);
+                        while ($row12 =  $result->fetch_assoc()) { ?>
+                            <font size='5' color="#a4a4a4" face="Agency FB">
+                                <option value="<?php echo $row12['department_id']; ?>"><?php echo $row12['department_name']; ?></option>
+                            <?php  } ?> </select>
+                    <select style="width:110px;" name="hospitalname" style="float: right;" id="hospitalname" onchange="sql()">
+                        <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
+                        <?php $result = mysqli_query($Connect, $mysql_qry);
+                        while ($row12 =  $result->fetch_assoc()) { ?>
+                            <font size='5' color="#a4a4a4" face="Agency FB">
+                                <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>
+                            <?php  } ?>
+                    </select>
+                </div>
+            </center>
             <div id="sidenav" class="sidenav">
                 <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                 <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
@@ -337,20 +388,20 @@
 
         </section>
     </div>
-    <br>
-    <br>
+
     <div id="myModal" class="modal">
-        <form action="insertchat.php" method="POST" enctype="multipart/form-data" name="forminsert">
+        <form action="insertchat.php" method="POST" enctype="multipart/form-data" name="forminsert" onsubmit="return checktext1()">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>
                     &nbsp;&nbsp;&nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB" style="padding-left:35px;"><U>Describe Symptom</U></font>
                 </p>
+
                 <div class="row1">
-                    <div class="column1" style="padding-left:35px;">
-                        <textarea rows="8" cols="75" name="describe" id="describe" onchange="checktext()"></textarea><br><br>
+                    <div class="column1">
+                        <textarea rows="8" cols="60" name="describe" id="describe" onchange="checktext()"></textarea><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
-                            <input type="number" name="long" id="long" style="width:50px; height: 38px;" min="1" onchange="checktext()"></font>
+                            <input type="number" name="long" id="long" style="width:50px; height: 38px;" value="1" min="1" onchange="checktext()"></font>
                         <select style="width:110px;" name="unitlong">
                             <option value="Minute">Minute</option>
                             <option value="Hour">Hour</option>
@@ -362,11 +413,11 @@
                         &nbsp; <input type="text" name="often" id="often" onchange="checktext()"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="./img/bell.png" style="width:75px;"><br>
+                            <img src="./img/cam.png" style="width:75px; padding:10px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>
-                    <div class="column1">
+                    <div class="column2">
                         <div class="card1">
                             <center>
                                 <img src="./img/picdoc.jpg" style="width:160px;"><br>
@@ -390,8 +441,8 @@
                         &nbsp;<input type="text" style="width:120px;" name="CardNumber3" id="CardNumber3" onchange="checktext()">
                         &nbsp;<input type="text" style="width:120px;" name="CardNumber4" id="CardNumber4" onchange="checktext()"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Expired Date</font>
-                        &nbsp; <select style="width:110px;" name="MonthExpired">
-                            <option value="">Month</option>
+                        &nbsp; <select style="width:110px;" name="MonthExpired" id="MonthExpired">
+                            <option value="0">Month</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
@@ -406,7 +457,7 @@
                             <option value="12">12</option>
                         </select>
                         &nbsp;
-                        <select name="YearExpired">
+                        <select name="YearExpired" id="YearExpired" style="width:110px;">
                             <option value="0">Year</option>
                             <?php
                             for ($i = 2019; $i <= 2043; $i++) {
@@ -420,70 +471,77 @@
                         <input type="text" style="width:95px;" name="CVV" id="CVV" onchange="checktext()"><br>
 
                     </div>
-                    <div class="column1">
+                    <div class="column2">
                         <center>
                             <img src="./img/card.png" style="width:200px;"></center>
                     </div>
                 </div>
-                <div class="row1">
-                    <div class="column1">
-                        <input type="button" class="buttoncancel" value="CANCEL" onclick="Cancel()">&nbsp;&nbsp;&nbsp;
-                        <input type="submit" class="buttonconfirm" value="CONFIRM">
-                    </div>
+                <div style="margin-right: 10px;">
+                    <font size='5' color="red" face="Agency FB">
+                        <div id="eror" style="margin-left:35px;">
+
+                        </div>
+                    </font>
+                    <center>
+                        <div>
+                            <input type="button" class="buttoncancel" value="CANCEL" onclick="Cancel()">&nbsp;&nbsp;&nbsp;
+                            <input type="submit" class="buttonconfirm" value="CONFIRM">
+                        </div>
+                    </center>
                 </div>
             </div>
         </form>
     </div>
     <center>
-    <div id="sql">
-    <div class="row" >
+        <div id="sql">
+            <div class="row">
+                <?php
+                $i = 0;
+                $mysql_qry1 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id";
+                $result1 = mysqli_query($Connect, $mysql_qry1);
+                while ($row12 =  $result1->fetch_assoc()) {
+                    if ($i % 2 == 0 && $i != 0) {
+                        ?>
+            </div>
+            <div class="row">
             <?php
-            $i = 0;
-            $mysql_qry1 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id";
-            $result1 = mysqli_query($Connect, $mysql_qry1);
-            while ($row12 =  $result1->fetch_assoc()) {
-                if ($i % 2 == 0 && $i != 0) {
-                    ?>
-        </div>
-        <div class="row">
-        <?php
-            } ?>
-        <div class="column" onclick="myFunction('<?php echo $row12['staff_id']; ?>','<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
-            <div class="card">
-                <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
-                <div class="side right" align="left">
-                    <p>
-                        <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
-                        <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
-                            &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
-                        &nbsp;&nbsp;
-                        <?php
-                            for ($j = 0; $j < 5; $j++) {
-                                $star = $row12['star'];
-                                if ($j < $star) {
-                                    ?>
-                                <span class="fa fa-star checked"></span>
+                } ?>
+            <div class="column" onclick="myFunction('<?php echo $row12['staff_id']; ?>','<?php echo $row12['name']; ?>','<?php echo $row12['surname']; ?>','<?php echo $row12['department_name']; ?>','<?php echo $row12['hospital_name']; ?>','<?php echo $row12['price']; ?>')">
+                <div class="card">
+                    <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                    <div class="side right" align="left">
+                        <p>
+                            <font size='5' color="#47b6c7"> &nbsp;Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
+                            <font size='3' color="#a4a4a4">&nbsp;&nbsp;Department : <?php echo $row12['department_name']; ?><br>
+                                &nbsp; Hospital : <?php echo $row12['hospital_name']; ?></font><br>
+                            &nbsp;&nbsp;
                             <?php
-                                    } else {
+                                for ($j = 0; $j < 5; $j++) {
+                                    $star = $row12['star'];
+                                    if ($j < $star) {
                                         ?>
-                                <span class="fa fa-star"></span>
-                        <?php
+                                    <span class="fa fa-star checked"></span>
+                                <?php
+                                        } else {
+                                            ?>
+                                    <span class="fa fa-star"></span>
+                            <?php
+                                    }
                                 }
-                            }
-                            ?><br>
-                        <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
-                        <img src="./img/coin.png" style="width:20px; float: right;" align="top">
-                    </p>
+                                ?><br>
+                            <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht&nbsp;&nbsp;</font>
+                            <img src="./img/coin.png" style="width:20px; float: right;" align="top">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-    <?php
-        $i++;
-    } ?>
+        <?php
+            $i++;
+        } ?>
+            </div>
         </div>
-    </div>
     </center>
     <script>
         var modal = document.getElementById("myModal");
@@ -497,22 +555,7 @@
             }
         }
     </script>
-    <?php require "condb.php"; ?>
-    <?php
-    $mysql_qry1 = "SELECT * FROM `consult` WHERE  patient_id ='1'";
-    $result1 = mysqli_query($Connect, $mysql_qry1);
-    $rowcount = mysqli_num_rows($result1);
-    if ($rowcount == 0) {
-        ?><div class="barback">
-            <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px; float: left;" onclick="backadd()">
-        </div>
-    <?php
-    } else {
-        ?>
-        <div class="barback">
-            <img src="./img/back.jpg" style="width:100px; padding-top: 4px; padding-left: 5px; float: left;" onclick="backconsult()">
-        </div>
-    <?php } ?>
+
 
 </body>
 

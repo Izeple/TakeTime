@@ -32,7 +32,7 @@ if (isset($_SESSION["email"])) {
             <li style="float:right"><?php echo $result_User["name"]; ?></li>
         </ul>
 
-        <section><img src="./img/Banner.png" style="width:100%">
+        <section><img src="./img/Banner.png" style="width:100%"> 
             <div class="ab" align="center">
                 <div id="sidenav" class="sidenav">
                     <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>

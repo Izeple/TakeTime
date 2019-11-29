@@ -142,7 +142,7 @@
     <div class="down" style="width:750; margin-left:25%;margin-right:25%;">
 
     <div class="bookhis">
-    <div style="z-index:2;position:absolute; left:5px;top:-44px; background-color:#1cbbb4; color:#FFFFFF; padding:10px 15px;">Booking</div>
+    <div style="position:absolute; left:5px;top:-44px; background-color:#1cbbb4; color:#FFFFFF; padding:10px 15px;">Booking</div>
 
             <?php
             //        $status_select = "Complete";

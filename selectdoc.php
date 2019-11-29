@@ -151,8 +151,8 @@
 
         .row {
             display: flex;
-            margin-left: 25%;
-            margin-right: auto;
+            margin-left: 20%;
+            margin-right: 20%;
         }
 
         .column {
@@ -160,10 +160,13 @@
         }
 
         .row1 {
-            display: flex;
+            width:1000px;
         }
 
         .column1 {
+            padding-left: 35px;
+            width: 900px;
+            display: inline-block;
             margin: auto;
         }
         .row2 {
@@ -172,7 +175,8 @@
         }
 
         .column2 {
-            margin: auto;
+            width:500px;
+            display: inline-block;
         }
         .modal {
             Position: relative;
@@ -201,10 +205,9 @@
 
         /* Modal Content */
         .modal-content {
+            width:950px;
             Position: relative;
             background-color: #fefefe;
-            width: 61%;
-            height: 94.5%;
             margin: auto;
             padding: 10px;
             border: 1px solid #888;
@@ -282,11 +285,11 @@
         }
 
         .bar {
-            width: 13%;
-            height: 7%;
+            width: 180px;
             background-color: #47b6c7;
             position: absolute;
-            padding-top: 12px;
+            margin-top: -30px;
+            padding:10px;
         }
 
         .barback {
@@ -295,6 +298,7 @@
             margin-top: 11px;
             background-color: #0f5a66;
         }
+        
     </style>
 </head>
 
@@ -311,23 +315,26 @@
       
            
             <div class="bar">
-            <font size='6' color="#ffffff" face="Agency FB" style="padding-left:20px;"> Consult Doctor</font>
-            <select style="width:110px;" name="departmentname" style="float: right;" id="departmentname" onchange="sql()">
-                <?php $mysql_qry = "SELECT * FROM `department`" ; ?> 
-            <?php $result = mysqli_query($Connect, $mysql_qry);
-            while ($row12 =  $result->fetch_assoc()) { ?>
-                    <font size='5' color="#a4a4a4" face="Agency FB">
-                    <option value="<?php echo $row12['department_id']; ?>"><?php echo $row12['department_name']; ?></option>
-            <?php  } ?> </select>
-            <select style="width:110px;" name="hospitalname" style="float: right;"  id="hospitalname" onchange="sql()"> 
-            <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
-            <?php $result = mysqli_query($Connect, $mysql_qry);
-            while ($row12 =  $result->fetch_assoc()) { ?>  
-                    <font size='5' color="#a4a4a4" face="Agency FB">
-                    <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>
-            <?php  } ?></div>
-            </select>
-            
+            <font size='6' color="#ffffff" face="Agency FB"> Consult Doctor</font></div>
+            <center>
+            <div class="selecty">
+                <select style="width:110px;" name="departmentname" style="float: right;" id="departmentname" onchange="sql()">
+                    <?php $mysql_qry = "SELECT * FROM `department`" ; ?> 
+                <?php $result = mysqli_query($Connect, $mysql_qry);
+                while ($row12 =  $result->fetch_assoc()) { ?>
+                        <font size='5' color="#a4a4a4" face="Agency FB">
+                        <option value="<?php echo $row12['department_id']; ?>"><?php echo $row12['department_name']; ?></option>
+                <?php  } ?> </select>
+                <select style="width:110px;" name="hospitalname" style="float: right;"  id="hospitalname" onchange="sql()"> 
+                <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
+                <?php $result = mysqli_query($Connect, $mysql_qry);
+                while ($row12 =  $result->fetch_assoc()) { ?>  
+                        <font size='5' color="#a4a4a4" face="Agency FB">
+                        <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>
+                <?php  } ?>
+                </select>
+            </div>
+                </center>
             <div id="sidenav" class="sidenav">
                 <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
                 <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
@@ -337,8 +344,7 @@
 
         </section>
     </div>
-    <br>
-    <br>
+
     <div id="myModal" class="modal">
         <form action="insertchat.php" method="POST" enctype="multipart/form-data" name="forminsert">
             <div class="modal-content">
@@ -346,9 +352,10 @@
                 <p>
                     &nbsp;&nbsp;&nbsp;&nbsp; <font size='6' color="#47b6c7" face="Agency FB" style="padding-left:35px;"><U>Describe Symptom</U></font>
                 </p>
+
                 <div class="row1">
-                    <div class="column1" style="padding-left:35px;">
-                        <textarea rows="8" cols="75" name="describe" id="describe" onchange="checktext()"></textarea><br><br>
+                    <div class="column1">
+                        <textarea rows="8" cols="60" name="describe" id="describe" onchange="checktext()"></textarea><br><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> How long?&nbsp;
                             <input type="number" name="long" id="long" style="width:50px; height: 38px;" min="1" onchange="checktext()"></font>
                         <select style="width:110px;" name="unitlong">
@@ -362,11 +369,11 @@
                         &nbsp; <input type="text" name="often" id="often" onchange="checktext()"><br>
                         <font size='5' color="#a4a4a4" face="Agency FB"> Photo of symptom(optional) </font><br>
                         <div class="upload-btn-wrapper">
-                            <img src="./img/bell.png" style="width:75px;"><br>
+                            <img src="./img/cam.png" style="width:75px; padding:10px;"><br>
                             <input type="file" name="fileToUpload" />
                         </div>
                     </div>
-                    <div class="column1">
+                    <div class="column2">
                         <div class="card1">
                             <center>
                                 <img src="./img/picdoc.jpg" style="width:160px;"><br>
@@ -420,16 +427,18 @@
                         <input type="text" style="width:95px;" name="CVV" id="CVV" onchange="checktext()"><br>
 
                     </div>
-                    <div class="column1">
+                    <div class="column2">
                         <center>
                             <img src="./img/card.png" style="width:200px;"></center>
                     </div>
                 </div>
-                <div class="row1">
-                    <div class="column1">
+                <div style="margin-right: 10px;">
+                <center>    
+                <div>
                         <input type="button" class="buttoncancel" value="CANCEL" onclick="Cancel()">&nbsp;&nbsp;&nbsp;
                         <input type="submit" class="buttonconfirm" value="CONFIRM">
                     </div>
+                        </center>
                 </div>
             </div>
         </form>

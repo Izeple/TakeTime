@@ -61,7 +61,7 @@
             }
             ?>
             
-	<div class="bubble" style="display: none; osition:fixed;margin-top: 60;margin-left: 1374">
+	<div class="bubble" style="position:fixed;margin-top: 60;margin-left: 1374">
 	</div>
         </ul>
 
@@ -295,7 +295,7 @@
 									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time";
 									$result3 = mysqli_query($Connect, $mysql_qry3);
 									$noti = $result3->fetch_assoc();
-									echo $noti['notification_time'];
+						
 									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
 								</font></div> &nbsp;&nbsp;
              			 	</p>
@@ -341,8 +341,18 @@
 
 									
 <script type="text/javascript">
-	function openForm(id,name, times, daytime, status, loop, medicid, staffid, userid) {
-		document.getElementById(id).style.backgroundColor = "#ffffff";
+		var pillid = 0;
+		var firstTimePill = 0;
+		function openForm(id,name, times, daytime, status, loop, medicid, staffid, userid) {
+		if(firstTimePill == 0){
+			pillid = id;
+			firstTimePill++;
+		}	
+		if(firstTimePill != 0&& pillid != id){
+			document.getElementById(pillid).style.backgroundColor = "#E9E9E9";
+			pillid = id;
+		}	
+		document.getElementById(id).style.backgroundColor = "#fafafa";
 		status_Noti.value = 1;
 		staff_id.value  = staffid;
 		partient_id.value  = userid;

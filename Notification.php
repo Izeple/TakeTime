@@ -139,7 +139,7 @@
 
 <!--Set Time Notification-->
 			<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
-				<form action="insertnoti.php" method="POST" onsubmit="return checktext1()">
+				<form action="insertnoti.php" method="POST" >
 					<input type="int" name="staff_id" id="staff_id" style="display: none;" />
 					<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
 					<input type="int" name="partient_id" id="partient_id" style="display: none;" />

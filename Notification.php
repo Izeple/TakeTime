@@ -269,7 +269,6 @@
 			 <div class="notimenu" style="font-size: 30px; ">Medicine</div>
 <!-- Queue Medicine -->			            
 			<?php
-
             $mysql_qry2 = "SELECT s.bookingdate,s.staff_id ,hi.times, m.medicine_id, m.medicine_timetake, m.medicine_timeloop, m.meal_status, s.status, m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid AND s.status LIKE 'Complete'";
             $result2 = mysqli_query($Connect, $mysql_qry2);
 			//Count pills in history medicine.
@@ -279,9 +278,10 @@
 				if ($count['count']!=0) {?>
 				 		<div style=" border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
-				while ($medic =  $result2->fetch_assoc()) { ?>
-                <div class="column" id="<?php echo $medic['medcine_id'];?>" onclick="selectPill()">
-                    <div class="pills" id="pills"  onclick="openForm('<?php echo $medic['medicine_name']; ?>','<?php echo $medic['times']; ?>','<?php echo $medic['medicine_timetake']; ?>','<?php echo $medic['meal_status']; ?>','<?php echo $medic['medicine_timeloop']; ?>','<?php echo $medic['medicine_id']; ?>','<?php echo $medic['staff_id']; ?>','<?php echo $userid; ?>')">
+				while ($medic =  $result2->fetch_assoc()) {  ?>
+				
+                <div class="column">
+                    <div class="pills" id="<?php echo $medic['medicine_id'];?>" onclick="openForm('<?php echo $medic['medicine_id']; ?>','<?php echo $medic['medicine_name']; ?>','<?php echo $medic['times']; ?>','<?php echo $medic['medicine_timetake']; ?>','<?php echo $medic['meal_status']; ?>','<?php echo $medic['medicine_timeloop']; ?>','<?php echo $medic['medicine_id']; ?>','<?php echo $medic['staff_id']; ?>','<?php echo $userid; ?>')">
                         <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
        
                             <p>
@@ -292,11 +292,11 @@
 										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 							<!-- Queue time alart of that pill and show -->
 							  <?php $medicid = $medic['medicine_id'];
-									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON 	hi.schedule_id = s.schedule_id AND s.patient_id =5 JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time;";
+									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time";
 									$result3 = mysqli_query($Connect, $mysql_qry3);
 									$noti = $result3->fetch_assoc();
 									echo $noti['notification_time'];
-									//if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
+									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
 								</font></div> &nbsp;&nbsp;
              			 	</p>
 							<p style="margin-top: -50px;">
@@ -341,7 +341,8 @@
 
 									
 <script type="text/javascript">
-	function openForm(name, times, daytime, status, loop, medicid, staffid, userid) {
+	function openForm(id,name, times, daytime, status, loop, medicid, staffid, userid) {
+		document.getElementById(id).style.backgroundColor = "#ffffff";
 		status_Noti.value = 1;
 		staff_id.value  = staffid;
 		partient_id.value  = userid;
@@ -395,8 +396,8 @@
 	function closeForm() {
 		document.getElementById("setNoti").style.display = "none";
 	}
-	function selectPill(){
-		document.getElementById("<?php echo $medic['medcine_id'];?>").style.backgroundColor = "#f57988";
+	function selectPill(id){
+		document.getElementById(id).style.backgroundColor = "#ffffff";
 	}
 //Set Up Time
 	var daytime = new Array("h_morn", "h_sun" ,"h_even" ,"h_night", "m_morn" ,"m_sun" ,"m_even" ,"h_night");

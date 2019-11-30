@@ -295,7 +295,7 @@
         <!-- Modal content -->
         <div class="aller">
             <span class="close" onclick="document.getElementById('aller').style.display='none'">&times;</span>
-            <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
+            <div style="background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
                 <form class="user" method="post" action="delete_medical.php">
                     <?php
                        if ($result_allergy) {

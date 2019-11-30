@@ -1,6 +1,23 @@
 <html>
 <head>
-	<STYLE>A {text-decoration: none;} </STYLE>
+	<STYLE>A {text-decoration: none;}
+	div.alert {
+		border: #D9D9D9 solid 1px;
+			cursor:pointer;
+			border-radius: 5px; 
+			margin-top: -40px; 
+			margin-bottom: 20px; 
+			margin-left: -30px;
+			background-color: whitesmoke;
+            transition: 0.3s;
+            width: 350px;
+            height: 90px;
+        }
+
+	div.alert:hover {
+           background-color: white;
+        }
+	</STYLE>
     <title>Notification</title>
 	<!-- Login User -->
 	    <script type="text/javascript">
@@ -69,11 +86,57 @@
 					}
 				}
 			</script>
-					<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374">
-						<div style="width: auto;height: 1%;background-color: #c3c9cb;">
+			
+			
+<!-- Show Notifications Alert-->
+			<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+    setInterval(function(){ // เขียนฟังก์ชัน javascript ให้ทำงานทุก ๆ 30 วินาที
+        // 1 วินาที่ เท่า 1000
+        // คำสั่งที่ต้องการให้ทำงาน ทุก ๆ 3 วินาที
+        var getData=$.ajax({ // ใช้ ajax ด้วย jQuery ดึงข้อมูลจากฐานข้อมูล
+                url:"gdata.php",
+                data:"rev=1",
+                async:false,
+                success:function(getData){
+                    $("div#showData").html(getData); // ส่วนที่ 3 นำข้อมูลมาแสดง
+                }
+        }).responseText;
+    },3000);    
+});
+</script>
+				<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
+			<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = $userid AND status = 1 ORDER BY n.notification_time LIMIT 1";
+            $resultAlertMedic = mysqli_query($Connect, $qryAlertMedic);
+			$row_cnt = mysqli_num_rows( $resultAlertMedic);
+						while ($alertMedic =  $resultAlertMedic->fetch_assoc()) {  ?>
+				 <div class="column">
+                    <div class="alert" >
+                        <img src="./img/pills.png" alt="Avatar" style="width:60px; margin-top: 15px; margin-left:20px;" class="img2">
+      
+                            <p>
+                         			 <div style="margin-bottom: 10px;margin-top: -85px;margin-left: 90px;"> <font size="5px" color="#47b6c7"> &nbsp;
+										  Time to take <?php echo $alertMedic['medicine_name']; ?>&nbsp;!</font></div>
+                               		 <div style="margin-bottom: 5px;margin-left: 90px;"> <font size='5' color="#a4a4a4"> &nbsp; 
+										  <?php echo $alertMedic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   
+										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 30px;"> 
+							<!-- Queue time alart of that pill and show -->
+							  <?php echo date('H:i a',strtotime($alertMedic['notification_time']));echo "."; ?>
+								</font></div> &nbsp;&nbsp;
+             			 	</p>
+
+                        </div>
+                    </div>	
+      
+	 		<?php } ?> 
+					<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>
-						<font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font>
-					</div>
+						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font></div>
+					</div>	
+						
+						
+<!-- Show See more -->
         </ul>
 		
             
@@ -108,11 +171,8 @@
             
 <!-- Queue next date meeting doctor -->
 			<?php 
-            $mysql_qry1 = "SELECT  *  FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
+            $mysql_qry1 = "SELECT * FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
 			$result1 = mysqli_query($Connect, $mysql_qry1);
-			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
-			$countResult = mysqli_query($Connect, $mysql_qryCount1);
-			$count = $countResult->fetch_assoc();
             while ($doc =  $result1->fetch_assoc()) {
                 if (isset($doc['staff_id'])) {
 					$havebook=1;
@@ -141,9 +201,9 @@
             <?php   
 			if(!isset($havebook)){
 				?>
-				 <div class="column"  href="#" style="width: 500px;">
-                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
-                     <a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
+				<div class="column"  href="#" style="width: 500px;">
+                    	<div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
+                     	<a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
 						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
 						<font size='5'  color="#a4a4a4" >Add Booking</font>
 						</td></tr></table>
@@ -154,13 +214,13 @@
 	 ?>
 
 <!--Set Time Notification-->
-			<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
-				<form action="insertnoti.php" method="POST" >
-					<input type="int" name="staff_id" id="staff_id" style="display: none;" />
-					<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
-					<input type="int" name="partient_id" id="partient_id" style="display: none;" />
-					<input type="int" name="remaining_time" id="remaining_time" style="display: none;" />
-					<input type="text" name="status_Noti" id="status_Noti"  style="display: none;" />
+				<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
+					<form action="insertnoti.php" method="POST" >
+						<input type="int" name="staff_id" id="staff_id" style="display: none;" />
+						<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
+						<input type="int" name="partient_id" id="partient_id" style="display: none;" />
+						<input type="int" name="remaining_time" id="remaining_time" style="display: none;" />
+						<input type="text" name="status_Noti" id="status_Noti"  style="display: none;" />
 	<!--Set Time To Take -->
 				<div  style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-bottom: 50px; "> 
 						<div style="float: left;height: 345px;width: 1050px;">
@@ -220,10 +280,10 @@
 				</div>
 						
 <!--Infomation Noti-->
-				<div id="infoMedic"style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px;"> 
+				<div id="infoMedic" style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px;"> 
 	<!--Infomation Noti Left Side-->
 					<div><img src="./img/pills.png" style="width:130px; margin-top: 35px; margin-left: 30px;">	
-							 <div style="width:500px;margin-top: -120px; margin-left: 190px"><font id="name" size='7' color="#828282" >
+						<div style="width:500px;margin-top: -120px; margin-left: 190px"><font id="name" size='7' color="#828282" >
                               	  &nbsp;&nbsp;&nbsp;</font></div>
 						<div style="margin-top: 20px; margin-left: 190;width:500px;"><font id="times" size='6' color="#828282" >  
 								  &nbsp;&nbsp;&nbsp;</font></div>
@@ -232,7 +292,7 @@
 					</div>	
 			
 	<!-- Detail Bottom -->
-					<div >
+					<div>
 						<div  id="Before" style="border: 2px solid #D5D5D5; height: 55px;width: 120px; background-color: whitesmoke;border-radius: 5px; margin-left: 210px;margin-top: 40px;"> 
 									<div id="Before" style="margin-left: 25;margin-top: 8"><font id="BeforeFont" size='6' color="#828282">
 									<?php echo "Before"; ?>  &nbsp;&nbsp;&nbsp;</font></div>

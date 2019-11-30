@@ -16,7 +16,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,9 +29,12 @@
     <div id="main">
         <ul>
             <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
-            <li><a href="Homepage.php"><img src="./img/nametag.png" height="15"></a></li>
+            <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
-            <li style="float:right"><?php echo $result_User["name"]; ?></li>
+            <li style="float:right">
+                <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
+            </li>
+            <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%">
@@ -138,7 +141,7 @@
                             <?php
                                     }
                                 }
-                                ?><br>
+                                ?><br><br>
                                 <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht</font>
                                 <img src="./img/coin.png" style="width:20px; float: right;" align="top">
                             

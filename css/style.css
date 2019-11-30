@@ -2,14 +2,11 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 18px;
-}
+
 
 body {
-  font-family: "Roboto", sans-serif;
-  font-size: 1em;
-  line-height: 1.6;
+  font-family: 'Agency FB', arial;
+  font-size: 20px;
 }
 
 .datepicker {

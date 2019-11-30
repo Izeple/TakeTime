@@ -201,7 +201,7 @@
 <?php } ?>
 <?php if ($row['status'] == "Complete") { ?>
     <div class="column">
-        <div class="card2" style="position:relative">
+        <div class="card2" style="position:relative; ">
             <h4 class="HeadModule-h5-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Complete</h4>
 
             <div class="sideleft">

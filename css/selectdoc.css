@@ -7,7 +7,6 @@
             color: #a4a4a4;
         }
         select{
-            width:;
             padding: 5px;
             display: inline-block;
             border: 0.5px solid #aaaaaa;
@@ -232,7 +231,6 @@
             color: white; 
             background-color: #47B6C7; 
             padding: 3px; 
-            font-size: 5;
             text-align:center; 
         }
         .HeadModule-h5-1 {
@@ -253,7 +251,7 @@
     display: inline-block;
 }
 .sideright{
-    float:right;
+    
     margin:auto;
     padding:18px 16px 10px 16px;
     display: inline-block;
@@ -265,3 +263,27 @@
     padding:18px 16px 10px 16px;
     display: inline-block;
 }
+.x{
+  background-color: white;
+  color:gray;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+.x:hover{
+    color:#f51051;
+}
+.subm{
+    padding: 5px 8px;
+    border-radius: 3px;
+    background-color: #c7c7c7;
+    color:rgb(255, 255, 255);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .subm:hover{
+      color:#ffffff;
+      background-color: #35909e;
+
+  }

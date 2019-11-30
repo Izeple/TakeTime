@@ -173,7 +173,7 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
                         </div>
                     </div>
                 </div>
-    <?php
+    <?php 
                     $i++;
                 }
             }

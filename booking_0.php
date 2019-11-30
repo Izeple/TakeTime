@@ -20,7 +20,7 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb" />
     <script type="text/javascript" src="./js/clickNav.js"></script>
@@ -43,12 +43,15 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
     <div id="main">
         <ul>
             <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
-            <li><a href="Homepage.php"><img src="./img/nametag.png" height="15"></a></li>
+            <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
-            <li style="float:right"><?php echo $result_User["name"]; ?></li>
+            <li style="float:right">
+                <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
+            </li>
+            <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
         </ul>
 
-        <section><img src="./img/Banner.png" style="width:100%; height: 305px; position: relative;">
+        <section><img src="./img/Banner.png" style="width:100%; height: 305px;">
 
             <div id="sidenav" class="sidenav">
                 <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>
@@ -61,15 +64,18 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
     </div>
 
 
-    <h1 class="HeadModule">Booking Doctor</h1>
-    <div>
-        <h2 onclick="clickbooking()" id="booking" class="HeadModule-h2-1" style="margin-top: -118px; margin-left: 17%; border-radius: 5px; color: #ffffff; background-color: #0aa6df;">
-            <font size='6' face="Agency FB">Booking ...</font>
-        </h2>
-        <h2 onclick="clickComplete()" id="Complete" class="HeadModule-h2-2" style="margin-left: 30%; border-radius: 5px; color: #ffffff; background-color: #8c8c8c;">
-            <font size='6' face="Agency FB">Complete</font>
-        </h2>
+    <div class="HeadModule"><font size='6' color="#ffffff" >Booking Doctor</font></div>
+    <div style="margin-left:240px; margin-top:-67px;">
+    <div onclick="clickbooking()" id="booking"  style=" width:100px; margin-right:10px;padding:10px; color: #ffffff; background-color: #0aa6df; display :inline-block;">
+            <center><font size='5' face="Agency FB">Booking ...</font></center>
     </div>
+    <div onclick="clickComplete()" id="Complete"  style=" width:100px; padding:10px; color: #ffffff; background-color: #8c8c8c; display  :inline-block;">
+            <center><font size='5' face="Agency FB">Complete</font></center>
+    </div>
+    </div>
+       
+    
+    
 
     <?php
     $status_select = "Complete";
@@ -85,9 +91,7 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
         <br>
         <br>
         <br>
-        <center>
-            <a href="booking_1.php"><img src='./img/add.jpg' style='width:100px;'><br></a>
-        </center>
+       
     <?php } else {
         ?>
         <div id ="content"> 
@@ -100,7 +104,7 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
                 $result_Schedule = PDOfetchAll($sql);
                 if ($result_Schedule) {
                     foreach ($result_Schedule as $row) {
-                        if ($i % 2 == 0 && $i != 0) {
+                        if ($i % 3 == 0 && $i != 0) {
 
                             ?>
         </div>
@@ -108,10 +112,13 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
         <?php } ?>
         <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
             <div class="column">
-                <div class="card" style="margin-top:60px; margin-left:100px;">
-                    <div class="side right" align="left">
-                        <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px;">Ongoing</h4>
-                        <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                <div class="card2" style="margin-top:30px; margin-left:80px;">
+                <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
+
+                <div class="sideleft">
+                    <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+                </div>
+                    <div class="sider" align="left">
 
                         <font size='5' color="#47b6c7">
                             Dr. <?php
@@ -130,16 +137,17 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
                                                         $result_Hospital = PDOfetchAll($sql)[0];
                                                         echo $result_Hospital['hospital_name'] ?><br>
                         </font>
-                        <form style="position: absolute; margin-top:-100px; margin-left:397px;" action="delete_schedule.php" method="POST">
+                        <form style="position: absolute; margin-top:-115px; margin-left:180px;" action="delete_schedule.php" method="POST">
                             <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />
-                            <input type='submit' value='x' onclick="return confirm('Are you sure to Delete?')">
+                            <input type='submit'class="x" value='x' onclick="return confirm('Are you sure to Delete?')">
                         </form>
 
-                        <form style="position: absolute; margin-top:17px; margin-left:380px;" action="random-page2.php" method="POST">
+                        <form style="position: absolute; margin-left:160px;" action="random-page2.php" method="POST">
                             <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />
-                            <input type='submit' value='Edit'>
+                            <input type='submit' class="subm"value='Edit'>
                         </form>
                         <br>
+
                     </div>
                 </div>
             </div>
@@ -153,6 +161,11 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
 }
 ?>
 </div>
+<br>
+ <center>
+            <a href="booking_1.php"><img src='./img/add.png' style='width:100px;'><br></a>
+            <p style="color:#a4a4a4;">Create new booking to make an appointment with doctor.</p>
+        </center>
 
 
 

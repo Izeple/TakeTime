@@ -19,11 +19,12 @@
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="./js/clickNav.js"></script>
     <?php require "condb.php"; ?>
     <title>Booking</title>
 </head>
-<body>
+<body style="margin-bottom:1rem;">
 
     <div id="main">
         <ul>
@@ -46,8 +47,10 @@
     </div>    
 
     
-    <h1 class="HeadModule">Booking Doctor</h1>
-    <div style="margin-left:300px; margin-top: -50px;">    
+    <div class="HeadModule"><font size='6' color="#ffffff" >Booking Doctor</font>
+</div>
+<center>
+    <div >    
         <?php 
         //echo $_SESSION['staff_id'];
         require_once("connectPDO.php");
@@ -90,7 +93,7 @@
                 </select>
             </form>
     </div>
-    
+                        </center>
     
     
     
@@ -111,34 +114,36 @@
 
                 <!---  $_SESSION['staff_id']=1 window.location.href = './booking_2.php'; --->
                 <div class="column" id="<?php echo $row12['staff_id']?>" onclick="ContentPage(this)">
-                    <div class="card2">
+                    <div class="card2" style="cursor:pointer;">
                         
-                    <div class="sideleft">   
-                        <img src="./img/picdoc.jpg"  >
+                    <div class="sideleft" style="margin-right:10px;">   
+                        <img src="./img/picdoc.jpg" style="width:120px;"  >
                     </div>
-                        <div class="sideright">
+                        <div class="sider">
                             
                                 <font size='5' color="#47b6c7"> Dr.<?php echo $row12['name']; ?>&nbsp;<?php echo $row12['surname']; ?></font><br>
                                 <font size='3' color="#a4a4a4">Department : <?php echo $row12['department_name']; ?><br>
                                  Hospital : <?php echo $row12['hospital_name']; ?></font><br>
                                 
+                                 <?php
+                                for ($j = 0; $j < 5; $j++) {
+                                    $star = $row12['star'];
+                                    if ($j < $star) {
+                                        ?>
+                                    <span class="fa fa-star checked"></span>
                                 <?php
-                                    for ($j = 0; $j < 5; $j++) {
-                                        $star = $row12['star'];
-                                        if ($j < $star) 
-                                            {
-                                                echo "<span class='fa fa-star checked'></span>";
-                                            } 
-                                            else 
-                                            {     
-                                                echo "<span class='fa fa-star'></span>";
-                                            }
+                                        } else {
+                                            ?>
+                                    <span class="fa fa-star"></span>
+                            <?php
                                     }
-                                    ?><br>
+                                }
+                                ?><br>
                                 <font size='4' color="#85c06a" style="float: right;"> &nbsp;<?php echo $row12['price']; ?> Baht</font>
                                 <img src="./img/coin.png" style="width:20px; float: right;" align="top">
                             
                         </div>
+                        
                     </div>
                 </div>
             <?php   $i++;   } ?>

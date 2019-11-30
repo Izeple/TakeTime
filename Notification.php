@@ -97,10 +97,13 @@
             
 <!-- Queue next date meeting doctor -->
 			<?php 
-            $mysql_qry1 = "SELECT st.staff_id,st.name,st.surname,h.hospital_name,COUNT(*) AS count,MIN(bookingdate) AS bookingdate FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id";
+            $mysql_qry1 = "SELECT  *  FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
             $result1 = mysqli_query($Connect, $mysql_qry1);
+			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
+			$countResult = mysqli_query($Connect, $mysql_qryCount1);
+			$count = $countResult->fetch_assoc();
             while ($doc =  $result1->fetch_assoc()) {
-                if ($doc['count']!=0) {
+                if (isset($doc['staff_id'])) {
                     ?>
 <!-- Show next booking -->
                 <div class="column" style="width: 500px;"><a href="#doctor">
@@ -123,7 +126,7 @@
 	
 <!-- If booking is empty.  -->
             <?php   
-			if ($doc['count']==0){
+			if (!isset($doc['staff_id'])){
 				?>
 				 <div class="column"  href="#" style="width: 500px;">
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    

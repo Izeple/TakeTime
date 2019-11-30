@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,11 +59,6 @@
 
         <section><img src="./img/Banner.png" style="width:100%">
         <div class="ab" align="center">
-        <div class="quickmenu">
-                <div class="quicklist"><a href="selectdoc.php"><img src="./img/quickcon.png" style="border-radius:50%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></a></div>
-                <div class="quicklist"><a href="booking_0.php"><img src="./img/quickcon2.png" style="border-radius:50%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></a></div>
-                <div class="quicklist"><a href="finddoc.php"><img src="./img/quickcon3.png" style="border-radius:50%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></a></div>
-        </div>
 
 
         <?php if(isset($_SESSION["email"])) { 
@@ -87,13 +81,11 @@
         ?>
 
         </div>
+
+        <img src="./img/FD.jpg" style="width:100%; margin:0;">
+
             <div class="bignew" align="center">
-                    <p style="color: #6690a0; margin-left:-60%; margin-bottom: 0%; margin-top:10%; font-size:60px;">News</p>
-
-                    <div class="New"><img src="./img/New1.png" width="350px"></div>
-                    <div class="New"><img src="./img/New2.png" width="350px"></div>
-                    <div class="New"><img src="./img/New3.png" width="350px"></div>
-
+                    
             </div>
         </section>
     </div>    
@@ -104,7 +96,7 @@
               <span class="close" onclick="document.getElementById('logpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p></div>
               <form class="user" method="post">
-                <div class="sep"><p>Email</p><span class="required" style="margin:0; padding:0;">*</span></div>
+                <div class="sep"><p>Email</p><span class="required">*</span></div>
                 <div class="sep"><input type="email" name="email" class="homeput"></div>
                 <div class="sep"><p>Password</p><span class="required">*</span></div>
                 <div class="sep"><input type="password" name="password" class="homeput"></div>
@@ -151,7 +143,3 @@
 
 </body>
 </html>
-                
-                    
-     
-                 

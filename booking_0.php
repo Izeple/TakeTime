@@ -8,10 +8,11 @@ if (isset($_SESSION["email"])) {
 } else {
     header("location:Homepage.php");
 }
-if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
-    $_SESSION["edit"] = 0;
-    header("location:delete_schedule.php");
-}
+if(isset($_SESSION["edit"]))
+    if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
+        $_SESSION["edit"] = 0;
+        header("location:delete_schedule.php");
+    }
 
 ?>
 
@@ -34,8 +35,7 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
             modal.style.display = "none";
             var Complete = document.getElementById("contentcomplete");
             Complete.style.display = "block";
-
-
+       
         }
 
         function clickbooking() {
@@ -43,13 +43,17 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
             document.getElementById("Complete").style.backgroundColor = "#8c8c8c";
             var modal = document.getElementById("contentcomplete");
             modal.style.display = "none";
-            var Complete = document.getElementById("contentbooking");
-            Complete.style.display = "block";
+            var booking = document.getElementById("contentbooking");
+            booking.style.display = "block";
+        
         }
     </script>
     <style>
         .complete {
             display: none;
+        }
+        .booking {
+            display: block;
         }
     </style>
 </head>
@@ -98,12 +102,12 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
 
 
 
-
+    <div id="contentbooking" class="booking">
     <?php
-    $status_select = "Complete";
+    $status_select = "Ongoing";
     $i = 0;
     //'".$result_User['patient_id']."'
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '" . $result_User["patient_id"] . "' AND `status`  = 'Ongoing'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '1' AND `status`  = 'Ongoing'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount == 0) {
@@ -113,10 +117,12 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
         <br>
         <br>
         <br>
-
+        <center>
+        <a href="booking_1.php"><img src='./img/add.png' style='width:100px;'><br></a>
+            <p style="color:#a4a4a4;">Create new booking to make an appointment with doctor.</p>
+        </center>
     <?php } else {
         ?>
-        <div id="contentbooking" class="booking">
             <div class="row" style="margin-left:-20px;">
                 <?php
                     $status_select = "Ongoing";
@@ -173,28 +179,29 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
                         </div>
                     </div>
                 </div>
-    <?php 
+    <?php
                     $i++;
                 }
             }
         }
+    }?>
+        </div>
+    <?php
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '1' AND `status`  = 'Complete'";
+    $result1 = mysqli_query($Connect, $mysql_qry1);
+    $rowcount = mysqli_num_rows($result1);
+    if ($rowcount > 0) {
         ?>
     </div>
     <br>
-        <center>
-            <a href="booking_1.php"><img src='./img/add.png' style='width:100px;'><br></a>
-            <p style="color:#a4a4a4;">Create new booking to make an appointment with doctor.</p>
-        </center>
 
-
-    </div>
     <div id="contentcomplete" class="complete">
         <div class="row" style="margin-left:-20px;">
             <?php
                 $status_select = "Complete";
                 $i = 0;
                 //'".$result_User['patient_id']."'
-                $sql = "SELECT * FROM schedule WHERE patient_id = " . $result_User["patient_id"];
+                $sql = "SELECT * FROM schedule WHERE patient_id = '1'";
                 $result_Schedule = PDOfetchAll($sql);
                 if ($result_Schedule) {
                     foreach ($result_Schedule as $row) {
@@ -255,9 +262,8 @@ if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
 }
 ?>
 </div>
-        
-
-
+</div>
+    
         <div id="logpop" class="login">
             <!-- Modal content -->
             <div class="log-content">

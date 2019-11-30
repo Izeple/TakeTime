@@ -267,7 +267,7 @@
 <!-- Queue Medicine -->			            
 			<?php
 
-            $mysql_qry2 = "SELECT s.bookingdate,s.staff_id ,hi.times, m.medicine_id, m.medicine_timetake, m.medicine_timeloop, m.meal_status, s.status, m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";
+            $mysql_qry2 = "SELECT s.bookingdate,s.staff_id ,hi.times, m.medicine_id, m.medicine_timetake, m.medicine_timeloop, m.meal_status, s.status, m.medicine_name FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid AND s.status LIKE 'Complete'";
             $result2 = mysqli_query($Connect, $mysql_qry2);
 			//Count pills in history medicine.
 			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$userid";

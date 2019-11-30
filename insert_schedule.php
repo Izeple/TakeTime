@@ -13,7 +13,7 @@ try {
     $staff_id = $_SESSION['staff_id'];
     $bookingdate = $_SESSION["date"]." ".$_SESSION["times"];
     $detail = $_POST["detail"]; 
-    $status = "Going on"; 
+    $status = "Ongoing"; 
 
     $sql = "INSERT INTO schedule VALUES ('','$patient_id','$staff_id',NULL,'$bookingdate','$detail','$status')";
     

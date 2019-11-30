@@ -89,23 +89,6 @@
 			
 			
 <!-- Show Notifications Alert-->
-			<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-    setInterval(function(){ // เขียนฟังก์ชัน javascript ให้ทำงานทุก ๆ 30 วินาที
-        // 1 วินาที่ เท่า 1000
-        // คำสั่งที่ต้องการให้ทำงาน ทุก ๆ 3 วินาที
-        var getData=$.ajax({ // ใช้ ajax ด้วย jQuery ดึงข้อมูลจากฐานข้อมูล
-                url:"gdata.php",
-                data:"rev=1",
-                async:false,
-                success:function(getData){
-                    $("div#showData").html(getData); // ส่วนที่ 3 นำข้อมูลมาแสดง
-                }
-        }).responseText;
-    },3000);    
-});
-</script>
 				<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
 			<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = $userid AND status = 1 ORDER BY n.notification_time LIMIT 1";
             $resultAlertMedic = mysqli_query($Connect, $qryAlertMedic);
@@ -130,11 +113,18 @@
                     </div>	
       
 	 		<?php } ?> 
+			<?php if($row_cnt==0){?>
+						<div style="margin-bottom: 10px;margin-left: 50px;"><font size='6' color="#a4a4a4" >Notification is empty </font></div>
+				<?php }?>
+			<?php if($row_cnt<=4&&$row_cnt>0){?>
+						<div style="margin-bottom: -70px;"></div>
+				<?php }?>	
+			<?php if($row_cnt>4){?>
 					<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>
 						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font></div>
 					</div>	
-						
+				<?php }?>	
 						
 <!-- Show See more -->
         </ul>
@@ -168,7 +158,7 @@
         text-align: center;margin-top: -50px;margin-bottom: 40px">Notification</h1>
 <!-- Title Next Booking -->
 		   <div class="notimenu" style="margin-top: -10px; font-size: 30px">Next Booking</div>
-            
+            			<div id="showData"></div>
 <!-- Queue next date meeting doctor -->
 			<?php 
             $mysql_qry1 = "SELECT * FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";

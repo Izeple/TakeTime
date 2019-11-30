@@ -1,4 +1,21 @@
 <?php
+session_start();
+if (isset($_SESSION["email"])) {
+    $email = $_SESSION["email"];
+    require_once("connectPDO.php");
+    $sql = "SELECT * FROM patient WHERE email = '" . $email . "'";
+    $result_User = PDOfetchAll($sql)[0];
+} else {
+    header("location:Homepage.php");
+}
+if(isset($_SESSION["edit"]))
+    if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
+        $_SESSION["edit"] = 0;
+        header("location:delete_schedule.php");
+    }
+
+?>
+<?php
 require "condb.php";
 $describe = $_POST["describe"];
 $long = $_POST["long"];
@@ -46,7 +63,7 @@ if (
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     $sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `time frame`, `often`, `CardNumber`, `img`, `star`, `answer`)  
-    VALUES (NULL,'$staffid','1','$describe','$long.$unitlong','$often','$CardNumber','-','0','')";
+    VALUES (NULL,'$staffid','1','$describe','$long $unitlong','$often','$CardNumber','-','0','')";
     if ($Connect->query($sql) === TRUE) {
         // header("location: car.php");
     } else {
@@ -57,7 +74,7 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
         $namefile = $newname . "." . $imageFileType;
         $sql = "INSERT INTO `Consult` (`consult_id`, `staff_id`, `patient_id`, `consult_detail`, `time frame`, `often`, `CardNumber`, `img`, `star`, `answer`)  
-        VALUES (NULL,'$staffid','1','$describe','$long.$unitlong','$often','$CardNumber','$namefile','0','')";
+        VALUES (NULL,'$staffid','" . $result_User["name"] . "','$describe','$long $unitlong','$often','$CardNumber','$namefile','0','')";
         if ($Connect->query($sql) === TRUE) {
             // header("location: car.php");
         } else {

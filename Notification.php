@@ -295,7 +295,8 @@
 									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON 	hi.schedule_id = s.schedule_id AND s.patient_id =5 JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time;";
 									$result3 = mysqli_query($Connect, $mysql_qry3);
 									$noti = $result3->fetch_assoc();
-									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
+									echo $noti['notification_time'];
+									//if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
 								</font></div> &nbsp;&nbsp;
              			 	</p>
 							<p style="margin-top: -50px;">

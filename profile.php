@@ -96,7 +96,7 @@
                 <p class="tr"> : <?php echo $result_User['address']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
-                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 3px 0px; width:10%" src="./img/edit.png">
+                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
             </div>
         </div>
     </div>
@@ -282,7 +282,7 @@
             $realler = PDOfetchAll($sql)[0];
             ?>
         <?php
-                echo "- ".$realler['medicine_name'];
+                echo "- ".$realler['medicine_name']."<br>";
             }
         } 
             ?>
@@ -291,63 +291,46 @@
 </div>
 
 </div>
-<div id="aller" class="login">
+    <div id="aller" class="login">
         <!-- Modal content -->
         <div class="aller">
-            <span class="close" onclick="document.getElementById('signpop').style.display='none'">&times;</span>
-              <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
-              <form class="user" method="post" action="signup.php">
-                <div class="sep"> <a>Telephone</a></div>
-                <div class="sep"><input type="submit" name="register" class="sub" value="Edit" /> </div>
-              </form> 
-        </div>
-
-
-
-
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                        <th>Medicine</th>
-                        <th>Edit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      
+            <span class="close" onclick="document.getElementById('aller').style.display='none'">&times;</span>
+            <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Register</p></div>
+                <form class="user" method="post" action="delete_medical.php">
                     <?php
                        if ($result_allergy) {
                         foreach ($result_allergy as $aller) {
-                
                             $sql = "SELECT * FROM medical WHERE medicine_id = '" . $aller['medicine_id'] . "'";
                             $realler = PDOfetchAll($sql)[0];
                     ?> 
-
+                        - <?php echo $realler['medicine_name'];?>
+                        <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
+                        <input type='hidden' value="<?php echo $realler['medicine_id'] ?>" name='medicine_id'>
+                        <input type="submit" name="delete" value="x"/>
                     <?php
                         }
                     } 
-                    ?>
-                     
-
-                        <form action="insert_medicine.php" method="POST">
-                        <tr id="department" style="display:none">
-                            <td><?php echo $realler['medicine_name'];  $_SESSION["DepartmentID_Insert"]=$DepartmentID_show; ?></td>
-                            <td><input class="form-control" type="tel" , name="Dtel"></td>
-                        </tr>
-                        </table>  
-                        <div align="right" id="s_department" style="display:none">
-                            <button type=" button" class="btn btn-primary btn-user"
-                                onclick="document.getElementById('demo').style.display='none'">ADD Medicine</button>
-                        </div>
-                        </form>
-                    </div>
-                  </tbody>
-                </table>
-
-
-
-
-
-
+                    ?>                    
+                </form> 
+                        <select name="medicine_id" form="myform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Medicine
+                            <option value=""><- Select Medicine -></option>
+                            <?php
+                            $result = $pdo->prepare("SELECT * FROM medical WHERE medicine_id NOT IN (SELECT medicine_id FROM allergy_medicine WHERE patient_id = :patient_id)");
+                            $result->execute(array(':patient_id' => $result_User['patient_id']));
+                            while($objResuut = $result->fetch()){
+                                echo print_r($objResuut);
+                            ?>
+                            <option value="<?php echo $objResuut["medicine_id"];?>"><?php echo $objResuut["medicine_name"]?></option>
+                            <?php } ?>
+                        </select>
+                <form id="myform" class="user" method="post" action="insert_medical.php">
+                    <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
+                    <input type="submit" name="insert" value="+"/>
+                </form>
+                </div>
+            </div>
+        </div>
     </div>
    
     

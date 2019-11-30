@@ -288,7 +288,7 @@
 										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 							<!-- Queue time alart of that pill and show -->
 							  <?php $medicid = $medic['medicine_id'];
-									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON 	hi.schedule_id = s.schedule_id AND s.patient_id =5 JOIN notification n ON n.medicine_id= $medicid ORDER BY n.notification_time;";
+									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON 	hi.schedule_id = s.schedule_id AND s.patient_id =5 JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time;";
 									$result3 = mysqli_query($Connect, $mysql_qry3);
 									$noti = $result3->fetch_assoc();
 									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
@@ -299,14 +299,14 @@
 									<?php
 											if($noti['status']=="1"){
 									?>
-									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,<?php echo $medicid; ?>)" value=1 checked>
+									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,'<?php echo $medicid; ?>','<?php echo $userid; ?>')" value=1 checked>
 									<?php
 											}
 									?>
 									<?php
 											if($noti['status']!="1"){
 									?>
-									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,<?php echo $medicid; ?>)" value=0>
+									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,'<?php echo $medicid; ?>','<?php echo $userid; ?>')" value=0>
 									<?php
 											}
 									?>
@@ -463,16 +463,16 @@
 			time.innerHTML = i;
 	};
 	
-	function changeNotiAlert(checkbox,medicid){
+	function changeNotiAlert(checkbox,medicid,userid){
 			var xhttp;
 			xhttp = new XMLHttpRequest();
 		 if(checkbox.checked){
-            xhttp.open("GET", "checkBoxNoti.php?status=1&medicid="+medicid, true);
+            xhttp.open("GET", "checkBoxNoti.php?status=1&medicid="+medicid+"&userid="+userid, true);
             xhttp.send();
     }
     //If it has been unchecked.
     else{ 
-			xhttp.open("GET", "checkBoxNoti.php?status=0&medicid="+medicid, true);
+			xhttp.open("GET", "checkBoxNoti.php?status=0&medicid="+medicid+"&userid="+userid, true);
             xhttp.send();
     }
 		

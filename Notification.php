@@ -43,11 +43,9 @@
                 echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;' onclick=location.replace('./profile.php');>Hi, ".$result_User["name"]."</p>"; 
             }?>
             </li>        
-            
-            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
-            
+
+            <li style="float:right"><button class="btn4" id="btn4" onclick="nav_noti()"><img src="./img/bell.png" height="25"></button></li>
             <?php if(isset($_SESSION["email"])) {  
-                
                 echo "<script language=\"JavaScript\">";
                 echo "document.getElementById('btn').style.display='none';";
                 echo "document.getElementById('btn2').style.display='none';";
@@ -60,11 +58,20 @@
                 echo "</script>";   
             }
             ?>
-            
-	<div class="bubble" style="position:fixed;margin-top: 60;margin-left: 1374">
-	</div>
-        </ul>
+			<script>
+				function nav_noti()
+				{
+					var x = document.getElementById('nav_noti');
+					if (x.style.display === 'none') {
+						x.style.display = 'block';
+					} else {
+						x.style.display = 'none';
+					}
+				}
+			</script>
 
+        </ul>
+		<div class="bubble" id="nav_noti" style="display:none; osition:fixed; margin-top: 60;margin-left: 1374"></div>
             
 <!-- Head picture -->
         <section><img src="./img/Banner.png" style="width:100%"  >
@@ -72,7 +79,7 @@
             echo '<div id="sidenav" class="sidenav">';
             echo '    <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>';
             echo '    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>';
-            echo '   <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>';
             echo '    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>';
             echo '</div>';
         }
@@ -98,7 +105,7 @@
 <!-- Queue next date meeting doctor -->
 			<?php 
             $mysql_qry1 = "SELECT  *  FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
-            $result1 = mysqli_query($Connect, $mysql_qry1);
+			$result1 = mysqli_query($Connect, $mysql_qry1);
 			$mysql_qryCount1="SELECT COUNT(*) AS count FROM `schedule`s JOIN staff st ON st.staff_id = s.staff_id AND s.patient_id=$userid AND s.status LIKE 'Ongoing' JOIN hospital h ON h.hospital_id = st.hospital_id ORDER BY `bookingdate`LIMIT 1";
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();
@@ -122,11 +129,12 @@
                         </div>
 					</div></a>
                 </div>
-	 <?php } ?>
+	 <?php }
+	} ?>
 	
 <!-- If booking is empty.  -->
             <?php   
-			if (!isset($doc['staff_id'])){
+			if ($doc==NULL){
 				?>
 				 <div class="column"  href="#" style="width: 500px;">
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
@@ -138,7 +146,7 @@
                 </div>
 			 <?php	
 			}
-		} ?>
+	 ?>
 
 <!--Set Time Notification-->
 			<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
@@ -295,7 +303,6 @@
 									$mysql_qry3 = "SELECT * FROM `medical`m JOIN history_medicine hi ON m.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id JOIN notification n ON n.medicine_id= $medicid AND n.patient_id = $userid ORDER BY n.notification_time";
 									$result3 = mysqli_query($Connect, $mysql_qry3);
 									$noti = $result3->fetch_assoc();
-						
 									if ($noti['notification_time']!=NULL) {echo date('H:i a',strtotime($noti['notification_time']));echo "."; }?>
 								</font></div> &nbsp;&nbsp;
              			 	</p>

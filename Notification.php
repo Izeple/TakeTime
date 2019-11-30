@@ -61,7 +61,7 @@
             }
             ?>
             
-	<div class="bubble" style="position:fixed;margin-top: 60;margin-left: 1374">
+	<div class="bubble" style="display: none; osition:fixed;margin-top: 60;margin-left: 1374">
 	</div>
         </ul>
 

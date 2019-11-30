@@ -11,7 +11,7 @@ VALUES
 ('$timeNoti3','$_POST[status_Noti]','$_POST[staff_id]','$_POST[partient_id]','$_POST[remaining_time]','$_POST[medicine_id]'),
 ('$timeNoti4','$_POST[status_Noti]','$_POST[staff_id]','$_POST[partient_id]','$_POST[remaining_time]','$_POST[medicine_id]')";
         if ($Connect->query($sql) === TRUE) {
-			window.location.reload(true);
+			header("location:Notification.php");
             // header("location: car.php");
         } else {
 			alart("Error to insert!");

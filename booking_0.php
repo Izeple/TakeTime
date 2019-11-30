@@ -82,7 +82,7 @@ if(isset($_SESSION["edit"]))
     $status_select = "Complete";
     $i = 0;
     //'".$result_User['patient_id']."'
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '" . $result_User["patient_id"] . "' AND `status`  = 'Ongoing'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '" . $result_User["patient_id"] . "' AND `status`  = 'Going on'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount == 0) {
@@ -98,7 +98,7 @@ if(isset($_SESSION["edit"]))
         <div id ="content"> 
         <div class="row" style="margin-left:-20px;">
             <?php
-                $status_select = "Ongoing";
+                $status_select = "Going on";
                 $i = 0;
                 //'".$result_User['patient_id']."'
                 $sql = "SELECT * FROM schedule WHERE patient_id = " . $result_User["patient_id"];
@@ -111,7 +111,7 @@ if(isset($_SESSION["edit"]))
         </div>
         <div class="row" style="margin-left:-20px;">
         <?php } ?>
-        <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
+        <?php if ($row['status'] == $status_select && $row['status'] == "Going on") { ?>
             <div class="column">
                 <div class="card2" style="margin-top:30px; margin-left:80px;">
                 <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>

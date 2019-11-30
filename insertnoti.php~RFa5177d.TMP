@@ -31,10 +31,10 @@ VALUES
 }
 //Update Notification 
 else if($count['count']>0){
-	$update1 = "UPDATE Notification SET notification_time='$timeNoti1' WHERE medicine_id= '$medic' AND patient_id= '$user' AND staff_id = '$staff' AND message LIKE 'morning' ";
-	$update2 = "UPDATE Notification SET notification_time='$timeNoti2' WHERE medicine_id= '$medic' AND patient_id= '$user' AND staff_id = '$staff' AND message LIKE 'afternoon' ";
-	$update3 = "UPDATE Notification SET notification_time='$timeNoti3' WHERE medicine_id= '$medic' AND patient_id= '$user' AND staff_id = '$staff' AND message LIKE 'evening' ";
-	$update4 = "UPDATE Notification SET notification_time='$timeNoti4' WHERE medicine_id= '$medic' AND patient_id= '$user' AND staff_id = '$staff' AND message LIKE 'night' ";
+	$update1 = "UPDATE Notification SET notification_time='$timeNoti1' WHERE medicine_id= $medic AND patient_id= $user AND staff_id = $staff AND message LIKE 'morning' ";
+	$update2 = "UPDATE Notification SET notification_time='$timeNoti2' WHERE medicine_id= $medic AND patient_id= $user AND staff_id = $staff AND message LIKE 'afternoon' ";
+	$update3 = "UPDATE Notification SET notification_time='$timeNoti3' WHERE medicine_id= $medic AND patient_id= $user AND staff_id = $staff AND message LIKE 'evening' ";
+	$update4 = "UPDATE Notification SET notification_time='$timeNoti4' WHERE medicine_id= $medicid AND patient_id= $user AND staff_id = $staff AND message LIKE 'night' ";
  	if ($Connect->query($update1) === TRUE&&$Connect->query($update2) === TRUE&&$Connect->query($update3) === TRUE&&$Connect->query($update4) === TRUE) {
 		header("location:Notification.php");
 	} 

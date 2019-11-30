@@ -93,7 +93,7 @@
                 <p class="tl"> Telephone</p>
                 <p class="tr"> : <?php echo $result_User['tel']; ?></p>
                 <p class="tl"> Address</p>
-                <p class="tr"> : <?php echo $result_User['addresspatient']; ?></p>
+                <p class="tr"> : <?php echo $result_User['address']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
                 <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
@@ -156,7 +156,7 @@
 
                         ?>
         <?php } ?>
-    <?php if ($row['status'] == "Going on") { ?>
+    <?php if ($row['status'] == "Ongoing") { ?>
         <div class="column">
             <div class="card2">
                 <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>

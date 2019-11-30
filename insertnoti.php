@@ -1,5 +1,6 @@
 <?php
 require "condb.php";
+
 $timeNoti1 = $_POST["hmorn"].':'.$_POST["mmorn"].':00';
 $timeNoti2 = $_POST["heven"].':'.$_POST["meven"].':00';
 $timeNoti3 = $_POST["hsun"].':'.$_POST["msun"].':00';

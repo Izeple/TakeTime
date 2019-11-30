@@ -2,7 +2,7 @@
 <head>
 	<STYLE>A {text-decoration: none;}
 	div.alert {
-		border: #D9D9D9 solid 1px;
+			border: #D9D9D9 solid 1px;
 			cursor:pointer;
 			border-radius: 5px; 
 			margin-top: -40px; 

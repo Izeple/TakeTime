@@ -1,5 +1,6 @@
 <?php 
- $status = $_REQUEST["status"];
+
+$status= $_REQUEST["status"];
 $medicid = $_REQUEST["medicid"];
 $patient_id = $_REQUEST["userid"];
 require "condb.php";

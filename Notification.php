@@ -30,31 +30,62 @@
 	
 <body>
 <!-- Menubar -->
-    <div id="main">
+    <div id="main" style="background-color: #ffffff">
         <ul>
-       	<li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
-       	<li><a href="Homepage.php"><img src="./img/nametag.png" height="15"></a></li>
- 	 	<li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
-			    <li style="float:right">
+            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+            <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
+            <li style="float:right"><button class="btn" id="btn" onclick="document.getElementById('signpop').style.display='block'">Sign up</button></li>
+            <li style="float:right"><button class="btn2" id="btn2" onclick="document.getElementById('logpop').style.display='block'">Log in</button></li>
+            <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
+
+            <li style="float:right">
             <?php if(isset($_SESSION["email"])) {  
                 echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;' onclick=location.replace('./profile.php');>Hi, ".$result_User["name"]."</p>"; 
             }?>
             </li>        
-      	<li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+            
+            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+            
+            <?php if(isset($_SESSION["email"])) {  
+                
+                echo "<script language=\"JavaScript\">";
+                echo "document.getElementById('btn').style.display='none';";
+                echo "document.getElementById('btn2').style.display='none';";
+                echo "</script>";
+            }
+            else {
+                echo "<script language=\"JavaScript\">";
+                echo "document.getElementById('btn3').style.display='none';";
+                echo "document.getElementById('btn4').style.display='none';";
+                echo "</script>";   
+            }
+            ?>
+            
+	<div class="bubble" style="position:fixed;margin-top: 60;margin-left: 1374">
+	</div>
         </ul>
-		
 
             
 <!-- Head picture -->
         <section><img src="./img/Banner.png" style="width:100%"  >
-        <div class="ab" align="center">
-            <div id="sidenav" class="sidenav">
-                    <div class="sidein"><a href="homepage.php"><img src="img/user.png" height="30"></a></div>
-                    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>
-                    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>
-                    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>
-            </div>
-        </div>
+         <?php if(isset($_SESSION["email"])) { 
+            echo '<div id="sidenav" class="sidenav">';
+            echo '    <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>';
+            echo '   <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>';
+            echo '</div>';
+        }
+        else
+        {
+            echo '<div id="sidenav" class="sidenav">';
+            echo '    <div class="sidein"><a onclick=document.getElementById("logpop").style.display="block"><img src="img/user.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a onclick=document.getElementById("logpop").style.display="block"><img src="img/help.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a onclick=document.getElementById("logpop").style.display="block"><img src="img/time.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a onclick=document.getElementById("logpop").style.display="block"><img src="img/noti.png" height="30"></a></div>';
+            echo '</div>';
+        }
+        ?>
         </section>
     </div>    
 
@@ -109,11 +140,11 @@
 <!--Set Time Notification-->
 			<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
 				<form action="insertnoti.php" method="POST" onsubmit="return checktext1()">
-					<input type="int" name="staff_id" id="staff_id" />
-					<input type="int" name="medicine_id" id="medicine_id"  />
-					<input type="int" name="partient_id" id="partient_id" />
-					<input type="int" name="remaining_time" id="remaining_time"  />
-					<input type="text" name="statusnoti" id="statusnoti"   />
+					<input type="int" name="staff_id" id="staff_id" style="display: none;" />
+					<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
+					<input type="int" name="partient_id" id="partient_id" style="display: none;" />
+					<input type="int" name="remaining_time" id="remaining_time" style="display: none;" />
+					<input type="text" name="status_Noti" id="status_Noti"  style="display: none;" />
 	<!--Set Time To Take -->
 				<div  style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-bottom: 50px; "> 
 						<div style="float: left;height: 345px;width: 1050px;">
@@ -265,7 +296,20 @@
              			 	</p>
 							<p style="margin-top: -50px;">
 								<font size='4' color="#a4a4a4" style="float: left;margin-left: 100px;">
-									<input type="checkbox" name="status" id="status" value=1 checked>
+									<?php
+											if($noti['status']=="1"){
+									?>
+									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,<?php echo $medicid; ?>)" value=1 checked>
+									<?php
+											}
+									?>
+									<?php
+											if($noti['status']!="1"){
+									?>
+									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeNotiAlert(this,<?php echo $medicid; ?>)" value=0>
+									<?php
+											}
+									?>
 									&nbsp;Notification</font>
 								<?php if($noti['remaining_time']!=NULL && $noti['remaining_time']>0){ ?>
          						 	<font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo $noti['remaining_time']; ?> times </font><?php } ?>
@@ -293,6 +337,7 @@
 									
 <script type="text/javascript">
 	function openForm(name, times, daytime, status, loop, medicid, staffid, userid) {
+		status_Noti.value = 1;
 		staff_id.value  = staffid;
 		partient_id.value  = userid;
 		remaining_time.value  = times;
@@ -370,54 +415,68 @@
 					i = i + n;
 					daytime[0]=i;
 				hmorn.value  = i;
-						break;
+				break;
 				case h_sun:
 					i=daytime[1];
 					i = i + n;
 					daytime[1]=i;
 				hsun.value  = i;
-						break;
+				break;
 				case h_even:
 					i=daytime[2];
 					i = i + n;
 					daytime[2]=i;
 				heven.value  = i;
-						break;
+				break;
 				case h_night:
 					i=daytime[3];
 					i = i + n;
 					daytime[3]=i;
 				hnight.value  = i;
-						break;
+				break;
 				case m_morn:
 					i=daytime[4];
 					i = i + n;
 					daytime[4]=i;
 				mmorn.value  = i;	
-						break;
+				break;
 				case m_sun:
 					i=daytime[5];
 					i = i + n;
 					daytime[5]=i;
 				msun.value  = i;	
-						break;
+				break;
 				case m_even:
 					i=daytime[6];
 					i = i + n;
 					daytime[6]=i;
 				meven.value  = i;	
-						break;
+				break;
 				case m_night:
 					i=daytime[7];
 					i = i + n;
 					daytime[7]=i;
 				mnight.value  = i;	
-						break;
+				break;
 			}
 	//Result Time
 			time.innerHTML = i;
 	};
-
+	
+	function changeNotiAlert(checkbox,medicid){
+			var xhttp;
+			xhttp = new XMLHttpRequest();
+		 if(checkbox.checked){
+            xhttp.open("GET", "checkBoxNoti.php?status=1&medicid="+medicid, true);
+            xhttp.send();
+    }
+    //If it has been unchecked.
+    else{ 
+			xhttp.open("GET", "checkBoxNoti.php?status=0&medicid="+medicid, true);
+            xhttp.send();
+    }
+		
+	}
 	window.onclick;	
 	</script>
 		

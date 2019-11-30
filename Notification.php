@@ -69,9 +69,9 @@
 					}
 				}
 			</script>
-
+<div class="bubble" id="nav_noti" style="display:none; position:fixed; margin-top: 60;margin-left: 1374"></div>
         </ul>
-		<div class="bubble" id="nav_noti" style="display:none; osition:fixed; margin-top: 60;margin-left: 1374"></div>
+		
             
 <!-- Head picture -->
         <section><img src="./img/Banner.png" style="width:100%"  >
@@ -111,6 +111,7 @@
 			$count = $countResult->fetch_assoc();
             while ($doc =  $result1->fetch_assoc()) {
                 if (isset($doc['staff_id'])) {
+					$havebook=1;
                     ?>
 <!-- Show next booking -->
                 <div class="column" style="width: 500px;"><a href="#doctor">
@@ -134,7 +135,7 @@
 	
 <!-- If booking is empty.  -->
             <?php   
-			if ($doc==NULL){
+			if(!isset($havebook)){
 				?>
 				 <div class="column"  href="#" style="width: 500px;">
                     <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
@@ -202,7 +203,7 @@
 							<div style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 25;margin-left: 550;"> 
 								<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
 								<div style="margin-top: 5;margin-left:50;"><font size='5' color="#828282"><?php echo "Night"; ?></div>
-							</div>
+								</div>
 								<div style="position: absolute; margin-top: -100;margin-left:750;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
 								<div style="position: absolute; margin-top: -100;margin-left:855;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
 									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 750;"> <div style="float: right;"><input type="text" name="hnight" id="hnight" value="21" style="display: none;" /><font id="h_night" size='5' color="#828282"><?php echo "21"; ?></font></div></div>

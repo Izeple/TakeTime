@@ -1,6 +1,6 @@
 .bubble
 {
-position: relative;
+position: absolute;
 width: 320px;
 height: 300px;
 padding: 33px;

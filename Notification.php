@@ -333,7 +333,6 @@
                 </div>
 		  <?php } ?>
 
-
 									
 <script type="text/javascript">
 	function openForm(name, times, daytime, status, loop, medicid, staffid, userid) {

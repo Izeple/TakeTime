@@ -67,7 +67,7 @@ div.triangle-down:hover {
 }
 
 .closeNoti {
-
+	cursor:pointer;
 	border: 2px solid #E9E9E9; 
 	height: 55px;
 	width: 120px; 
@@ -84,6 +84,7 @@ div.closeNoti:hover {
 
 }
 .confirmNoti {
+	cursor:pointer;
 	border: 2px solid #47b6c7; 
 	height: 55px;
 	width: 120px; 
@@ -92,13 +93,15 @@ div.closeNoti:hover {
 	margin-left:900px; 
 	margin-bottom: 40px;
 	margin-top: -58
+
 }
-div.confirmNoti:hover {
+input:hover:before{
 	border: 2px solid #3fabbc; 
 	background-color: #3fabbc;
 }
 
 div.pills {
+			cursor:pointer;
         	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 			height: 135px;
 			border-radius: 5px; 

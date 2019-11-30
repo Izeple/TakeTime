@@ -69,7 +69,11 @@
 					}
 				}
 			</script>
-<div class="bubble" id="nav_noti" style="display:none; position:fixed; margin-top: 60;margin-left: 1374"></div>
+					<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374">
+						<div style="width: auto;height: 1%;background-color: #c3c9cb;">
+						</div>
+						<font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font>
+					</div>
         </ul>
 		
             
@@ -114,7 +118,7 @@
 					$havebook=1;
                     ?>
 <!-- Show next booking -->
-                <div class="column" style="width: 500px;"><a href="#doctor">
+                <div class="column" style="width: 500px;"><a href="booking_0.php">
                     <div class="pills"  style="margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
@@ -268,9 +272,9 @@
 									<!--Botton-->
 									<div>
 										<div  id="closeNoti" class="closeNoti" href="#close" onclick="closeForm()"> 
-							<div  style="margin-left: 33;margin-top: 7"><font size='6' color="#475254"><?php echo "Close"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
+							<div  style="margin-left: 30;margin-top: 7"><font size='6px' color="#475254"><?php echo "CLOSE"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 										</div>
-											<input  type="submit" class="confirmNoti" value="SAVE" />
+											<input  type="submit" class="confirmNoti" value="SAVE" style="color: white;font-size: 22px;"/>
 									</div>	
 				</form>
 			</div>
@@ -412,6 +416,7 @@
 		}
 	}
 	function closeForm() {
+		document.getElementById(pillid).style.backgroundColor = "#E9E9E9";
 		document.getElementById("setNoti").style.display = "none";
 	}
 	function selectPill(id){

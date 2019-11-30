@@ -8,10 +8,11 @@ if (isset($_SESSION["email"])) {
 } else {
     header("location:Homepage.php");
 }
-if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
-    $_SESSION["edit"] = 0;
-    header("location:delete_schedule.php");
-}
+if(isset($_SESSION["edit"]))
+    if ($_SESSION["edit"] == 1 && !isset($_POST["edit"])) {
+        $_SESSION["edit"] = 0;
+        header("location:delete_schedule.php");
+    }
 
 ?>
 

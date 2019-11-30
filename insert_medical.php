@@ -22,5 +22,5 @@ catch(PDOException $e)
          echo $sql."<br>".$e->getMessage();
     }
 $conn = null;
-//header("location:profile.php");
+header("location:profile.php");
 ?>

@@ -43,11 +43,9 @@
                 echo "<p class='usern'style='padding: 14px 16px; margin:0; color:#4e707e;' onclick=location.replace('./profile.php');>Hi, ".$result_User["name"]."</p>"; 
             }?>
             </li>        
-            
-            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
-            
+
+            <li style="float:right"><button class="btn4" id="btn4" onclick="nav_noti()"><img src="./img/bell.png" height="25"></button></li>
             <?php if(isset($_SESSION["email"])) {  
-                
                 echo "<script language=\"JavaScript\">";
                 echo "document.getElementById('btn').style.display='none';";
                 echo "document.getElementById('btn2').style.display='none';";
@@ -61,10 +59,20 @@
             }
             ?>
             
-	<div class="bubble" style="display: none; osition:fixed;margin-top: 60;margin-left: 1374">
-	</div>
-        </ul>
+			<script>
+				function nav_noti()
+				{
+					var x = document.getElementById('nav_noti');
+					if (x.style.display === 'none') {
+						x.style.display = 'block';
+					} else {
+						x.style.display = 'none';
+					}
+				}
+			</script>
 
+        </ul>
+		<div class="bubble" id="nav_noti" style="display:none; osition:fixed; margin-top: 60;margin-left: 1374"></div>
             
 <!-- Head picture -->
         <section><img src="./img/Banner.png" style="width:100%"  >
@@ -72,7 +80,7 @@
             echo '<div id="sidenav" class="sidenav">';
             echo '    <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>';
             echo '    <div class="sidein"><a href="selectdoc.php"><img src="img/help.png" height="30"></a></div>';
-            echo '   <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>';
+            echo '    <div class="sidein"><a href="booking_0.php"><img src="img/time.png" height="30"></a></div>';
             echo '    <div class="sidein"><a href="Notification.php"><img src="img/noti.png" height="30"></a></div>';
             echo '</div>';
         }

@@ -7,13 +7,15 @@ session_start();
  $message = "";  
  try  
  {  
-      
+
       $connect = new PDO("mysql:host=$host; dbname=$database", $email, $password);  
       $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
       if(isset($_POST["login"]))  
       {  
+           
            if(empty($_POST["email"]) || empty($_POST["password"]))  
            {  
+ 
                 $message = '<label>All fields are required</label>';  
            }  
            else  

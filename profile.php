@@ -96,7 +96,7 @@
                 <p class="tr"> : <?php echo $result_User['address']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
-                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
+                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 3px 0px; width:10%" src="./img/edit.png">
             </div>
         </div>
     </div>

@@ -48,7 +48,7 @@ echo"                </div>
                 $ans = $row12['answer'];
                 if($ans != "")
                 {
- echo"              <img src='./img/picdoc.png' style='width:75px; margin-top: 15px; float: left; margin-right: 8px;'>
+ echo"              <img src='./img/picdoc.png' style='width:75px; float: left; margin-right: 8px;'>
                     <div style='width:350px; margin-top: 6px; float: left; margin-right: 10px;  margin-top: 15px; background-color: #ffffff; padding-left:15px; padding-bottom:15px;  border-radius: 10px;'>
                         <font size='3' color='#6e6e6e' face='[supermarket]'>
                             <br>";

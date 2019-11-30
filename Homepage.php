@@ -9,7 +9,6 @@
     <?php require "condb.php"; ?>
     <?php require "login.php"; ?>
     <?php
-    
     if(isset($_SESSION["email"]))
     {
         require_once("connectPDO.php");

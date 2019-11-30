@@ -55,7 +55,7 @@
             var MonthExpired = document.forms["forminsert"]["MonthExpired"].value;
             var YearExpired = document.forms["forminsert"]["YearExpired"].value;
             if (describe == 0 || often == 0 || CardNumber1 == 0 || Number.isInteger(Number(valueCardNumber1)) == false || CardNumber1 != 4 || CardNumber2 == 0 || Number.isInteger(Number(valueCardNumber2)) == false || CardNumber2 != 4 || CardNumber3 == 0 || Number.isInteger(Number(valueCardNumber3)) == false || CardNumber3 != 4 || CardNumber4 == 0 || Number.isInteger(Number(valueCardNumber4)) == false || CardNumber4 != 4 || CVV1 == 0 || Number.isInteger(Number(CVV)) == false || CVV1 != 3 || MonthExpired == 0 || YearExpired == 0) {
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
                 return false;
             } else {
                 return true;
@@ -66,14 +66,14 @@
             var describe = document.forms["forminsert"]["describe"].value.trim().length;
             if (describe == 0) {
                 document.getElementById("describe").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("describe").style.borderColor = "#47b6c7";
             }
             var often = document.forms["forminsert"]["often"].value.trim().length;
             if (often == 0) {
                 document.getElementById("often").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("often").style.borderColor = "#47b6c7";
             }
@@ -81,7 +81,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber1"].value;
             if (CardNumber1 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber1 != 4) {
                 document.getElementById("CardNumber1").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("CardNumber1").style.borderColor = "#47b6c7";
             }
@@ -89,7 +89,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber2"].value;
             if (CardNumber2 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber2 != 4) {
                 document.getElementById("CardNumber2").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("CardNumber2").style.borderColor = "#47b6c7";
             }
@@ -97,7 +97,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber3"].value;
             if (CardNumber3 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber3 != 4) {
                 document.getElementById("CardNumber3").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("CardNumber3").style.borderColor = "#47b6c7";
             }
@@ -105,7 +105,7 @@
             var CardNumber = document.forms["forminsert"]["CardNumber4"].value;
             if (CardNumber4 == 0 || Number.isInteger(Number(CardNumber)) == false || CardNumber4 != 4) {
                 document.getElementById("CardNumber4").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("CardNumber4").style.borderColor = "#47b6c7";
             }
@@ -113,7 +113,7 @@
             var CVV = document.forms["forminsert"]["CVV"].value;
             if (CVV1 == 0 || Number.isInteger(Number(CVV)) == false || CVV1 != 3) {
                 document.getElementById("CVV").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("CVV").style.borderColor = "#47b6c7";
             }
@@ -122,7 +122,7 @@
             if (MonthExpired == 0 || YearExpired == 0) {
                 document.getElementById("MonthExpired").style.borderColor = "red";
                 document.getElementById("YearExpired").style.borderColor = "red";
-                document.getElementById("eror").innerHTML = "* Plase input data Correct";
+                document.getElementById("eror").innerHTML = "* Please input data Correct";
             } else {
                 document.getElementById("MonthExpired").style.borderColor = "#47b6c7";
                 document.getElementById("YearExpired").style.borderColor = "#47b6c7";

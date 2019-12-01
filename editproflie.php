@@ -34,7 +34,7 @@ if (
     && $imageFileType != "gif"
 ) {
     $uploadOk = 0;
-}
+} 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "',picture='man.png' WHERE `patient_id` = '" . $patientid . "'";

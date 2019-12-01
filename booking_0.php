@@ -104,10 +104,9 @@ if(isset($_SESSION["edit"]))
 
     <div id="contentbooking" class="booking">
     <?php
-    $status_select = "Ongoing";
     $i = 0;
     //'".$result_User['patient_id']."'
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '1' AND `status`  = 'Ongoing'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '".$result_User['patient_id']."' AND `status`  = 'Ongoing'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount == 0) {
@@ -125,7 +124,6 @@ if(isset($_SESSION["edit"]))
         ?>
             <div class="row" style="margin-left:-20px;">
                 <?php
-                    $status_select = "Ongoing";
                     $i = 0;
                     //'".$result_User['patient_id']."'
                     $sql = "SELECT * FROM schedule WHERE patient_id = " . $result_User["patient_id"];
@@ -138,7 +136,7 @@ if(isset($_SESSION["edit"]))
             </div>
             <div class="row" style="margin-left:-20px;">
             <?php } ?>
-            <?php if ($row['status'] == $status_select && $row['status'] == "Ongoing") { ?>
+            <?php if ($row['status'] == "Ongoing") { ?>
                 <div class="column">
                     <div class="card2" style="margin-top:30px; margin-left:80px;">
                         <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
@@ -198,7 +196,6 @@ if(isset($_SESSION["edit"]))
     <div id="contentcomplete" class="complete">
         <div class="row" style="margin-left:-20px;">
             <?php
-                $status_select = "Complete";
                 $i = 0;
                 //'".$result_User['patient_id']."'
                 $sql = "SELECT * FROM schedule WHERE patient_id =  '" .  $result_User["patient_id"] . "'";
@@ -211,7 +208,7 @@ if(isset($_SESSION["edit"]))
         </div>
         <div class="row" style="margin-left:-20px;">
         <?php } ?>
-        <?php if ($row['status'] == $status_select && $row['status'] == "Complete") { ?>
+        <?php if ($row['status'] == "Complete") { ?>
             <div class="column">
                 <div class="card2" style="margin-top:30px; margin-left:80px;">
                 <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; background-color: #f51051    ;">Complete</h4>

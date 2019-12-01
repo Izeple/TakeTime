@@ -86,15 +86,16 @@
 						x.style.display = 'none';
 					}
 				}
-				
-		var intervalId = setInterval(function() {
-   			$("#nav_noti").load("notiAlert.txt");
-		}, 500)
+				var i=0;
+
+				setInterval(function() {
+    				$("#nav_noti").load("notiAlert.php");
+				}, 500);
 			</script>
 			
 			
 
-				<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
+				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
 		<!-- Show Notifications Alert-->
 				</div>			
         </ul>

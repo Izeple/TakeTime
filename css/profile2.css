@@ -142,8 +142,10 @@
 
 }
 .allergy{
+    line-height: 1.5;
     position:relative;
     margin-top:100px;
+    margin-bottom:1rem;
 
     padding: 1rem;
     margin-left:1rem;
@@ -156,7 +158,8 @@
 
 }
 .aller{
-    width:100px;
+    line-height: 1.5;
+    width:200px;
     padding: 1rem;
     margin: 10rem auto auto auto;
     background-color: #fefefe;

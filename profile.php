@@ -93,7 +93,7 @@
                 <p class="tl"> Telephone</p>
                 <p class="tr"> : <?php echo $result_User['tel']; ?></p>
                 <p class="tl"> Address</p>
-                <p class="tr"> : <?php echo $result_User['address']; ?></p>
+                <p class="tr"> : <?php echo $result_User['addresspatient']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
                 <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
@@ -295,7 +295,6 @@
         <!-- Modal content -->
         <div class="aller">
             <span class="close" onclick="document.getElementById('aller').style.display='none'">&times;</span>
-            <div style="background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
                 <form class="user" method="post" action="delete_medical.php">
                     <?php
                        if ($result_allergy) {
@@ -306,7 +305,8 @@
                         - <?php echo $realler['medicine_name'];?>
                         <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
                         <input type='hidden' value="<?php echo $realler['medicine_id'] ?>" name='medicine_id'>
-                        <input type="submit" name="delete" value="x"/>
+                        <input  class="x"type="submit" name="delete" value="x"/>
+                    <br>
                     <?php
                         }
                     } 
@@ -326,7 +326,7 @@
                         </select>
                 <form id="myform" class="user" method="post" action="insert_medical.php">
                     <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
-                    <input type="submit" name="insert" value="+"/>
+                    <input class="x" type="submit" name="insert" value="+"/>
                 </form>
                 </div>
             </div>

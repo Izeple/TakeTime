@@ -96,7 +96,7 @@
                 <p class="tr"> : <?php echo $result_User['address']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
-                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
+                <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 3px 0px; width:10%" src="./img/edit.png">
             </div>
         </div>
     </div>
@@ -139,7 +139,7 @@
     </div>
     </div>
     </div>
-    <div class="down" style="width:750; margin-left:25%;margin-right:25%;">
+    <div class="down" style="width:750; margin-left:20%;margin-right:20%;">
 
     <div class="bookhis">
     <div style="position:absolute; left:5px;top:-44px; background-color:#1cbbb4; color:#FFFFFF; padding:10px 15px;">Booking</div>
@@ -148,14 +148,11 @@
             //        $status_select = "Complete";
             $i = 0;
             //'".$result_User['patient_id']."'
-            $sql = "SELECT * FROM schedule WHERE patient_id = 1";
+            $sql = "SELECT * FROM schedule WHERE patient_id = " . $result_User["patient_id"];
             $result_Schedule = PDOfetchAll($sql);
             if ($result_Schedule) {
                 foreach ($result_Schedule as $row) {
-                    if ($i != 0) {
-
-                        ?>
-        <?php } ?>
+                    ?>
     <?php if ($row['status'] == "Ongoing") { ?>
         <div class="column">
             <div class="card2">
@@ -193,12 +190,8 @@
                 $i++;
             }
         }
-        foreach ($result_Schedule as $row) {
-            if ($i != 0) {
-
-                ?>
-    
-<?php } ?>
+        foreach ($result_Schedule as $row) {?>
+            
 <?php if ($row['status'] == "Complete") { ?>
     <div class="column">
         <div class="card2" style="position:relative; ">
@@ -266,12 +259,21 @@
     }
 }
 ?>
+<?php 
+            if ($i == 0) {
 
+                ?><div style="padding:30px">
+                <br>
+    <center><img src="./img/construction.png" width="20%" style="opacity:0.5"><br><br>
+    <font color="#8c8c8c" style="opacity:0.5">No Booking History...</font></center>
+            </div>
+
+<?php } ?>
     </div>
     
 
 <div class="allergy">
-    <div style="position:absolute; left:5px;top:-38.4px; background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
+    <div style="position:absolute; left:5px;top:-44.4px; background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
     <?php
     $sql = "SELECT * FROM allergy_medicine WHERE patient_id = '" . $result_User['patient_id'] . "'";
     $result_allergy = PDOfetchAll($sql);
@@ -295,7 +297,7 @@
         <!-- Modal content -->
         <div class="aller">
             <span class="close" onclick="document.getElementById('aller').style.display='none'">&times;</span>
-            <div style="background-color:#f26d7d; color:#FFFFFF; padding:10px;">Allergy Medicine</div>
+            <br>
                 <form class="user" method="post" action="delete_medical.php">
                     <?php
                        if ($result_allergy) {
@@ -306,7 +308,9 @@
                         - <?php echo $realler['medicine_name'];?>
                         <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
                         <input type='hidden' value="<?php echo $realler['medicine_id'] ?>" name='medicine_id'>
-                        <input type="submit" name="delete" value="x"/>
+                        <input class="x" type="submit" name="delete" value="x"/>
+                        <br>
+
                     <?php
                         }
                     } 
@@ -326,7 +330,7 @@
                         </select>
                 <form id="myform" class="user" method="post" action="insert_medical.php">
                     <input type='hidden' value="<?php echo $result_User['patient_id'] ?>" name='patient_id'>
-                    <input type="submit" name="insert" value="+"/>
+                    <input class="x" type="submit" name="insert" value="+"/>
                 </form>
                 </div>
             </div>

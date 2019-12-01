@@ -93,7 +93,7 @@
                 <p class="tl"> Telephone</p>
                 <p class="tr"> : <?php echo $result_User['tel']; ?></p>
                 <p class="tl"> Address</p>
-                <p class="tr"> : <?php echo $result_User['address']; ?></p>
+                <p class="tr"> : <?php echo $result_User['addresspatient']; ?></p>
                 <p class="tl"> Date of birth</p>
                 <p class="tr"> : <?php echo $result_User['dob']; ?></p>
                 <img onclick="document.getElementById('propop').style.display='block'" class="edit" style="border-radius:0px 0px 5px 0px; width:10%" src="./img/edit.png">
@@ -128,7 +128,7 @@
                         <p class="tl"> Telephone</p>
                         <p class="tr"> : <input class="ip" type="text" name="tel" value="<?php echo $result_User['tel']; ?>"></p>
                         <p class="tl"> Address</p>
-                        <p class="tr"> : <input class="ip" type="text" name="address" value="<?php echo $result_User['address']; ?>"></p>
+                        <p class="tr"> : <input class="ip" type="text" name="address" value="<?php echo $result_User['addresspatient']; ?>"></p>
                         <p class="tl"> Date of birth</p>
                         <p class="tr"> : <input class="ip" type="date" name="dob" value="<?php echo $result_User['dob']; ?>"></p>
                         <center><button type="submit" class="save" style="display:inline-block; margin-right:10px;">Save</button><button class="cancel" style="display:inline-block">Cancel</button></center>

@@ -2,20 +2,20 @@
 <head>
 	<STYLE>A {text-decoration: none;}
 	div.alert {
-			border: #D9D9D9 solid 1px;
+		border: #D9D9D9 solid 1px;
 			cursor:pointer;
 			border-radius: 5px; 
 			margin-top: -40px; 
 			margin-bottom: 20px; 
 			margin-left: -30px;
-			background-color: whitesmoke;
+			background-color: #EBEBEB;
             transition: 0.3s;
             width: 350px;
             height: 90px;
         }
 
 	div.alert:hover {
-           background-color: white;
+           background-color: #F5F5F5;
         }
 	</STYLE>
     <title>Notification</title>
@@ -42,7 +42,16 @@
 	<link rel="stylesheet" type="text/css" href="./css/pillsNoti.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb"/>
     <script type="text/javascript" src="./js/clickNav.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script>
+		var i=0;
+		setInterval(function() {
+			$("#nav_noti").load("notiAlert.php");
+		}, 2000);
 
+	</script>
+	
 </head>
 	
 <body>
@@ -89,15 +98,15 @@
 			
 			
 <!-- Show Notifications Alert-->
-				<div class="bubble" id="nav_noti" style=" position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
-			<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = $userid AND status = 1 ORDER BY n.notification_time LIMIT 1";
+			
+				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
+			<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = 5 AND status = 1 WHERE TIME(notification_time) <= TIME(NOW()) ORDER BY n.notification_time";
             $resultAlertMedic = mysqli_query($Connect, $qryAlertMedic);
 			$row_cnt = mysqli_num_rows( $resultAlertMedic);
 						while ($alertMedic =  $resultAlertMedic->fetch_assoc()) {  ?>
 				 <div class="column">
                     <div class="alert" >
                         <img src="./img/pills.png" alt="Avatar" style="width:60px; margin-top: 15px; margin-left:20px;" class="img2">
-      
                             <p>
                          			 <div style="margin-bottom: 10px;margin-top: -85px;margin-left: 90px;"> <font size="5px" color="#47b6c7"> &nbsp;
 										  Time to take <?php echo $alertMedic['medicine_name']; ?>&nbsp;!</font></div>
@@ -117,14 +126,15 @@
 						<div style="margin-bottom: 10px;margin-left: 50px;"><font size='6' color="#a4a4a4" >Notification is empty </font></div>
 				<?php }?>
 			<?php if($row_cnt<=4&&$row_cnt>0){?>
-						<div style="margin-bottom: -70px;"></div>
+						<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;"></div>
+						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 120;">Notifications</font></div>	
 				<?php }?>	
 			<?php if($row_cnt>4){?>
-					<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;">
+					<div style="position: absolute; width: 320px;height: 0.2%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>
 						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font></div>
-					</div>	
-				<?php }?>	
+				<?php }?>
+		</div>
 						
 <!-- Show See more -->
         </ul>
@@ -204,7 +214,7 @@
 	 ?>
 
 <!--Set Time Notification-->
-				<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
+				<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -180;margin-right:  120px;">
 					<form action="insertnoti.php" method="POST" >
 						<input type="int" name="staff_id" id="staff_id" style="display: none;" />
 						<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
@@ -221,6 +231,7 @@
 							</div>
 								<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
 								<div style="position: absolute; margin-top: -100;margin-left:405;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
+
 								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"> <div style="float: right;"><input type="text" name="hmorn" id="hmorn"value="08"  style="display: none;" /><font id="h_morn" size='5' color="#828282"><?php echo "08"; ?></font></div></div>
 								<div  style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> <div style="float: right;"><input type="text" name="mmorn" id="mmorn" value="00" style="display: none;" /><font id="m_morn" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
 									<div class="triangle-up" onclick="clicked(1,h_morn)" style="margin-left: 360;margin-top: -70;"></div>

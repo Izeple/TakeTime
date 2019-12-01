@@ -354,11 +354,11 @@ if(isset($_SESSION["edit"]))
         }
 
         .barback {
-            position:fixed;
             width: 100%;
             height: 7%;
-            bottom:0;
             background-color: #0f5a66;
+            margin-top: 11px;
+            bottom:0;
         }
     </style>
 </head>
@@ -385,24 +385,6 @@ if(isset($_SESSION["edit"]))
             </div>
 
         </section>
-    </div>
-
-    <div class="barback">
- <?php
-    $mysql_qry1 = "SELECT * FROM `consult` WHERE  patient_id ='1'";
-    $result1 = mysqli_query($Connect, $mysql_qry1);
-    $rowcount = mysqli_num_rows($result1);
-    if ($rowcount == 0) {
-        ?>
-            <img src="./img/back.jpg" style="width:100px; padding-left: 5px; padding-top: 5px;float: left;" onclick="backadd()">
-       
-    <?php
-    } else {
-        ?>
-        
-            <img src="./img/back.jpg" style="width:100px; padding-left: 5px;  padding-top: 5px; float: left;" onclick="backconsult()">
-  
-    <?php } ?>
     </div>
 
 
@@ -596,7 +578,23 @@ if(isset($_SESSION["edit"]))
             }
         }
     </script>
-    
+    <div class="barback">
+ <?php
+    $mysql_qry1 = "SELECT * FROM `consult` WHERE  patient_id ='1'";
+    $result1 = mysqli_query($Connect, $mysql_qry1);
+    $rowcount = mysqli_num_rows($result1);
+    if ($rowcount == 0) {
+        ?>
+            <img src="./img/history.jpg" style="width:100px; padding-left: 5px; padding-top: 5px;float: left;" onclick="backadd()">
+       
+    <?php
+    } else {
+        ?>
+        
+            <img src="./img/history.jpg" style="width:100px; padding-left: 5px;  padding-top: 5px; float: left;" onclick="backconsult()">
+  
+    <?php } ?> 
+    </div>
 </body>
 
 </html>

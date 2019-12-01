@@ -5,7 +5,7 @@
 			$row_cnt = mysqli_num_rows( $resultAlertMedic);
 						while ($alertMedic =  $resultAlertMedic->fetch_assoc()) {  ?>
 				 <div class="column">
-                    <div class="alert" >
+                    <div class="alert" ><a href="Notification.php">
                         <img src="./img/pills.png" alt="Avatar" style="width:60px; margin-top: 15px; margin-left:20px;" class="img2">
                             <p>
                          			 <div style="margin-bottom: 10px;margin-top: -85px;margin-left: 90px;"> <font size="5px" color="#47b6c7"> &nbsp;
@@ -18,7 +18,7 @@
 								</font></div> &nbsp;&nbsp;
              			 	</p>
 
-                        </div>
+					 </div></a>
                     </div>	
       
 	 		<?php } ?> 
@@ -28,7 +28,7 @@
 			<?php if($row_cnt<=4&&$row_cnt>0){?>
 						<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;"></div>
 						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 120;">Notifications</font></div>	
-				<?php }?>	
+				<?php $c++;}?>	
 			<?php if($row_cnt>4){?>
 					<div style="position: absolute; width: 320px;height: 0.2%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>

@@ -8,22 +8,18 @@
 			margin-top: -40px; 
 			margin-bottom: 20px; 
 			margin-left: -30px;
-			background-color: #EBEBEB;
+			background-color: #F5F5F5;
             transition: 0.3s;
             width: 350px;
             height: 90px;
-        }
-
-	div.alert:hover {
-           background-color: #F5F5F5;
         }
 	</STYLE>
     <title>Notification</title>
 	<!-- Login User -->
 	    <script type="text/javascript">
-		  <?php
+		  <?php	
 			session_start();
-			$userid = $_SESSION["userid"];;
+			$userid = $_SESSION["userid"];
 			require "condb.php"; ?>
 			 <?php require "login.php"; 
 			if(isset($_SESSION["email"]))
@@ -44,12 +40,12 @@
     <script type="text/javascript" src="./js/clickNav.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
-	
+<!-- Ajax loop check -->
 	<script>
 		var i=0;
 		setInterval(function() {
 			$("#nav_noti").load("notiAlert.php");
-		}, 2000);
+		}, 500);
 
 	</script>
 	
@@ -98,52 +94,16 @@
 				}
 			</script>
 			
-			
-<!-- Show Notifications Alert-->
-			
-				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
-			<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = 5 AND status = 1 WHERE TIME(notification_time) <= TIME(NOW()) ORDER BY n.notification_time";
-            $resultAlertMedic = mysqli_query($Connect, $qryAlertMedic);
-			$row_cnt = mysqli_num_rows( $resultAlertMedic);
-						while ($alertMedic =  $resultAlertMedic->fetch_assoc()) {  ?>
-				 <div class="column">
-                    <div class="alert" >
-                        <img src="./img/pills.png" alt="Avatar" style="width:60px; margin-top: 15px; margin-left:20px;" class="img2">
-                            <p>
-                         			 <div style="margin-bottom: 10px;margin-top: -85px;margin-left: 90px;"> <font size="5px" color="#47b6c7"> &nbsp;
-										  Time to take <?php echo $alertMedic['medicine_name']; ?>&nbsp;!</font></div>
-                               		 <div style="margin-bottom: 5px;margin-left: 90px;"> <font size='5' color="#a4a4a4"> &nbsp; 
-										  <?php echo $alertMedic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   
-										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 30px;"> 
-							<!-- Queue time alart of that pill and show -->
-							  <?php echo date('H:i a',strtotime($alertMedic['notification_time']));echo "."; ?>
-								</font></div> &nbsp;&nbsp;
-             			 	</p>
-
-                        </div>
-                    </div>	
-      
-	 		<?php } ?> 
-			<?php if($row_cnt==0){?>
-						<div style="margin-bottom: 10px;margin-left: 50px;"><font size='6' color="#a4a4a4" >Notification is empty </font></div>
-				<?php }?>
-			<?php if($row_cnt<=4&&$row_cnt>0){?>
-						<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;"></div>
-						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 120;">Notifications</font></div>	
-				<?php }?>	
-			<?php if($row_cnt>4){?>
-					<div style="position: absolute; width: 320px;height: 0.2%;background-color: #c3c9cb;margin-top: -15px;">
-						</div>
-						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font></div>
-				<?php }?>
-		</div>
 						
-<!-- Show See more -->
+				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
+		<!-- Show Notifications Alert-->
+		</div>
+
         </ul>
 		
             
 <!-- Head picture -->
-        <section><img src="./img/Banner.png" style="width:100%"  >
+        <section><img src="./img/Banner.png" style="width:100%">
          <?php if(isset($_SESSION["email"])) { 
             echo '<div id="sidenav" class="sidenav">';
             echo '    <div class="sidein"><a href="profile.php"><img src="img/user.png" height="30"></a></div>';
@@ -574,6 +534,4 @@
 	</script>
 		
 </body>
-
-    
 </html>

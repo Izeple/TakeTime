@@ -84,7 +84,7 @@ if(isset($_SESSION["edit"]))
     </div>
 
 
-    <div class="HeadModule">
+    <div class="HeadModule"> 
         <font size='6' color="#ffffff">Booking Doctor</font>
     </div>
     <div style="margin-left:240px; margin-top:-67px;">

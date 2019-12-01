@@ -1,7 +1,7 @@
 <?php 
 $departmentname = $_REQUEST['departmentname'];
 $hospitalname = $_REQUEST['hospitalname'];
-require "condb.php"; 
+require "condb.php";  
 echo "<div class='row' >";
 $i = 0;
 $mysql_qry3 = "SELECT * FROM `staff`s JOIN hospital h ON s.hospital_id = h.hospital_id JOIN department d ON s.department_id = d.department_id WHERE s.hospital_id ='" . $hospitalname  . "'  AND s.department_id= '" .$departmentname  . "'";

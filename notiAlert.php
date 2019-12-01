@@ -28,7 +28,7 @@
 			<?php if($row_cnt<=4&&$row_cnt>0){?>
 						<div style="position: absolute; width: 320px;height: 0.5%;background-color: #c3c9cb;margin-top: -15px;"></div>
 						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 120;">Notifications</font></div>	
-				<?php $c++;}?>	
+				<?php }?>	
 			<?php if($row_cnt>4){?>
 					<div style="position: absolute; width: 320px;height: 0.2%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>

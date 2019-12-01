@@ -584,13 +584,13 @@ if(isset($_SESSION["edit"]))
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount == 0) {
         ?>
-            <img src="./img/back.jpg" style="width:100px; padding-left: 5px; padding-top: 5px;float: left;" onclick="backadd()">
+            <img src="./img/history.jpg" style="width:100px; padding-left: 5px; padding-top: 5px;float: left;" onclick="backadd()">
        
     <?php
     } else {
         ?>
         
-            <img src="./img/back.jpg" style="width:100px; padding-left: 5px;  padding-top: 5px; float: left;" onclick="backconsult()">
+            <img src="./img/history.jpg" style="width:100px; padding-left: 5px;  padding-top: 5px; float: left;" onclick="backconsult()">
   
     <?php } ?>
     </div>

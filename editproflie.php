@@ -6,7 +6,7 @@ $tel = $_POST["tel"];
 $address = $_POST["address"];
 $dob = $_POST["dob"];
 require "condb.php";
-$target_dir = "C:\AppServ\www\SE2\uploads/";
+$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -41,9 +41,9 @@ if ($uploadOk == 0) {
 }
     else {
     $t=time();
-    $newname = $t .date("Ymd",$t);
+    $newname = $t .date("Ymd",$t) .".";
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
-        $namefile = $newname . "." . $imageFileType;
+        $namefile = $newname . "" . $imageFileType;
         echo $namefile;
         $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "',picture='" . $namefile . "' WHERE `patient_id` = '" . $patientid . "'";
         if ($Connect->query($sql) === TRUE) {

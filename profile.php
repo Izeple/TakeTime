@@ -72,16 +72,12 @@
         <div class="hpro">Profile</div>
         <div class="Profile">
             <div class="leftpro">
-                <img src="./img/cam.jpg" class="pichov">
 
-                <div class="upload-btn-wrapper">
                     <div>
-                        <img src="./img/man.png" class="picpro">
+                        <img src="./uploads/<?php echo $result_User['picture']?>" class="picpro">
 
                     </div>
-                    <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
 
-                </div>
             </div>
             <div class="rightpro">
                 <p style="font-size:28px; color:#47b6c7; margin-top:10px;margin-bottom:10px;"> <?php echo $result_User['name']; ?> <?php echo $result_User['surname']; ?></p>
@@ -104,14 +100,15 @@
     <div id="propop" class="login">
         <!-- Modal content -->
         <div class="propop">
-            <form action="editproflie.php" method="POST" enctype="multipart/form-data">
+        <form action="editproflie.php" method="POST" enctype="multipart/form-data">
+          
                 <div class="hpro">Profile</div>
                 <div class="Profile">
                     <div class="leftpro">
                         <img src="./img/cam.jpg" class="pichov">
                         <div class="upload-btn-wrapper">
                             <div>
-                                <img src="./img/man.png" class="picpro" id="profile-img-tag">
+                                <img src="./uploads/<?php echo $result_User['picture']?>" class="picpro" id="profile-img-tag">
                             </div>
                             <input class="picpro" type="file" name="fileToUpload" id="profile-img" onchange="readURL(this)" />
 
@@ -131,11 +128,13 @@
                         <p class="tr"> : <input class="ip" type="text" name="address" value="<?php echo $result_User['addresspatient']; ?>"></p>
                         <p class="tl"> Date of birth</p>
                         <p class="tr"> : <input class="ip" type="date" name="dob" value="<?php echo $result_User['dob']; ?>"></p>
-                        <center><button type="submit" class="save" style="display:inline-block; margin-right:10px;">Save</button><button class="cancel" style="display:inline-block">Cancel</button></center>
-            </form>
+                        <center><button type="submit" class="save" style="display:inline-block; margin-right:10px;">Save</button><button class="cancel" type="button" onclick="document.getElementById('propop').style.display='none'"style="display:inline-block">Cancel</button></center>
+            
         </div>
 
     </div>
+    
+    </form>
     </div>
     </div>
     </div>

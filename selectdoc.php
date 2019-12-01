@@ -356,8 +356,9 @@ if(isset($_SESSION["edit"]))
         .barback {
             width: 100%;
             height: 7%;
-            margin-top: 11px;
             background-color: #0f5a66;
+            margin-top: 11px;
+            bottom:0;
         }
     </style>
 </head>
@@ -592,7 +593,7 @@ if(isset($_SESSION["edit"]))
         
             <img src="./img/history.jpg" style="width:100px; padding-left: 5px;  padding-top: 5px; float: left;" onclick="backconsult()">
   
-    <?php } ?>
+    <?php } ?> 
     </div>
 </body>
 

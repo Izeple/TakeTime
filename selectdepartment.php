@@ -11,12 +11,13 @@ $result3 = mysqli_query($Connect, $mysql_qry3);
                echo"  </div>
                <center>
                <div class='row'>";
+                
             }
-            echo " <div class='column' onclick='myFunction('";  
-            echo $row12['staff_id']; 
-            echo "','<?php echo ";
-            echo  $row12['name']; echo "','"; echo $row12['surname']; echo "','"; echo $row12['department_name']; echo "','"; echo $row12['hospital_name']; echo "','"; echo $row12['price']; echo "')'>
-            <div class='card'>
+            echo ' <div class="column" onclick="'; echo "myFunction(";  echo $row12['staff_id']; echo ",'";  echo $row12['name'];  echo "','";
+            echo $row12['surname'];   echo "','";    echo $row12['department_name'];  echo "','";   echo $row12['hospital_name'];  echo "','";
+            echo $row12['price']; 
+            echo "')"; echo '">';
+            echo " <div class='card'>
                 <img src='./img/picdoc.jpg' alt='Avatar' style='width:140px;' class='img2'>
                 <div class='side right' align='left'>
                     <p>

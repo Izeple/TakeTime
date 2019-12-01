@@ -20,7 +20,7 @@ if(isset($_SESSION["edit"]))
     <title>Homepage</title>
     <script type="text/javascript">
         function myFunction(staffid, name, surname, hospital, department, price) {
-            // alert(name+" "+surname+hospital+department+price);
+           //  alert(name+" "+surname+hospital+department+price);
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
             document.getElementById("Name").innerHTML = 'Dr. ' + name + ' ' + surname;

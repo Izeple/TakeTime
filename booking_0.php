@@ -187,7 +187,7 @@ if(isset($_SESSION["edit"]))
     }?>
         </div>
     <?php
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '1' AND `status`  = 'Complete'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id =  '" .  $result_User["patient_id"] . "' AND `status`  = 'Complete'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount > 0) {
@@ -201,7 +201,7 @@ if(isset($_SESSION["edit"]))
                 $status_select = "Complete";
                 $i = 0;
                 //'".$result_User['patient_id']."'
-                $sql = "SELECT * FROM schedule WHERE patient_id = '1'";
+                $sql = "SELECT * FROM schedule WHERE patient_id =  '" .  $result_User["patient_id"] . "'";
                 $result_Schedule = PDOfetchAll($sql);
                 if ($result_Schedule) {
                     foreach ($result_Schedule as $row) {

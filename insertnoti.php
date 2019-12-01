@@ -10,7 +10,6 @@ $user=$_POST['partient_id'];
 $times=$_POST['remaining_time'];
 $medic=$_POST['medicine_id'];
 
-
 $mysql_qryCount1="SELECT COUNT(*) AS count FROM `notification`n JOIN history_medicine hi ON n.medicine_id = hi.medicine_id JOIN schedule s ON hi.schedule_id = s.schedule_id AND s.patient_id =$user AND n.medicine_id = $medic AND n.staff_id = $staff";
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();

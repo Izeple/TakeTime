@@ -354,6 +354,7 @@ if(isset($_SESSION["edit"]))
         }
 
         .barback {
+            position: fixed;
             width: 100%;
             height: 7%;
             background-color: #0f5a66;

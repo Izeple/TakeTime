@@ -104,9 +104,9 @@
               <span class="close" onclick="document.getElementById('logpop').style.display='none'">&times;</span>
               <div class="sep"><p style="color: #6690a0; font-size:40px; text-align:center; margin:10px;">Login</p></div>
               <form class="user" method="post">
-                <div class="sep"><p>Email</p><span class="required" style="margin:0; padding:0;">*</span></div>
+                <div class="sep"><p>Email</p></div>
                 <div class="sep"><input type="email" name="email" class="homeput"></div>
-                <div class="sep"><p>Password</p><span class="required">*</span></div>
+                <div class="sep"><p>Password</p></div>
                 <div class="sep"><input type="password" name="password" class="homeput"></div>
                 <div class="sep" style="width:50%; display:inline-block;"><input type="checkbox" checked="checked" name="remember"> <a style="font-size:18px;">Remember me</a></div>
                 <div class="sep" style="width:43%; text-align:right; display:inline-block;"><a class="aa" href="#" style="font-size:18px; text-decoration:none;">Forget Password ?</a></div>

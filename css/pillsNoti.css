@@ -1,44 +1,46 @@
 .bubble
 {
-	padding: 33px;
-	position: absolute;
-	background: #FFFFFF;
-	-webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+position: relative;
+width: 320px;
+height: 300px;
+padding: 33px;
+background: #FFFFFF;
+-webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
         box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border: #c3c9cb solid 2px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+border: #c3c9cb solid 2px;
 }
 
 .bubble:after
 {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 0 11px 16px;
-	border-color: #FFFFFF transparent;
-	display: block;
-	width: 0;
-	z-index: 1;
-	top: -16px;
-	left: 334px;
+	
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 11px 16px;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+top: -16px;
+left: 334px;
 }
 
 .bubble:before
 {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 0 12px 17px;
-	border-color: #c3c9cb transparent;
-	display: block;
-	width: 0;
-	z-index: 1;
-	top: -19px;
-	left: 333px;
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 12px 17px;
+border-color: #c3c9cb transparent;
+display: block;
+width: 0;
+z-index: 0;
+top: -19px;
+left: 333px;
 }
-
 .triangle-up {
 	position: absolute;
 	border-left: 10px solid transparent;
@@ -65,7 +67,7 @@ div.triangle-down:hover {
 }
 
 .closeNoti {
-	cursor:pointer;
+
 	border: 2px solid #E9E9E9; 
 	height: 55px;
 	width: 120px; 
@@ -82,7 +84,6 @@ div.closeNoti:hover {
 
 }
 .confirmNoti {
-	cursor:pointer;
 	border: 2px solid #47b6c7; 
 	height: 55px;
 	width: 120px; 
@@ -91,15 +92,13 @@ div.closeNoti:hover {
 	margin-left:900px; 
 	margin-bottom: 40px;
 	margin-top: -58
-
 }
-input:hover:before{
+div.confirmNoti:hover {
 	border: 2px solid #3fabbc; 
 	background-color: #3fabbc;
 }
 
 div.pills {
-			cursor:pointer;
         	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 			height: 135px;
 			border-radius: 5px; 

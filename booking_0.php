@@ -86,7 +86,7 @@ if(isset($_SESSION["edit"]))
     </div>
 
 
-    <div class="HeadModule">
+    <div class="HeadModule"> 
         <font size='6' color="#ffffff">Booking Doctor</font>
     </div>
     <div style="margin-left:240px; margin-top:-67px;">
@@ -190,7 +190,7 @@ if(isset($_SESSION["edit"]))
     
     <div id="contentcomplete" class="complete">
     <?php
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '".$result_User['patient_id']."' AND `status`  = 'Complete'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id =  '" .  $result_User["patient_id"] . "' AND `status`  = 'Complete'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount > 0) {
@@ -200,7 +200,7 @@ if(isset($_SESSION["edit"]))
             <?php
                 $i = 0;
                 //'".$result_User['patient_id']."'
-                $sql = "SELECT * FROM schedule WHERE patient_id = '".$result_User['patient_id']."'";
+                $sql = "SELECT * FROM schedule WHERE patient_id =  '" .  $result_User["patient_id"] . "'";
                 $result_Schedule = PDOfetchAll($sql);
                 if ($result_Schedule) {
                     foreach ($result_Schedule as $row) {

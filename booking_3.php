@@ -16,6 +16,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/profile2.css">
+
     <link rel="stylesheet" type="text/css" href="./css/home2.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc2.css">
@@ -50,9 +52,21 @@
         </section>
     </div>  
 
-    <h1 class="HeadModule">Booking Doctor</h1>
-    <div class="ccard" style=margin-left:120px;>
-        <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
+    <div class="HeadModule"><font size='6' color="#ffffff" >Booking Doctor</font></div>
+    <div class="ccard" style=" padding:20px; margin:auto;">
+    <div class="vertical-center"style="display:inline-grid; width:190px;">
+    <p style="margin:0; color:#4e707e; font-size:30px;"><u>Booking Detail</u></p>
+    <p><img src="./img/picdoc.jpg" alt="Avatar" style="width:150px;" ></p>
+    
+    </div>
+    
+    
+    
+<div style="display:inline-grid; margin:auto; width:190px;">
+<br>
+<br>
+<br>
+
             <font size='5' color="#47b6c7"> 
                 Dr. <?php  
                 $sql = "SELECT * FROM staff WHERE staff_id = '".$_SESSION['staff_id']."'";
@@ -72,8 +86,23 @@
             echo $result_Hospital['hospital_name']?><br>
         </font><br>    
  
-
-        <font size='5' color="#a4a4a4">
+        <form action="insert_schedule.php" method="post" id="usrform">
+            <input type="checkbox" name="chkColor1" value="Noti"><font color="#a4a4a4">Notification</font>
+            
+        </form>
+       
+    </div>
+        <div style="display:inline-grid;"><br>
+            <font color="#a4a4a4" style="margin-bottom:10px">Symptom Detail</font>
+            <textarea name="detail" rows="8" cols="42" form="usrform"></textarea><br>
+            <form action="./booking_0.php" method="post" id="usrform">
+            
+    </form>
+        </div>
+        <center><div style="margin:5px 0px; height:1px; background:#a4a4a4; width:90%"></div></center>
+        
+        <div style="display:inline-block; padding-left:20px; margin-top:10px;">
+        <font size='4' color="#a4a4a4">
             Date : <?php echo $_POST["date"];
                     $date = str_replace('/', '-',  $_POST["date"]);
                     $_SESSION["date"] = date("Y-m-d", strtotime($date));
@@ -83,23 +112,14 @@
             Time : <?php echo $_POST["times"]; 
                     $_SESSION["times"]=$_POST["times"];?><br>
         </font>
-
-        <form action="insert_schedule.php" method="post" id="usrform">
-            <input type="checkbox" name="chkColor1" value="Noti">Notification
-            
-        </form>
-
-        <div style="margin-left:420px; margin-top:-100px;">
-            Symptom Detail<br>
-            <textarea name="detail" rows="10" cols="40" form="usrform"></textarea><br>
         </div>
+    <div style="display:inline-block; float:right; margin-right:20px; margin-top:10px;">
+        <center>
+        <button class="cancel"name="edit" value="0">Cancel</button>
+        <input class="save s" type="submit" form="usrform" value="Comfirm"></center>
     </div>
-    <div style="margin-left:650px;">
-    <form action="./booking_0.php" method="post" id="usrform">
-        <button name="edit" value="0">Cancel</button>
-        <input type="submit" form="usrform" value="Comfirm">
-    </form>
     </div>
+    
 
 
     <br><br><br><br><br>

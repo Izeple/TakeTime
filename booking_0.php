@@ -64,7 +64,7 @@ if(isset($_SESSION["edit"]))
 
     <div id="main">
         <ul>
-            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+          <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
@@ -118,10 +118,7 @@ if(isset($_SESSION["edit"]))
         <br>
         <br>
         <br>
-        <center>
-        <a href="booking_1.php"><img src='./img/add.png' style='width:100px;'><br></a>
-            <p style="color:#a4a4a4;">Create new booking to make an appointment with doctor.</p>
-        </center>
+        
     <?php } else {
         ?>
             <div class="row" style="margin-left:-20px;">
@@ -218,7 +215,7 @@ if(isset($_SESSION["edit"]))
                 <div class="sideleft">
                     <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
                 </div>
-                    <div class="sider" align="left">
+                    <div class="sider" align="left" style="padding:0px;">
 
                         <font size='5' color="#47b6c7">
                             Dr. <?php
@@ -261,6 +258,7 @@ if(isset($_SESSION["edit"]))
 }
 ?>
 </div>
+
 </div>
     
         <div id="logpop" class="login">
@@ -289,7 +287,10 @@ if(isset($_SESSION["edit"]))
                 <div class="sep"><button class="face">Facebook</button><button class="goog">Google</button></div>
             </div>
         </div>
-
+        <center>
+        <a href="booking_1.php"><img src='./img/add.png' style='width:100px;'><br></a>
+            <p style="color:#a4a4a4;">Create new booking to make an appointment with doctor.</p>
+        </center>
 
 
 </body>

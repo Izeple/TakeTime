@@ -236,12 +236,10 @@ if(isset($_SESSION["edit"]))
                         </font>
                         <form style="position: absolute; margin-top:-115px; margin-left:180px;" action="delete_schedule.php" method="POST">
                             <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />
-                            <input type='submit'class="x" value='x' onclick="return confirm('Are you sure to Delete?')">
                         </form>
 
                         <form style="position: absolute; margin-left:160px;" action="random-page2.php" method="POST">
                             <input type="hidden" name="schedule_id" value="<?php echo $row['schedule_id']; ?>" />
-                            <input type='submit' class="subm"value='Edit'>
                         </form>
                         <br>
 

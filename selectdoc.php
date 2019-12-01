@@ -401,7 +401,7 @@ if(isset($_SESSION["edit"]))
                             <?php  } ?> </select>
                     <select style="width:110px;" name="hospitalname" style="float: right;" id="hospitalname" onchange="sql()">
                         <?php $mysql_qry = "SELECT * FROM `hospital`"; ?>
-                        <?php $result = mysqli_query($Connect, $mysql_qry);
+                        <?php $rแesult = mysqli_query($Connect, $mysql_qry);
                         while ($row12 =  $result->fetch_assoc()) { ?>
                             <font size='5' color="#a4a4a4" face="Agency FB">
                                 <option value="<?php echo $row12['hospital_id']; ?>"><?php echo $row12['hospital_name']; ?></option>

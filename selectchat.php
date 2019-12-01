@@ -25,7 +25,7 @@ $result1 = mysqli_query($Connect, $mysql_qry1);
 echo "<div class='barchat'>
 &nbsp;&nbsp;<img src='./img/picdoc.png' style='width:60px; margin-top: 3px; float: left; margin-left: 8px;'> <br>
 &nbsp;&nbsp;<font size='6' color='#ffffff' face='Agency FB'>Dr.";echo " ".$name." ".$surname ; echo "</font>
-<span class='close' onclick='closechat()'>&nbsp;<font face='Myriad Pro'>X</font></span>
+<span class='close' onclick='closechat()'>x</span>
 </div>
 <div class='card1'>";
 while ($row12 =  $result1->fetch_assoc()) {
@@ -129,7 +129,10 @@ echo"               <br><br>
                 </div>
 </div>";
 }
-echo "   </div>
+echo "   
 <form action='chat.php' method='POST'>
-    <input type='submit' class='buttonconfirm' value='Tap to chat'>";
+    <input type='submit' class='buttonconfirm' value='Tap to chat'>
+    </div>
+    ";
+    
 ?>

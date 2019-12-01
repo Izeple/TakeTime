@@ -34,7 +34,7 @@
 	border-color: #c3c9cb transparent;
 	display: block;
 	width: 0;
-	z-index: 0;
+	z-index: 1;
 	top: -19px;
 	left: 333px;
 }

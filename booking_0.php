@@ -33,6 +33,7 @@ if(isset($_SESSION["edit"]))
             document.getElementById("Complete").style.backgroundColor = "#f51051";
             var modal = document.getElementById("contentbooking");
             modal.style.display = "none";
+            
             var Complete = document.getElementById("contentcomplete");
             Complete.style.display = "block";
        
@@ -43,9 +44,10 @@ if(isset($_SESSION["edit"]))
             document.getElementById("Complete").style.backgroundColor = "#8c8c8c";
             var modal = document.getElementById("contentcomplete");
             modal.style.display = "none";
+            
             var booking = document.getElementById("contentbooking");
             booking.style.display = "block";
-        
+            console.log("aa");
         }
     </script>
     <style>
@@ -102,7 +104,7 @@ if(isset($_SESSION["edit"]))
 
 
 
-    <div id="contentbooking" class="booking">
+    <div  id="contentbooking" class="booking">
     <?php
     $i = 0;
     //'".$result_User['patient_id']."'
@@ -139,7 +141,7 @@ if(isset($_SESSION["edit"]))
             <?php if ($row['status'] == "Ongoing") { ?>
                 <div class="column">
                     <div class="card2" style="margin-top:30px; margin-left:80px;">
-                        <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">On-going</h4>
+                        <h4 class="HeadModule-h4-1" style="position: absolute; margin-top:-12px; margin-left:-7px; ">Ongoing</h4>
 
                         <div class="sideleft">
                             <img src="./img/picdoc.jpg" alt="Avatar" style="width:140px;" class="img2">
@@ -184,16 +186,16 @@ if(isset($_SESSION["edit"]))
         }
     }?>
         </div>
+            </div>
+    
+    <div id="contentcomplete" class="complete">
     <?php
-    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '' AND `status`  = 'Complete'";
+    $mysql_qry1 = "SELECT * FROM `schedule` WHERE patient_id = '".$result_User['patient_id']."' AND `status`  = 'Complete'";
     $result1 = mysqli_query($Connect, $mysql_qry1);
     $rowcount = mysqli_num_rows($result1);
     if ($rowcount > 0) {
         ?>
-    </div>
-    <br>
 
-    <div id="contentcomplete" class="complete">
         <div class="row" style="margin-left:-20px;">
             <?php
                 $i = 0;

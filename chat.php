@@ -167,11 +167,12 @@
         }
 
         .barchat {
+            padding: 3px 16px;
             margin-top: 5px;
             width: 100%;
             height: 65px;
             background-color: #207a85;
-            border-radius: 4px;
+            border-radius: 3px 3px 0px 0px ;
         }
 
         .row {
@@ -194,12 +195,11 @@
         }
 
         .card1 {
-            margin-left: 10px;
-            width: 755px;
+            padding: 1rem;
+            width: 100%;
             height: 292px;
             overflow: auto;
-            margin-top: 5px;
-            border-radius: 10px;
+            border-radius: 0px;
 
         }
 
@@ -213,17 +213,7 @@
         }
 
         .close {
-            color: #e79d94;
-            float: right;
-            font-size: 15px;
-            width: 2%;
-            height: 25%;
-            font-weight: bold;
-            margin-right: 15px;
-            border-radius: 60px;
-            border-style: solid;
-            background-color: #d75a4a;
-            border-color: #d75a4a;
+            
         }
 
         .buttonconfirm {
@@ -240,7 +230,7 @@
             font-family: Agency FB;
             border-radius: 5px;
             border-color: #c6c6c6;
-            border-style: solid;
+            border: 1px solid #8c8c8c;
         }
     </style>
 
@@ -271,6 +261,7 @@
     </div>
     <div class="row" style="margin :0px;">
         <div class="column" style="height : 285px;">
+        <center>
             <?php
             $mysql_qry1 = "SELECT c.staff_id,c.patient_id,s.name,s.surname FROM `consult`c JOIN staff s ON c.staff_id = s.staff_id GROUP BY c.staff_id,c.patient_id HAVING `patient_id` ='1'";
             $result1 = mysqli_query($Connect, $mysql_qry1);
@@ -285,9 +276,10 @@
             <?php
             }
             ?>
+            <br>
+               <img src="./img/add.png" width="50px"></center>
         </div>
-        <div class="column" id="Standard">
-
+        <div class="column" style="width:60%" id="Standard">
         </div>
     </div>
 </body>

@@ -1,8 +1,6 @@
 <?php
-require "condb.php";
-?>
-
-	<?php  $qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = 5 AND status = 1 WHERE TIME(notification_time) <= TIME(NOW()) ORDER BY n.notification_time";
+	require "condb.php";
+	$qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = 5 AND status = 1 WHERE TIME(notification_time) <= TIME(NOW()) ORDER BY n.notification_time";
             $resultAlertMedic = mysqli_query($Connect, $qryAlertMedic);
 			$row_cnt = mysqli_num_rows( $resultAlertMedic);
 						while ($alertMedic =  $resultAlertMedic->fetch_assoc()) {  ?>
@@ -35,5 +33,5 @@ require "condb.php";
 					<div style="position: absolute; width: 320px;height: 0.2%;background-color: #c3c9cb;margin-top: -15px;">
 						</div>
 						<div style="margin-top: -10px;margin-bottom: -25;"><font size="5" color="#a4a4a4" style="margin-left: 130;">See more</font></div>
-				<?php }?>
+<?php }?>
 

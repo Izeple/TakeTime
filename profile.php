@@ -294,7 +294,8 @@
     <div id="aller" class="login">
         <!-- Modal content -->
         <div class="aller">
-            <span class="close" onclick="document.getElementById('aller').style.display='none'">&times;</span>
+            <span class="x" style="float:right; top:0;" onclick="document.getElementById('aller').style.display='none'">&times;</span>
+            <br>
                 <form class="user" method="post" action="delete_medical.php">
                     <?php
                        if ($result_allergy) {

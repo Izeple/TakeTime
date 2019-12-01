@@ -87,15 +87,16 @@
 					}
 				}
 				var i=0;
-
+				var $count=0
 				setInterval(function() {
     				$("#nav_noti").load("notiAlert.php");
+					$count = countAlert.value;
 				}, 500);
 			</script>
 			
 			
 
-				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 60;margin-left: 1374;width: 320px;">
+				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 3%;margin-left: 72.3%;width: 320px;">
 		<!-- Show Notifications Alert-->
 				</div>			
         </ul>
@@ -139,8 +140,8 @@
 					$havebook=1;
                     ?>
 <!-- Show next booking -->
-                <div class="column" style="width: 500px;"><a href="booking_0.php">
-                    <div class="pills"  style="margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">
+                <div class="column" style="width: 23%;"><a href="booking_0.php">
+                    <div class="pills"  style="margin-top: 30px;margin-bottom: 30px; margin-left: 170px;">
                         <img src="./img/doctor (2).png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
                         <div class="side left" align="left">
                             <p>
@@ -162,8 +163,8 @@
             <?php   
 			if(!isset($havebook)){
 				?>
-				<div class="column"  href="#" style="width: 500px;">
-                    	<div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
+				<div class="column"  href="#" style="width: 23%;">
+                    	<div class="pills" style="height: 17%; margin-top: 30px;margin-bottom: 30px; margin-left: 170px;">    
                      	<a href="booking_0.php"><img src="./img/add.jpg" alt="Add" style="width:80px; margin-top: 15px; margin-left: 170px; border-radius: 60px;box-shadow: 3px 3px 3px #888888;" ></a>
 						<br><table width="420" height="50"> <tr align="center" valign="middle"> <td>
 						<font size='5'  color="#a4a4a4" >Add Booking</font>
@@ -175,7 +176,7 @@
 	 ?>
 
 <!--Set Time Notification-->
-				<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -100;margin-right:  120px;">
+				<div id="setNoti" class="popSetup" style="display: none; float: right; margin-top: -9%;margin-right:  6%;">
 					<form action="insertnoti.php" method="POST" >
 						<input type="int" name="staff_id" id="staff_id" style="display: none;" />
 						<input type="int" name="medicine_id" id="medicine_id" style="display: none;" />
@@ -183,119 +184,118 @@
 						<input type="int" name="remaining_time" id="remaining_time" style="display: none;" />
 						<input type="text" name="status_Noti" id="status_Noti"  style="display: none;" />
 	<!--Set Time To Take -->
-				<div  style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px; margin-bottom: 50px; "> 
+				<div  style=" height: 38%;width: 100%; background-color: #E9E9E9;border-radius: 5px; margin-bottom: 5%; "> 
 						<div style="float: left;height: 345px;width: 1050px;">
 						<!--Morning-->
-							<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top:20;margin-left: 100;"> 
-								<img src="./img/sunrise (2).png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-								<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Morning"; ?></div>
+							<div  style="border: 2px solid #D5D5D5; height: 40%;width: 13%; background-color: whitesmoke;border-radius: 5px; margin-top:2%;margin-left: 10%;"> 
+								<img src="./img/sunrise (2).png"  style="width:83%; margin-top: 1%; margin-left: 8%;" >
+								<div style="margin-top: -10%;margin-left:28%;"><font size='5' color="#828282"><?php echo "Morning"; ?></div>
 							</div>
-								<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
-								<div style="position: absolute; margin-top: -100;margin-left:405;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
-								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"> <div style="float: right;"><input type="text" name="hmorn" id="hmorn"value="08"  style="display: none;" /><font id="h_morn" size='5' color="#828282"><?php echo "08"; ?></font></div></div>
-								<div  style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> <div style="float: right;"><input type="text" name="mmorn" id="mmorn" value="00" style="display: none;" /><font id="m_morn" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
-									<div class="triangle-up" onclick="clicked(1,h_morn)" style="margin-left: 360;margin-top: -70;"></div>
-									<div class="triangle-down" onclick="clicked(-1,h_morn)" style="margin-left: 360;margin-top: -40;"></div>
-									<div class="triangle-up" onclick="clicked(1,m_morn)" style="margin-left:469;margin-top: -70;"></div>
-									<div class="triangle-down" onclick="clicked(-1,m_morn)" style="margin-left: 469;margin-top: -40;"></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:15.5%;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:21%;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
+								<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 15.5%;"> <div style="float: right;"><input type="text" name="hmorn" id="hmorn"value="08"  style="display: none;" /><font id="h_morn" size='5' color="#828282"><?php echo "08"; ?></font></div></div>
+								<div  style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 21.2%;"> <div style="float: right;"><input type="text" name="mmorn" id="mmorn" value="00" style="display: none;" /><font id="m_morn" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
+									<div class="triangle-up" onclick="clicked(1,h_morn)" style="margin-left: 19%;margin-top: -3.7%;"></div>
+									<div class="triangle-down" onclick="clicked(-1,h_morn)" style="margin-left: 19%;margin-top: -2.3%;"></div>
+									<div class="triangle-up" onclick="clicked(1,m_morn)" style="margin-left:24.5%;margin-top: -3.7%;"></div>
+									<div class="triangle-down" onclick="clicked(-1,m_morn)" style="margin-left: 24.5%;margin-top: -2.3%;"></div>
 						<!--Evenning-->
-							<div style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 30;margin-left: 100;"> 
-								<img src="./img/sunset.png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-								<div style="margin-top: -12;margin-left:40;"><font size='5' color="#828282"><?php echo "Evening"; ?></div>
+							<div style="border: 2px solid #D5D5D5;height: 40%;width: 13%; background-color: whitesmoke;border-radius: 5px; margin-top:1.5%;margin-left: 10%;"> 
+									<img src="./img/sunset.png"  style="width:83%; margin-top: 1%; margin-left: 8%;" >
+									<div style="margin-top: -10%;margin-left:28%;"><font size='5' color="#828282"><?php echo "Evening"; ?></font></div>
 							</div>
-								<div style="position: absolute; margin-top: -100;margin-left:300;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
-								<div style="position: absolute; margin-top: -100;margin-left:405;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 296;"><div style="float: right;"><input type="text" name="heven" id="heven" value="18" style="display: none;" /><font id="h_even" size='5' color="#828282"><?php echo "18"; ?></font></div> </div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -60;margin-left: 405;"> <div style="float: right;"><input type="text" name="meven" id="meven" value="00" style="display: none;" /><font id="m_even" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
-										<div class="triangle-up" onclick="clicked(1,h_even)" style="margin-left: 360;margin-top: -70;"></div>
-										<div class="triangle-down" onclick="clicked(-1,h_even)" style="margin-left: 360;margin-top: -40;"></div>
-											<div class="triangle-up" onclick="clicked(1,m_even)" style="margin-left:469;margin-top: -70;"></div>
-											<div class="triangle-down" onclick="clicked(-1,m_even)" style="margin-left: 469;margin-top: -40;"></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:15.5%;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:21%;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 15.5%;"><div style="float: right;"><input type="text" name="heven" id="heven" value="18" style="display: none;" /><font id="h_even" size='5' color="#828282"><?php echo "18"; ?></font></div> </div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 21.2%;"> <div style="float: right;"><input type="text" name="meven" id="meven" value="00" style="display: none;" /><font id="m_even" size='5' color="#828282"><?php echo "00"; ?></font></div></div>
+										<div class="triangle-up" onclick="clicked(1,h_even)" style="margin-left: 19%;margin-top: -3.7%;"></div>
+										<div class="triangle-down" onclick="clicked(-1,h_even)" style="margin-left: 19%;margin-top: -2.3%;"></div>
+											<div class="triangle-up" onclick="clicked(1,m_even)" style="margin-left:24.5%;margin-top: -3.7%;"></div>
+											<div class="triangle-down" onclick="clicked(-1,m_even)" style="margin-left: 24.5%;margin-top: -2.3%;"></div>
 						<!--Sun-->
-							<div  style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: -305;margin-left: 550;"> 
-								<img src="./img/sun (1).png" style="width:95px; margin-top: 10px; margin-left: 20px;" >
-								<div style="margin-left:50;"><font size='5' color="#828282"><?php echo "Noon"; ?></div>
+							<div  style="border: 2px solid #D5D5D5; height: 40%;width: 13%; background-color: whitesmoke;border-radius: 5px; margin-top: -28.5%;margin-left: 52%;"> 
+											<img src="./img/sun (1).png" style="width:70%; margin-top: 7%; margin-left: 16%;" >
+									<div style="margin-left:37%;"><font  size='5' color="#828282"><?php echo "Noon"; ?></font></div>
 							</div>
-								<div style="position: absolute; margin-top: -100;margin-left:750;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
-								<div style="position: absolute; margin-top: -100;margin-left:855;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 750;"> <div style="float: right;"><input type="text" name="hsun" id="hsun" value="12" style="display: none;" /><font id="h_sun" size='5' color="#828282"><?php echo "12"; ?></font></div></div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 859;"><div style="float: right;"><input type="text" name="msun" id="msun" value="00" style="display: none;" /><font id="m_sun" size='5' color="#828282"><?php echo "00"; ?></font></div> </div>
-										<div class="triangle-up" onclick="clicked(1,h_sun)" style="position: absolute;margin-left: 814;margin-top: -70;"></div>
-										<div class="triangle-down" onclick="clicked(-1,h_sun)" style="position: absolute;margin-left: 814;margin-top: -40;"></div>
-											<div class="triangle-up" onclick="clicked(1,m_sun)" style="position: absolute;margin-left: 923;margin-top: -70;"></div>
-											<div class="triangle-down" onclick="clicked(-1,m_sun)" style="position: absolute;margin-left: 923;margin-top: -40;"></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:39.5%;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:45%;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 39.5%;"> <div style="float: right;"><input type="text" name="hsun" id="hsun" value="12" style="display: none;" /><font id="h_sun" size='5' color="#828282"><?php echo "12"; ?></font></div></div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 45%;"><div style="float: right;"><input type="text" name="msun" id="msun" value="00" style="display: none;" /><font id="m_sun" size='5' color="#828282"><?php echo "00"; ?></font></div> </div>
+										<div class="triangle-up" onclick="clicked(1,h_sun)" style="position: absolute;margin-left: 43%;margin-top: -3.7%;"></div>
+										<div class="triangle-down" onclick="clicked(-1,h_sun)" style="position: absolute;margin-left: 43%;margin-top: -2.3%;"></div>
+										<div class="triangle-up" onclick="clicked(1,m_sun)" style="position: absolute;margin-left: 48.5%;margin-top: -3.7%;"></div>
+										<div class="triangle-down" onclick="clicked(-1,m_sun)" style="position: absolute;margin-left: 48.5%;margin-top: -2.3%;"></div>
 						<!--Night-->
-							<div style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 25;margin-left: 550;"> 
-								<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
-								<div style="margin-top: 5;margin-left:50;"><font size='5' color="#828282"><?php echo "Night"; ?></div>
+							<div style="border: 2px solid #D5D5D5; height: 40%;width: 13%; background-color: whitesmoke;border-radius: 5px; margin-top: 1.5%;margin-left: 52%;"> 
+									<img src="./img/sleep.png"  style="width:64%; margin-top: 7%; margin-left: 24%;" >
+									<div style="margin-top: 3%;margin-left:37%;"><font size='5' color="#828282"><?php echo "Night"; ?></font></div>
 								</div>
-								<div style="position: absolute; margin-top: -100;margin-left:750;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
-								<div style="position: absolute; margin-top: -100;margin-left:855;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 750;"> <div style="float: right;"><input type="text" name="hnight" id="hnight" value="21" style="display: none;" /><font id="h_night" size='5' color="#828282"><?php echo "21"; ?></font></div></div>
-									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -63;margin-left: 859;"><div style="float: right;"><input type="text" name="mnight" id="mnight" value="00" style="display: none;" /><font id="m_night" size='5' color="#828282"><?php echo "00"; ?></font></div> </div>
-										<div class="triangle-up" onclick="clicked(1,h_night)" style="margin-left: 814;margin-top: -70;"></div>
-										<div class="triangle-down" onclick="clicked(-1,h_night)" style="margin-left: 814;margin-top: -40;"></div>
-											<div class="triangle-up" onclick="clicked(1,m_night)" style="margin-left: 923;margin-top: -70;"></div>
-											<div class="triangle-down" onclick="clicked(-1,m_night)" style="margin-left: 923;margin-top: -40;"></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:39.5%;"><font size='5' color="#828282"><?php echo "Hour "; ?></font></div>
+								<div style="position: absolute; margin-top: -5.5%;margin-left:45%;"><font size='5' color="#828282"><?php echo "Minute "; ?></font></div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 39.5%;"> <div style="float: right;"><input type="text" name="hnight" id="hnight" value="21" style="display: none;" /><font id="h_night" size='5' color="#828282"><?php echo "21"; ?></font></div></div>
+									<div style="position: absolute;border: 2px solid #D5D5D5; height: 25px;width: 40px; background-color: whitesmoke;border-radius: 5px; margin-top: -3.4%;margin-left: 45%;"><div style="float: right;"><input type="text" name="mnight" id="mnight" value="00" style="display: none;" /><font id="m_night" size='5' color="#828282"><?php echo "00"; ?></font></div> </div>
+										<div class="triangle-up" onclick="clicked(1,h_night)" style="margin-left: 43%;margin-top: -3.7%;"></div>
+										<div class="triangle-down" onclick="clicked(-1,h_night)" style="margin-left: 43%;margin-top: -2.3%;"></div>
+										<div class="triangle-up" onclick="clicked(1,m_night)" style="margin-left: 48.5%;margin-top: -3.7%;"></div>
+										<div class="triangle-down" onclick="clicked(-1,m_night)" style="margin-left: 48.5%;margin-top: -2.3%;"></div>
 						</div>
 				</div>
 						
 <!--Infomation Noti-->
-				<div id="infoMedic" style=" height: 345px;width: 1050px; background-color: #E9E9E9;border-radius: 5px;"> 
+				<div id="infoMedic" style=" height: 38%;width: 100%; background-color: #E9E9E9;border-radius: 5px;"> 
 	<!--Infomation Noti Left Side-->
-					<div><img src="./img/pills.png" style="width:130px; margin-top: 35px; margin-left: 30px;">	
-						<div style="width:500px;margin-top: -120px; margin-left: 190px"><font id="name" size='7' color="#828282" >
+					<div><img src="./img/pills.png" style="width:12%; margin-top: 4%; margin-left: 3%;">	
+						<div style="margin-top: -12%; margin-left: 18%"><font id="name" size='7' color="#828282" >
                               	  &nbsp;&nbsp;&nbsp;</font></div>
-						<div style="margin-top: 20px; margin-left: 190;width:500px;"><font id="times" size='6' color="#828282" >  
+						<div style="margin-top: 2.5%; margin-left: 18%;"><font id="times" size='6' color="#828282" >  
 								  &nbsp;&nbsp;&nbsp;</font></div>
-						<div style="margin-top: -38px; margin-left: 400;width:500px;"><font id="loop" size='6' color="#828282" >  
+						<div style="margin-top: -3.5%; margin-left: 40%;"><font id="loop" size='6' color="#828282" >  
 								  &nbsp;&nbsp;&nbsp;</font></div>
 					</div>	
 			
 	<!-- Detail Bottom -->
 					<div>
-						<div  id="Before" style="border: 2px solid #D5D5D5; height: 55px;width: 120px; background-color: whitesmoke;border-radius: 5px; margin-left: 210px;margin-top: 40px;"> 
+						<div  id="Before" style="border: 2px solid #D5D5D5; height: 15%;width: 11%; background-color: whitesmoke;border-radius: 5px; margin-left: 20%;margin-top: 4%;"> 
 									<div id="Before" style="margin-left: 25;margin-top: 8"><font id="BeforeFont" size='6' color="#828282">
 									<?php echo "Before"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 						</div>
-						<div id="After" style="border: 2px solid #D5D5D5; height: 55px;width: 120px; background-color: whitesmoke;border-radius: 5px; margin-left: 360px;margin-top: -59px;"> 
+						<div id="After" style="border: 2px solid #D5D5D5; height: 15%;width: 11%; background-color: whitesmoke;border-radius: 5px; margin-left: 35%;margin-top: -5.3%;"> 
 									<div  style="margin-left: 35;margin-top: 8"><font id="AfterFont"size='6' color="#828282">
 									<?php echo "After"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 						</div>
-				  				<img src="./img/breakfast.png"  style="width:90px; margin-top: -100px; margin-left: 530px;" >	
-								<div style="width: 120px;margin-left:545;margin-top: 0"><font size='6' color="#828282">
+				  				<img src="./img/breakfast.png"  style="width:9%; margin-top: -8%; margin-left: 50%;" >	
+								<div style="margin-left:52%;"><font size='6' color="#828282">
 									 <?php echo "Meals"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
 					</div>
 	<!--Time Noti Right Side-->
-						<div style="float: right; width: 350px; height: 320px;margin-top: -281px">
+						<div style="float: right; width: 33%; height: 33%;margin-top: -27%">
 							<!--Morning-->
-								<div id="Morn" style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; 		 margin-top: 15;"> 
-									<img src="./img/sunrise (2).png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-									<div style="margin-top: -12;margin-left:40;"><font id="FMorn" size='5'><?php echo "Morning"; ?></font></div>
+								<div id="Morn" style="border: 2px solid #D5D5D5; height: 115%;width: 39%; background-color: whitesmoke;border-radius: 5px; 		 margin-top:4%;"> 
+									<img src="./img/sunrise (2).png"  style="width:83%; margin-top: 1%; margin-left: 8%;" >
+									<div style="margin-top: -10%;margin-left:28%;"><font id="FMorn" size='5'><?php echo "Morning"; ?></font></div>
 								</div>
 							<!--Noon-->
-								<div id="Noon" style="border: 2px solid #D5D5D5;height: 135px; width: 135px; background-color: whitesmoke;border-radius: 5px; margin-left: 		160;margin-top: -138;"> 
-									<img src="./img/sun (1).png" style="width:95px; margin-top: 10px; margin-left: 20px;" >
-									<div style="margin-left:50;"><font id="FNoon" size='5'><?php echo "Noon"; ?></font></div>
+								<div id="Noon" style="border: 2px solid #D5D5D5;height: 115%; width: 39%; background-color: whitesmoke;border-radius: 5px; margin-left: 46%;margin-top: -38%;"> 
+									<img src="./img/sun (1).png" style="width:70%; margin-top: 2%; margin-left: 16%;" >
+									<div style="margin-left:37%;"><font id="FNoon" size='5'><?php echo "Noon"; ?></font></div>
 								</div>
 							<!--Evening-->
-								<div  id="Even"style="border: 2px solid #D5D5D5; height: 135px;width: 135px; background-color: whitesmoke;border-radius: 5px; margin-top: 10;"> 
-									<img src="./img/sunset.png"  style="width:110px; margin-top: 5px; margin-left: 10px;" >
-									<div style="margin-top: -12;margin-left:40;"><font id="FEven" size='5'><?php echo "Evening"; ?></font></div>
+								<div  id="Even"style="border: 2px solid #D5D5D5; height: 115%;width: 39%; background-color: whitesmoke;border-radius: 5px; margin-top: 2%;"> 
+									<img src="./img/sunset.png"  style="width:83%; margin-top: 1%; margin-left: 8%;" >
+									<div style="margin-top: -10%;margin-left:28%;"><font id="FEven" size='5'><?php echo "Evening"; ?></font></div>
 								</div>
 							<!--Night-->
-								<div  id="Night" style="border: 2px solid #D5D5D5;height: 135px; width: 135px; background-color: whitesmoke;border-radius: 5px; 	  margin-left: 160;margin-top: -138;"> 
-									<img src="./img/sleep.png"  style="width:85px; margin-top: 13px; margin-left: 30px;" >
-									<div style="margin-top: 5;margin-left:50;"><font id="FNight" size='5'><?php echo "Night"; ?></font></div>
+								<div  id="Night" style="border: 2px solid #D5D5D5;height: 115%; width: 39%; background-color: whitesmoke;border-radius: 5px; 	  margin-left: 46%;margin-top: -38%;"> 
+									<img src="./img/sleep.png"  style="width:64%; margin-top: 5%; margin-left: 24%;" >
+									<div style="margin-top: 3%;margin-left:37%;"><font id="FNight" size='5'><?php echo "Night"; ?></font></div>
 								</div>
 						</div>
 				</div>
 									<!--Botton-->
 									<div>
-										<div  id="closeNoti" class="closeNoti" href="#close" onclick="closeForm()"> 
-							<div  style="margin-left: 30;margin-top: 7"><font size='6px' color="#475254"><?php echo "CLOSE"; ?>  &nbsp;&nbsp;&nbsp;</font></div>
-										</div>
-											<input  type="submit" class="confirmNoti" value="SAVE" style="color: white;font-size: 22px;"/>
+										
+										<input id="closeNoti" class="closeNoti" onclick="closeForm()" value="    CLOSE" style="color: #5A5A5A;font-size: 80%;" />
+										<input  type="submit" class="confirmNoti" value="SAVE" style="color: white;font-size: 80%;"/>
 									</div>	
 				</form>
 			</div>
@@ -310,7 +310,7 @@
 			$countResult = mysqli_query($Connect, $mysql_qryCount1);
 			$count = $countResult->fetch_assoc();
 				if ($count['count']!=0) {?>
-				 		<div style=" border: 2px solid #e3e7e7; margin-left: 150px;margin-top: 15px;margin-bottom: 10px;width: 463px;">
+				 		<div style=" border: 2px solid #e3e7e7; margin-left: 9%;margin-top: 2%;margin-bottom: 2%;width: 24%;">
 						<div style="margin-top: 10px;margin-bottom: 10px;"> <?php 
 				while ($medic =  $result2->fetch_assoc()) {  ?>
 				
@@ -361,9 +361,8 @@
 	<?php } ?>
  <!-- If pills is empty -->
           <?php   if ($count['count']==0){ ?>
-				 <div class="column"  style="width: 500px;">
-                    <div class="card" style="height: 150px; background-color: #E9E9E9;border-radius: 5px; margin-top: 30px;margin-bottom: 30px; margin-left: 160px;">    
-     
+				 <div class="column"  style="width: 23%;">
+                    <div class="pills" style="height: 17%; margin-top: 30px;margin-bottom: 30px; margin-left: 170px;">  
 						<br><table width="420" height="110"> <tr align="center" valign="middle"> <td>
 						<font size='6'  color="#a4a4a4" >Don't have medicine.</font>
 						</td></tr></table>
@@ -445,7 +444,7 @@
 	}
 //Set Up Time
 	var daytime = new Array("h_morn", "h_sun" ,"h_even" ,"h_night", "m_morn" ,"m_sun" ,"m_even" ,"h_night");
-	var firstTime = 0;
+	var firstTime = 0;var tmp;
 	function clicked(n,time){
 		if(firstTime==0){	 
 			daytime[0] = 8;
@@ -461,59 +460,101 @@
 	//Set Up First Time
 		switch(time){
 				case h_morn:
-					i=daytime[0];
-					if(i<22&&i){}
-					i = i + n;
-					daytime[0]=i;
-				hmorn.value  = i;
+					tmp=0;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,hmorn);
 				break;
 				case h_sun:
-					i=daytime[1];
-					i = i + n;
-					daytime[1]=i;
-				hsun.value  = i;
+					tmp=1;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,hsun);
 				break;
 				case h_even:
-					i=daytime[2];
-					i = i + n;
-					daytime[2]=i;
-				heven.value  = i;
+					tmp=2;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,heven);
 				break;
 				case h_night:
-					i=daytime[3];
-					i = i + n;
-					daytime[3]=i;
-				hnight.value  = i;
+					tmp=3;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,hnight);
 				break;
 				case m_morn:
-					i=daytime[4];
-					i = i + n;
-					daytime[4]=i;
-				mmorn.value  = i;	
+							tmp=4;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,mmorn);
 				break;
 				case m_sun:
-					i=daytime[5];
-					i = i + n;
-					daytime[5]=i;
-				msun.value  = i;	
+								tmp=5;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,msun);	
 				break;
 				case m_even:
-					i=daytime[6];
-					i = i + n;
-					daytime[6]=i;
-				meven.value  = i;	
+							tmp=6;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,meven);
 				break;
 				case m_night:
-					i=daytime[7];
-					i = i + n;
-					daytime[7]=i;
-				mnight.value  = i;	
+							tmp=7;
+					i=daytime[tmp];
+					checkTimeset(time,tmp,i,n,mnight);
 				break;
 			}
-	//Result Time
-			time.innerHTML = i;
-	};
-	
+	}
+	function checkTimeset(time,tmp,i,n,id){
+		if(tmp>=0&&tmp<=3){
+					if(i==23&&n=="-1"){
+					i = i + n;
+					daytime[tmp]=i;
+					}
+					else if(i==23&&n=="1"){
+					i=0;
+					daytime[tmp]=i;
+					}
+					else if(i==0&&n=="1"){
+					i = i + n;
+					daytime[tmp]=i;
+					}
+					else if(i==0&&n=="-1"){
+					i=23;
+					daytime[tmp]=i;
+					}
+				else {
+					i = i + n;
+					daytime[tmp]=i;
+				}
+		}
+		else if(tmp>=4&&tmp<=7){
+					if(i==59&&n=="-1"){
+					i = i + n;
+					daytime[tmp]=i;
+					}
+					else if(i==59&&n=="1"){
+					i=0;
+					daytime[tmp]=i;
+					}
+					else if(i==0&&n=="1"){
+					i = i + n;
+					daytime[tmp]=i;
+					}
+					else if(i==0&&n=="-1"){
+					i=59;
+					daytime[tmp]=i;
+					}
+				else {
+					i = i + n;
+					daytime[tmp]=i;
+				}
+		}
+		if(i>=0&&i<=9){
+		id.value = "0".concat(i);
+		time.innerHTML = "0".concat(i);
+		}
+		else {
+		id.value = i;
+		time.innerHTML = i;
+		}
+	}
 	function changeNotiAlert(checkbox,medicid,userid){
 			var xhttp;
 			xhttp = new XMLHttpRequest();

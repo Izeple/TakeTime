@@ -18,10 +18,24 @@ if(isset($_SESSION["edit"]))
 
 <!DOCTYPE html>
 <html>
-
+<STYLE>A {text-decoration: none;}
+		.alert {
+			border: #D9D9D9 solid 1px;
+			cursor:pointer;
+			border-radius: 5px; 
+			margin-top: -13%; 
+			margin-bottom: 8%; 
+			margin-left: -8%;
+			background-color: whitesmoke;
+            transition: 0.3s;
+            width: 115%;
+            height: 90px;
+        }
+		</STYLE>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/home2.css">
+	<link rel="stylesheet" type="text/css" href="./css/pillsNoti.css">
     <link rel="stylesheet" type="text/css" href="./css/selectdoc.css">
     <link rel="stylesheet" type="text/css" href="http://allfont.net/allfont.css?fonts=agency-fb" />
     <script type="text/javascript" src="./js/clickNav.js"></script>
@@ -64,13 +78,39 @@ if(isset($_SESSION["edit"]))
 
     <div id="main">
         <ul>
-          <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
+            <li><a class="active" href="#home" onclick="clickNav()"><img src="./img/menu.png" height="15"></a></li>
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
                 <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
             </li>
-            <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
+            <li style="float:right"><button class="btn4" id="btn4" onclick="nav_noti()"><img src="./img/bell.png" height="25"></button></li>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script>
+				function nav_noti()
+				{
+					var x = document.getElementById('nav_noti');
+					if (x.style.display === 'none') {
+						x.style.display = 'block';
+					} else {
+						x.style.display = 'none';
+					}
+				}
+				
+					<?php $countAlert = 0; ?>
+					setInterval(function() {
+						$('#nav_noti').load("notiAlert.php?count="+<?php echo $countAlert ?>+"",function(count,status,http){
+							//alert(count);
+						});
+						}, 500);
+
+				
+			</script>
+			
+						<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 3%;margin-left: 71.5%;width: 320px;">
+		<!-- Show Notifications Alert-->
+				</div>	
+			
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%; height: 305px;">

@@ -20,7 +20,7 @@ $staffid = $_REQUEST['staffid'];
 $name = $_REQUEST['name'];
 $surname = $_REQUEST['surname'];
 require "condb.php";
-$mysql_qry1 = "SELECT * FROM consult c JOIN patient p ON c.patient_id = p.patient_id WHERE c.staff_id = '" . $staffid . "' AND c.patient_id ='1'";
+$mysql_qry1 = "SELECT * FROM consult c JOIN patient p ON c.patient_id = p.patient_id WHERE c.staff_id = '" . $staffid . "' AND c.patient_id ='".$result_User['patient_id']."'";
 $result1 = mysqli_query($Connect, $mysql_qry1);
 echo "<div class='barchat'>
 &nbsp;&nbsp;<img src='./img/picdoc.png' style='width:60px; margin-top: 3px; float: left; margin-left: 8px;'> <br>

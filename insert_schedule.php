@@ -14,8 +14,9 @@ try {
     $bookingdate = $_SESSION["date"]." ".$_SESSION["times"];
     $detail = $_POST["detail"]; 
     $status = "Ongoing"; 
+    $noti = $_POST["Noti"];
 
-    $sql = "INSERT INTO schedule VALUES ('','$patient_id','$staff_id',NULL,'$bookingdate','$detail','$status')";
+    $sql = "INSERT INTO schedule VALUES ('','$patient_id','$staff_id',NULL,'$bookingdate','$detail','$status','$noti')";
     
     $result = $conn->prepare($sql);
     $result->execute();

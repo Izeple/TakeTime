@@ -37,21 +37,23 @@ if (
 } 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "',picture='man.png' WHERE `patient_id` = '" . $patientid . "'";
+    $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "' WHERE `patient_id` = '" . $patientid . "'";
+    $Connect->query($sql);
 }
     else {
     $t=time();
     $newname = $t .date("Ymd",$t) .".";
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType)) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir .  $newname  . $imageFileType )) {
         $namefile = $newname . "" . $imageFileType;
         echo $namefile;
         $sql = "UPDATE `patient` SET email ='" . $email . "',id_card = '" . $idcard . "',tel= '" . $tel . "',addresspatient =  '" . $address . "',dob ='" . $dob . "',picture='" . $namefile . "' WHERE `patient_id` = '" . $patientid . "'";
         if ($Connect->query($sql) === TRUE) {
-            header("location: ./profile.php");
         } else {
             echo "Error: " . $sql . "<br>" . $Connect->error;
         }
     } 
 
 }
+header("location: ./profile.php");
+
 ?>

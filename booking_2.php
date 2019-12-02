@@ -69,7 +69,7 @@
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
-                <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
+            <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e; ' onclick="location.replace('./profile.php')";>Hi,<?php echo $result_User["name"]; ?></p>
             </li>
             <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
         </ul>
@@ -110,7 +110,7 @@
              <form id="formid" action="booking_3.php" method="POST"><form>
                 <div class="form-group">
                     <div class='input-group date' id='datepicker'>
-                        <input type='text' name="date" class="form-control" />
+                        <input type='text' required name="date" class="form-control" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -127,12 +127,12 @@
 
         <font size="5">
                 
-                    <input type="radio" name="times" value="08:30:00"> 08:30 - 09:00 <br>
-                    <input type="radio" name="times" value="09:30:00"> 09:30 - 10:00 <br>
-                    <input type="radio" name="times" value="10:30:00"> 10:30 - 11:00 <br>
-                    <input type="radio" name="times" value="11:30:00"> 11:30 - 12:00 <br>
-                    <input type="radio" name="times" value="12:30:00"> 12:30 - 13:00 <br>
-                    <input type="radio" name="times" value="13:30:00"> 13:30 - 14:00 <br>
+                    <input type="radio" required name="times" value="08:30:00"> 08:30 - 09:00 <br>
+                    <input type="radio" required name="times" value="09:30:00"> 09:30 - 10:00 <br>
+                    <input type="radio" required name="times" value="10:30:00"> 10:30 - 11:00 <br>
+                    <input type="radio" required name="times" value="11:30:00"> 11:30 - 12:00 <br>
+                    <input type="radio" required name="times" value="12:30:00"> 12:30 - 13:00 <br>
+                    <input type="radio" required name="times" value="13:30:00"> 13:30 - 14:00 <br>
                     </font>
                     <br>
                     <center><input type='submit' class="subm" value='Select' name='submit'></center>

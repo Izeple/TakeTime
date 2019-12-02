@@ -40,7 +40,7 @@
             <li><a href="homepage.php"><img src="./img/nametag.png" height="15"></a></li>
             <li style="float:right"><button class="btn2" id="btn3" onclick="location.replace('./logout.php');">Logout</button></li>
             <li style="float:right">
-                <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
+            <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e; ' onclick="location.replace('./profile.php')";>Hi,<?php echo $result_User["name"]; ?></p>
             </li>
             <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
         </ul>
@@ -87,7 +87,7 @@
         </font><br>    
  
         <form action="insert_schedule.php" method="post" id="usrform">
-            <input type="checkbox" name="chkColor1" value="Noti"><font color="#a4a4a4">Notification</font>
+            <input type="checkbox" name="noti" value="1"><font color="#a4a4a4">Notification</font>
             
         </form>
        

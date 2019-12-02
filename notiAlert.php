@@ -1,3 +1,8 @@
+<audio id="myAudio">
+  <source src="Teabell.ogg" type="audio/ogg">
+  <source src="Teabell.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 <?php
 date_default_timezone_set('Asia/Bangkok');
 session_start();
@@ -6,8 +11,8 @@ require "condb.php";
 $timeNow = date('H');
 $timeNowMinute = date('i');
 $date1=date_create(date('Y-m-d'));
-//$_POST['count'];
-
+$count = $_REQUEST['count'];
+$i = 0;
 
 // Alert Notificaiton
 	$qryAlertMedic = "SELECT * FROM `notification`n JOIN medical m ON n.medicine_id = m.medicine_id AND patient_id = $userid AND status = 1 WHERE TIME(notification_time) <= TIME(NOW()) ORDER BY n.notification_time";
@@ -19,12 +24,7 @@ $date1=date_create(date('Y-m-d'));
 						$difftime = $timeNow-$time;
 						$difftime = $difftime*60;
 						$difftimeminute = ($timeNowMinute-$timeminute)+$difftime;
-						if($difftimeminute <=59){?>
-<!--<script type="text/javascript">
-	change = countAlert.value;
-	change = change+1;
-	countAlert.value = change;
-</script>-->
+						if($difftimeminute <=59){ $i++;?>
 				 <div class="column">
                     <div class="alert" ><a href="Notification.php">
                         <img src="./img/pills.png" alt="Avatar" style="width:60px; margin-top: 15px; margin-left:20px;" class="img2">
@@ -42,11 +42,16 @@ $date1=date_create(date('Y-m-d'));
 					 </div>
 					 </a>
                     </div>	
-      							<!--<input type="int" name="countAlert" id="countAlert" />-->
+      							
                     </div>	
-			<?php /*if($medic_cnt != $count){
-									echo "noti alert!".$medic_cnt.$count;			 
-					$count= $medic_cnt;  }*/
+			<?php 
+					if($count != $i){?>
+						<!--<script>
+							var x = document.getElementById("myAudio"); 
+							x.play();						
+						</script> -->
+						<?php $count=$i;	
+									}
 												}?> 
 	<?php } 
 

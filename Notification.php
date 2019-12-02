@@ -87,11 +87,12 @@
 					}
 				}
 				
-				var count= 0;
+					<?php $countAlert = 0; ?>
 					setInterval(function() {
-						 $('#nav_noti').load("notiAlert.php?count=0");
-
-							}, 500);
+						$('#nav_noti').load("notiAlert.php?count="+<?php echo $countAlert ?>+"",function(count,status,http){
+							//alert(count);
+						});
+						}, 500);
 
 				
 			</script>

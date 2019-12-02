@@ -86,17 +86,19 @@
 						x.style.display = 'none';
 					}
 				}
-				var i=0;
-				var $count=0
-				setInterval(function() {
-    				$("#nav_noti").load("notiAlert.php");
-					$count = countAlert.value;
-				}, 500);
+				
+				var count= 0;
+					setInterval(function() {
+						 $('#nav_noti').load("notiAlert.php?count=0");
+
+							}, 500);
+
+				
 			</script>
 			
 			
 
-				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 3%;margin-left: 72.3%;width: 320px;">
+				<div class="bubble" id="nav_noti" style="display: none; position:fixed; margin-top: 3%;margin-left: 71.5%;width: 320px;">
 		<!-- Show Notifications Alert-->
 				</div>			
         </ul>
@@ -150,7 +152,22 @@
                                 &nbsp; At <?php echo $doc['hospital_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 								   <?php echo date('d/m/Y',strtotime($doc['bookingdate'])); ?> </font></div> &nbsp;&nbsp;
               </p><p style="margin-top: -40px;">
-								<font size='4' color="#a4a4a4" style="float: left;margin-left: 100;"><input type="checkbox" name="vehicle3" value=1 checked> &nbsp;Notification</font>
+								<font size='4' color="#a4a4a4" style="float: left;margin-left: 100px;">
+									<?php
+											if($doc['notification']=="1"){
+									?>
+									<input type="checkbox" name="statusDoc" id="statusDoc" onClick="changeDocAlert(this,'<?php echo $doc['schedule_id']; ?>','<?php echo $userid; ?>')" value=1 checked>
+									<?php
+											}
+									?>
+									<?php
+											if($doc['notification']!="1"){
+									?>
+									<input type="checkbox" name="statusNoti" id="statusNoti" onClick="changeDocAlert(this,'<?php echo $doc['schedule_id']; ?>','<?php echo $userid; ?>')" value=0>
+									<?php
+											}
+									?>
+									&nbsp;Notification</font>
                                 <font size='4' color="#a4a4a4" style="float: right;margin-right: 15px;"> &nbsp; <?php echo date('H:i a',strtotime($doc['bookingdate'])); ?>. </font>
                             </p>
                         </div>
@@ -316,12 +333,12 @@
 				
                 <div class="column">
                     <div class="pills" id="<?php echo $medic['medicine_id'];?>" onclick="openForm('<?php echo $medic['medicine_id']; ?>','<?php echo $medic['medicine_name']; ?>','<?php echo $medic['times']; ?>','<?php echo $medic['medicine_timetake']; ?>','<?php echo $medic['meal_status']; ?>','<?php echo $medic['medicine_timeloop']; ?>','<?php echo $medic['medicine_id']; ?>','<?php echo $medic['staff_id']; ?>','<?php echo $userid; ?>')">
-                        <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 15px;" class="img2">
+                        <img src="./img/pills.png" alt="Avatar" style="width:80px; margin-top: 25px; margin-left: 10px;" class="img2">
        
                             <p>
-                         			 <div style="margin-bottom: 10px;margin-top: -110px;margin-left: 100px;"> <font size="6px" color="#47b6c7"> &nbsp;
+                         			 <div style="margin-bottom: 10px;margin-top: -110px;margin-left: 85px;"> <font size="6px" color="#47b6c7"> &nbsp;
 										  Time to take <?php echo $medic['medicine_name']; ?>&nbsp;!</font></div>
-                               		 <div style="margin-bottom: 5px;margin-left: 100px;"> <font size='5' color="#a4a4a4"> &nbsp; 
+                               		 <div style="margin-bottom: 5px;margin-left: 90px;"> <font size='5' color="#a4a4a4"> &nbsp; 
 										  <?php echo $medic['medicine_name']; ?>  &nbsp;&nbsp;&nbsp;</font>   
 										  <font size='5' color="#a4a4a4" style="float: right;margin-right: 15px;"> 
 							<!-- Queue time alart of that pill and show -->
@@ -569,7 +586,22 @@
     }
 		
 	}
-	window.onclick;	
+
+	
+	function changeDocAlert(checkbox,bookid,userid){
+			var xhttp;
+			xhttp = new XMLHttpRequest();
+		 if(checkbox.checked){
+     		xhttp.open("GET", "checkBoxNotiBooking.php?status=1&bookid="+bookid+"&userid="+userid, true);
+            xhttp.send();
+    }
+    //If it has been unchecked.
+    else{ 
+			 xhttp.open("GET", "checkBoxNotiBooking.php?status=0&bookid="+bookid+"&userid="+userid, true);
+            xhttp.send();
+    }
+		
+	}
 	</script>
 		
 </body>

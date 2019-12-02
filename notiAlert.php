@@ -1,3 +1,8 @@
+<audio id="myAudio">
+  <source src="Teabell.ogg" type="audio/ogg">
+  <source src="Teabell.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 <?php
 date_default_timezone_set('Asia/Bangkok');
 session_start();

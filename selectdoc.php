@@ -373,7 +373,8 @@ if(isset($_SESSION["edit"]))
             <li style="float:right">
                 <p class='usern' style='padding: 14px 16px; margin:0; color:#4e707e;'>Hi,<?php echo $result_User["name"]; ?></p>
             </li>
-            <li style="float:right"><button class="btn4" id="btn4"><img src="./img/bell.png" height="25"></button></li>
+            <li style="float:right"><button class="btn4" id="btn4" ><img src="./img/bell.png" height="25"></button></li>
+	
         </ul>
 
         <section><img src="./img/Banner.png" style="width:100%; height: 305px;">

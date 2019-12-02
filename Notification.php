@@ -1,23 +1,6 @@
 <html>
 <head>
-	<STYLE>A {text-decoration: none;}
-	div.alert {
-		border: #D9D9D9 solid 1px;
-			cursor:pointer;
-			border-radius: 5px; 
-			margin-top: -40px; 
-			margin-bottom: 20px; 
-			margin-left: -30px;
-			background-color: whitesmoke;
-            transition: 0.3s;
-            width: 350px;
-            height: 90px;
-        }
-
-	div.alert:hover {
-           background-color: white;
-        }
-	</STYLE>
+	<STYLE>A {text-decoration: none;}</STYLE>
     <title>Notification</title>
 	<!-- Login User -->
 	    <script type="text/javascript">
